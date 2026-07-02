@@ -23,6 +23,8 @@
   .wrap{max-width:1060px;margin:0 auto;padding:0 22px}
   header.site{padding:34px 0 22px;border-bottom:1px solid var(--line);text-align:center}
   .brand{font-weight:700;font-size:22px}
+  .brand .tld{font-size:11px;font-weight:400;color:var(--faint);letter-spacing:.04em;margin-left:2px}
+  .note{font-family:var(--sans);color:#333;font-size:15px;margin:8px 0 16px;max-width:64ch}
   .nav{margin-top:8px;font-size:12px;letter-spacing:.16em;color:var(--faint);text-transform:uppercase}
   .nav a{margin:0 10px}
   h1.title{font-family:var(--mono);font-weight:700;line-height:.98;letter-spacing:.01em;
@@ -78,8 +80,8 @@
 <body>
   <header class="site">
     <div class="wrap">
-      <div class="brand"><a href="./">Guiseppe Drafts</a></div>
-      <div class="nav"><a href="./">NBA Draft</a><a href="#">Contact</a></div>
+      <div class="brand"><a href="./">Guiseppe Drafts</a><span class="tld">.net</span></div>
+      <div class="nav"><a href="./">NBA Draft</a><a href="contact.html">Contact</a></div>
     </div>
   </header>
   <main class="wrap">
@@ -93,10 +95,11 @@
 <script>
 /* 2025 board — 30 blank slots. Fill each: name, comp, photo, clips.
    Same rules as the 2024 board. Add a tier by setting the "tier" text. */
-const PLAYERS = Array.from({length:30}, () => ({
-  tier:"2025 — To Be Ranked", name:"", comp:"", photo:"", note:"",
-  clips:[{label:"",url:""},{label:"",url:""}]
-}));
+const PLAYERS = [
+  { tier:"2025 — To Be Ranked", name:"Cooper Flagg", comp:"", photo:"cooper.jpg", note:"", clips:[{label:"",url:""},{label:"",url:""}] },
+  { tier:"2025 — To Be Ranked", name:"VJ Edgecombe", comp:"", photo:"vj.jpg", note:"", clips:[{label:"",url:""},{label:"",url:""}] },
+  ...Array.from({length:28}, () => ({ tier:"2025 — To Be Ranked", name:"", comp:"", photo:"", note:"", clips:[{label:"",url:""},{label:"",url:""}] }))
+];
 
 const esc = s => (s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 function embed(url){
@@ -115,11 +118,17 @@ function clipHTML(c){
   return `<div class="clip empty"><div class="frame"><span class="play"></span></div>${cap}</div>`;
 }
 function playerHTML(p, rank){
-  const hero = `<figure class="hero"><span class="rankchip">#${rank}</span><div class="ph"><span class="big">${rank}</span><span>add photo → <code>photo:"images/…jpg"</code></span></div></figure>`;
-  const name = `<div class="name"><span class="num">${rank}.</span> <span class="todo">Add player</span></div>`;
-  const comp = `<div class="comp"><span class="lab">Realistic Comp</span><span class="empty">add a comp</span></div>`;
-  const clips = p.clips.map(clipHTML).join("");
-  return `<article class="player">${hero}${name}${comp}<div class="clips">${clips}</div></article>`;
+  const blank = !p.name;
+  const hero = p.photo
+    ? `<figure class="hero"><span class="rankchip">#${rank}</span><img src="${esc(p.photo)}" alt="${esc(p.name)}"></figure>`
+    : `<figure class="hero"><span class="rankchip">#${rank}</span><div class="ph"><span class="big">${rank}</span><span>add photo → <code>photo:"images/…jpg"</code></span></div></figure>`;
+  const name = blank
+    ? `<div class="name"><span class="num">${rank}.</span> <span class="todo">Add player</span></div>`
+    : `<div class="name"><span class="num">${rank}.</span> ${esc(p.name)}</div>`;
+  const comp = `<div class="comp"><span class="lab">Realistic Comp</span>${p.comp?esc(p.comp):'<span class="empty">add a comp</span>'}</div>`;
+  const note = p.note?`<p class="note">${esc(p.note)}</p>`:``;
+  const clips = (p.clips&&p.clips.length?p.clips:[{label:"",url:""},{label:"",url:""}]).map(clipHTML).join("");
+  return `<article class="player">${hero}${name}${comp}${note}<div class="clips">${clips}</div></article>`;
 }
 const TIERS = { "2025 — To Be Ranked":"2025 class — big board coming soon." };
 function render(){

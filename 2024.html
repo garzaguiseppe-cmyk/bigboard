@@ -24,6 +24,7 @@
 
   header.site{padding:34px 0 22px;border-bottom:1px solid var(--line);text-align:center}
   .brand{font-family:var(--sans);font-weight:700;font-size:22px;letter-spacing:.01em}
+  .brand .tld{font-size:11px;font-weight:400;color:var(--faint);letter-spacing:.04em;margin-left:2px}
   .nav{margin-top:8px;font-size:12px;letter-spacing:.16em;color:var(--faint);text-transform:uppercase}
   .nav a{margin:0 10px}
   h1.title{font-family:var(--mono);font-weight:700;line-height:.98;letter-spacing:.01em;
@@ -88,8 +89,8 @@
 <body>
   <header class="site">
     <div class="wrap">
-      <div class="brand"><a href="./">Guiseppe Drafts</a></div>
-      <div class="nav"><a href="./">NBA Draft</a><a href="#">Contact</a></div>
+      <div class="brand"><a href="./">Guiseppe Drafts</a><span class="tld">.net</span></div>
+      <div class="nav"><a href="./">NBA Draft</a><a href="contact.html">Contact</a></div>
     </div>
   </header>
 
@@ -126,7 +127,7 @@ const PLAYERS = [
   { tier:"Tier 2", name:"Devin Carter", comp:"Jrue Holiday (potential)", photo:"",
     note:"Two-way guard with the frame and motor to defend up a position.", clips:[{label:"",url:""},{label:"",url:""}] },
 
-  { tier:"Tier 3", name:"Zaccharie Risacher", comp:"Shane Battier / Trevor Ariza", photo:"",
+  { tier:"Tier 3", name:"Zaccharie Risacher", comp:"Shane Battier / Trevor Ariza", photo:"risacher.png",
     note:"NBA build and the greatest upside in the draft. Can't fully create for himself yet, but a high-floor / high-ceiling bet — Jaden McDaniels now, with room to grow.",
     clips:[{label:"",url:""},{label:"",url:""}] },
   { tier:"Tier 3", name:"Cody Williams", comp:"Jalen Rose / Josh Giddey", photo:"cody.png",

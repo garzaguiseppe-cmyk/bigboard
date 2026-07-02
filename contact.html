@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Guiseppe Drafts</title>
+<style>
+  @font-face{ font-family:'Base Mono'; src:url('base-mono.otf') format('opentype'); font-weight:400 900; font-style:normal; font-display:swap; }
+  :root{ --ink:#0a0a0a; --paper:#ffffff; --muted:#666; --faint:#9a9a9a; --line:#e6e6e6; --accent:#e8552b;
+    --mono:'Base Mono', ui-monospace,'Cascadia Mono',Consolas,monospace; --sans:Arial,Helvetica,'Liberation Sans',sans-serif; }
+  *{box-sizing:border-box} html,body{margin:0}
+  body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.5}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:840px;margin:0 auto;padding:0 22px}
+  header.site{padding:34px 0 22px;border-bottom:1px solid var(--line);text-align:center}
+  .brand{font-weight:700;font-size:22px}
+  .brand .tld{font-size:11px;font-weight:400;color:var(--faint);letter-spacing:.04em;margin-left:2px}
+  .nav{margin-top:8px;font-size:12px;letter-spacing:.16em;color:var(--faint);text-transform:uppercase}
+  .nav a{margin:0 10px}
+  .nav a.active{color:var(--ink);font-weight:700}
+  h1.title{font-family:var(--mono);font-weight:700;text-transform:uppercase;font-size:clamp(38px,7vw,64px);margin:46px 0 12px;letter-spacing:.01em}
+  .lead{color:var(--muted);font-size:16px;max-width:54ch;margin:0 0 34px}
+  .contact-list{list-style:none;padding:0;margin:0}
+  .contact-list li{border-top:1px solid var(--line);padding:18px 0;display:flex;align-items:baseline;gap:16px}
+  .contact-list li:last-child{border-bottom:1px solid var(--line)}
+  .contact-list .lab{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);flex:0 0 96px}
+  .contact-list a{font-size:18px;font-weight:700;color:var(--ink);border-bottom:2px solid var(--accent);padding-bottom:2px}
+  .contact-list a.soon{color:var(--faint);font-weight:400;border-bottom:2px solid var(--line)}
+  .backhome{display:inline-block;margin:42px 0 0;font-family:var(--mono);font-size:13px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+  footer.site{border-top:1px solid var(--line);margin-top:54px;padding:24px 0 60px;text-align:center;color:var(--faint);font-size:12px;font-family:var(--mono);letter-spacing:.06em;text-transform:uppercase}
+</style>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <div class="brand"><a href="./">Guiseppe Drafts</a><span class="tld">.net</span></div>
+      <div class="nav"><a href="./">NBA Draft</a><a href="contact.html" class="active">Contact</a></div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <h1 class="title">Contact</h1>
+    <p class="lead">Draft takes, corrections, or just want to argue about the board? Get in touch.</p>
+    <ul class="contact-list">
+      <li><span class="lab">Email</span><a href="mailto:garzaguiseppe@gmail.com">garzaguiseppe@gmail.com</a></li>
+      <li><span class="lab">Twitter / X</span><a class="soon" href="#">add your handle</a></li>
+      <li><span class="lab">Instagram</span><a class="soon" href="#">add your handle</a></li>
+    </ul>
+    <a class="backhome" href="./">&larr; Back to home</a>
+  </main>
+
+  <footer class="site"><div class="wrap">Guiseppe Drafts — Big G's Big Board</div></footer>
+</body>
+</html>
