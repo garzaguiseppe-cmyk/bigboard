@@ -194,12 +194,25 @@ const PLAYERS = [
     note:"Length and touch to space the floor; motor is the question.", clips:[{label:"",url:""},{label:"",url:""}] },
   { tier:"21–30", name:"DaRon Holmes II", comp:"Two-way five", photo:"holmes.jpg",
     note:"Modern, mobile big who stretched his range at Dayton.", clips:[{label:"",url:""},{label:"",url:""}] },
-  { tier:"21–30", name:"Jared McCain", comp:"Duke sniper", photo:"",
+  { tier:"21–30", name:"Jared McCain", comp:"Duke sniper", photo:"mccain.jpg",
     note:"Legit shooter with competitiveness — plug-and-play spacing.", clips:[{label:"",url:""},{label:"",url:""}] },
   { tier:"21–30", name:"KJ Simpson", comp:"Scoring guard", photo:"simpson.jpg",
     note:"Combine riser — a late flyer at lead guard.", clips:[{label:"",url:""},{label:"",url:""}] },
   { tier:"21–30", name:"Kyle Filipowski", comp:"Skilled big", photo:"filipowski.jpg",
-    note:"Ball-handling college big — fit and defence are the questions.", clips:[{label:"",url:""},{label:"",url:""}] }
+    note:"Ball-handling college big — fit and defence are the questions.", clips:[{label:"",url:""},{label:"",url:""}] },
+
+  { tier:"Notable Mentions", name:"Tyler Smith", comp:"Jaime Jaquez Jr", photo:"", noClips:true,
+    note:"Not as good, but that sort of player — need to look at his measurements." },
+  { tier:"Notable Mentions", name:"Trentyn Flowers", comp:"Trey Murphy III", photo:"", noClips:true,
+    note:"Looks like a modern NBA player — not as polished yet, but the tools are there." },
+  { tier:"Notable Mentions", name:"Toohey", comp:"David Lee (with a three)", photo:"", noClips:true,
+    note:"David Lee with a 3-point shot — low-key like him more than Buzelis." },
+  { tier:"Notable Mentions", name:"Coleman Hawkins", comp:"", photo:"", noClips:true, note:"" },
+  { tier:"Notable Mentions", name:"AJ Johnson", comp:"", photo:"", noClips:true, note:"" },
+  { tier:"Notable Mentions", name:"Adem Bona", comp:"", photo:"", noClips:true, note:"" },
+  { tier:"Notable Mentions", name:"Bobi Klintman", comp:"", photo:"", noClips:true, note:"" },
+  { tier:"Notable Mentions", name:"Ariel Hukporti", comp:"", photo:"", noClips:true, note:"" },
+  { tier:"Notable Mentions", name:"Cam Christie", comp:"", photo:"", noClips:true, note:"" }
 ];
 
 const esc = s => (s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -230,8 +243,8 @@ function playerHTML(p, rank){
     : `<div class="name"><span class="num">${rank}.</span> ${esc(p.name)}</div>`;
   const comp = `<div class="comp"><span class="lab">Realistic Comp</span>${p.comp?esc(p.comp):'<span class="empty">add a comp</span>'}</div>`;
   const note = p.note?`<p class="note">${esc(p.note)}</p>`:``;
-  const clips = (p.clips&&p.clips.length?p.clips:[{label:"",url:""},{label:"",url:""}]).map(clipHTML).join("");
-  return `<article class="player">${hero}${name}${comp}${note}<div class="clips">${clips}</div></article>`;
+  const clipsHTML = p.noClips ? `` : `<div class="clips">${(p.clips&&p.clips.length?p.clips:[{label:"",url:""},{label:"",url:""}]).map(clipHTML).join("")}</div>`;
+  return `<article class="player">${hero}${name}${comp}${note}${clipsHTML}</article>`;
 }
 const TIERS = {
   "Tier 1":"A tier of his own — the clear #1.",
@@ -240,7 +253,8 @@ const TIERS = {
   "Tier 4":"Pure-potential project — drafting on motor and upside alone.",
   "Tier 5":"Solid role players with the upside of more.",
   "Tier 6":"Bench warmers & upside swings.",
-  "21–30":"Best of the rest — sleepers, specialists & flyers."
+  "21–30":"Best of the rest — sleepers, specialists & flyers.",
+  "Notable Mentions":"Discussed in my notes — landed just outside the top 30."
 };
 function render(){
   const root=document.getElementById('board');
