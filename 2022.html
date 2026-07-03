@@ -50,6 +50,7 @@
   .player{padding:6px 0 40px;border-bottom:1px solid var(--line)}
   .hero{margin:0;position:relative;background:#f4f4f4;aspect-ratio:3/2;overflow:hidden}
   .hero img{width:100%;height:100%;object-fit:cover;display:block}
+  .hero.fit{background:#fff}
   .hero .ph{position:absolute;inset:0;border:1.5px dashed #cfcfcf;display:flex;flex-direction:column;
     align-items:center;justify-content:center;gap:6px;color:var(--faint);text-align:center;font-size:13px;padding:12px}
   .hero .ph .big{font-family:var(--mono);font-weight:700;font-size:40px;color:#dcdcdc;line-height:1}
@@ -133,22 +134,22 @@ const PLAYERS = [
     note:"Heaps of potential — not very good yet.", clips:[{label:"",url:""},{label:"",url:""}] },
   { tier:"Tier 7", name:"Shaedon Sharpe", comp:"Bradley Beal (ceiling) / Dion Waiters (floor)", photo:"sharpe.jpg",
     note:"MPJ-type risk and player — can go off but won't try on D. A potential Bradley Beal without the motor, so a huge risk. Second-most upside behind Jabari, and only this high because of it — could be top 5 with a motor, or he's Dion Waiters.", clips:[{label:"",url:""},{label:"",url:""}] },
-  { tier:"Tier 8", name:"Tari Eason", comp:"", photo:"",
+  { tier:"Tier 8", name:"Tari Eason", comp:"", photo:"eason.jpg", fit:"contain",
     note:"Freak defender — the question is whether he can be good enough on offence.", clips:[{label:"",url:""},{label:"",url:""}] },
-  { tier:"Tier 8", name:"Jalen Duren", comp:"", photo:"",
+  { tier:"Tier 8", name:"Jalen Duren", comp:"", photo:"duren.jpg",
     note:"", clips:[{label:"",url:""},{label:"",url:""}] },
   { tier:"Tier 8", name:"AJ Griffin", comp:"", photo:"griffin.jpg",
     note:"Good shooter — not gonna be good on D, too slow.", clips:[{label:"",url:""},{label:"",url:""}] },
 
-  { tier:"Notable Mentions", name:"Jalen Williams", comp:"Joe Ingles with more athleticism / Khris Middleton-ish", photo:"", noClips:true, note:"" },
-  { tier:"Notable Mentions", name:"TyTy Washington", comp:"", photo:"", noClips:true, note:"" },
-  { tier:"Notable Mentions", name:"Nikola Jovic", comp:"", photo:"", noClips:true, note:"" },
-  { tier:"Notable Mentions", name:"Patrick Baldwin Jr.", comp:"Davis Bertans", photo:"", noClips:true, note:"" },
-  { tier:"Notable Mentions", name:"Walker Kessler", comp:"Early-NBA Boban Marjanović, or Larry Sanders (Bucks)?", photo:"", noClips:true, note:"" },
-  { tier:"Notable Mentions", name:"Christian Braun", comp:"Bruce Brown", photo:"", noClips:true, note:"" },
-  { tier:"Notable Mentions", name:"Mark Williams", comp:"Brook Lopez / Raef LaFrentz", photo:"", noClips:true, note:"" },
-  { tier:"Notable Mentions", name:"Dalen Terry", comp:"Livingston — not as good and no post moves, but same movement style up and down the court", photo:"", noClips:true, note:"" },
-  { tier:"Notable Mentions", name:"Hugo Besson", comp:"", photo:"", noClips:true, note:"" }
+  { tier:"Notable Mentions", name:"Jalen Williams", comp:"Joe Ingles with more athleticism / Khris Middleton-ish", photo:"jwilliams.jpg", noClips:true, note:"" },
+  { tier:"Notable Mentions", name:"TyTy Washington", comp:"", photo:"tyty.jpg", noClips:true, note:"" },
+  { tier:"Notable Mentions", name:"Nikola Jovic", comp:"", photo:"jovic.jpg", noClips:true, note:"" },
+  { tier:"Notable Mentions", name:"Patrick Baldwin Jr.", comp:"Davis Bertans", photo:"baldwin.jpg", noClips:true, note:"" },
+  { tier:"Notable Mentions", name:"Walker Kessler", comp:"Early-NBA Boban Marjanović, or Larry Sanders (Bucks)?", photo:"kessler.jpg", noClips:true, note:"" },
+  { tier:"Notable Mentions", name:"Christian Braun", comp:"Bruce Brown", photo:"braun.jpg", noClips:true, note:"" },
+  { tier:"Notable Mentions", name:"Mark Williams", comp:"Brook Lopez / Raef LaFrentz", photo:"markwilliams.jpg", noClips:true, note:"" },
+  { tier:"Notable Mentions", name:"Dalen Terry", comp:"Livingston — not as good and no post moves, but same movement style up and down the court", photo:"terry.jpg", noClips:true, note:"" },
+  { tier:"Notable Mentions", name:"Hugo Besson", comp:"", photo:"besson.jpg", noClips:true, note:"" }
 ];
 
 const esc = s => (s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -172,7 +173,7 @@ function clipHTML(c){
 function playerHTML(p, rank){
   const blank = !p.name;
   const hero = p.photo
-    ? `<figure class="hero"><span class="rankchip">#${rank}</span><img src="${esc(p.photo)}" alt="${esc(p.name)}"></figure>`
+    ? `<figure class="hero${p.fit==='contain'?' fit':''}"><span class="rankchip">#${rank}</span><img src="${esc(p.photo)}" alt="${esc(p.name)}"${p.fit?` style="object-fit:${esc(p.fit)}"`:``}></figure>`
     : `<figure class="hero"><span class="rankchip">#${rank}</span><div class="ph"><span class="big">${rank}</span><span>add photo → <code>photo:"name.jpg"</code></span></div></figure>`;
   const name = blank
     ? `<div class="name"><span class="num">${rank}.</span> <span class="todo">Add player</span></div>`
