@@ -246,7 +246,7 @@ function playerHTML(p, rank){
     : `<div class="name"><span class="num">${rank}.</span> ${esc(p.name)}</div>`;
   const comp = `<div class="comp"><span class="lab">Realistic Comp</span>${p.comp?esc(p.comp):'<span class="empty">add a comp</span>'}</div>`;
   const note = p.note?`<p class="note">${esc(p.note)}</p>`:``;
-  const clipsHTML = p.noClips ? `` : `<div class="clips">${(p.clips&&p.clips.length?p.clips:[{label:"",url:""},{label:"",url:""}]).map(clipHTML).join("")}</div>`;
+  const clipsHTML = (p.noClips || !(p.clips&&p.clips.some(c=>(c.label&&c.label.trim())||(c.url&&c.url.trim())))) ? `` : `<div class="clips">${p.clips.map(clipHTML).join("")}</div>`;
   return `<article class="player">${hero}${name}${comp}${note}${clipsHTML}</article>`;
 }
 const TIERS = {
