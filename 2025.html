@@ -48,6 +48,7 @@
   .player{padding:6px 0 40px;border-bottom:1px solid var(--line)}
   .hero{margin:0;position:relative;background:#f4f4f4;aspect-ratio:3/2;overflow:hidden}
   .hero img{width:100%;height:100%;object-fit:cover;display:block}
+  .hero.fit{background:#fff}
   .hero .ph{position:absolute;inset:0;border:1.5px dashed #cfcfcf;display:flex;flex-direction:column;
     align-items:center;justify-content:center;gap:6px;color:var(--faint);text-align:center;font-size:13px;padding:12px}
   .hero .ph .big{font-family:var(--mono);font-weight:700;font-size:40px;color:#dcdcdc;line-height:1}
@@ -97,12 +98,15 @@
    Same rules as the 2024 board. Add a tier by setting the "tier" text. */
 const PLAYERS = [
   { tier:"Generational", name:"Cooper Flagg", comp:"Larry Bird (cos white and level of talent) (also with defence) — but play style AK-47, Scottie Pippen / Young GARNETT / incomparable", photo:"cooper.jpg", note:"", clips:[{label:"Verticality",url:"cooper-vert.mp4"},{label:"Pull up game and range at that size",url:"cooper-pullup.mp4"}] },
-  { tier:"Inseparable", name:"Dylan Harper", comp:"Jalen Brunson — effortless / polished scoring. [2026 revision: is this a ball player's son thing?]", photo:"harper.jpg", note:"", noClips:true },
+  { tier:"Inseparable", name:"Dylan Harper", comp:"Jalen Brunson — effortless / polished scoring. [2026 revision: is this a ball player's son thing?]", photo:"harper2.jpg", note:"", noClips:true },
   { tier:"Inseparable", name:"VJ Edgecombe", comp:"Smart Latrell Sprewell / Ron Harper Sr. pre-injury", photo:"vj.jpg", note:"", noClips:true },
   { tier:"The Rest", name:"Collin Murray-Boyles", comp:"", photo:"murrayboyles.jpg", note:"", noClips:true },
-  { tier:"The Rest", name:"Khaman Maluach", comp:"", photo:"maluach2.jpg", note:"", noClips:true },
-  { tier:"The Rest", name:"Egor Demin", comp:"", photo:"", note:"", noClips:true },
-  { tier:"The Rest", name:"Cedric Coward", comp:"", photo:"coward.jpg", note:"", noClips:true }
+  { tier:"The Rest", name:"Khaman Maluach", comp:"", photo:"maluach3.jpg", note:"", noClips:true },
+  { tier:"The Rest", name:"Egor Demin", comp:"", photo:"egor.jpg", note:"", noClips:true },
+  { tier:"The Rest", name:"Cedric Coward", comp:"", photo:"coward.jpg", note:"", noClips:true },
+  { tier:"The Rest", name:"Ace Bailey", comp:"Michael Porter Jr.", photo:"bailey.jpg", note:"", noClips:true },
+  { tier:"The Rest", name:"Kon Knueppel", comp:"JJ Redick", photo:"knueppel.jpg", note:"", noClips:true },
+  { tier:"The Rest", name:"Carter Bryant", comp:"", photo:"bryant.jpg", fit:"contain", note:"", noClips:true }
 ];
 
 const esc = s => (s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -124,7 +128,7 @@ function clipHTML(c){
 function playerHTML(p, rank){
   const blank = !p.name;
   const hero = p.photo
-    ? `<figure class="hero"><span class="rankchip">#${rank}</span><img src="${esc(p.photo)}" alt="${esc(p.name)}"></figure>`
+    ? `<figure class="hero${p.fit==='contain'?' fit':''}"><span class="rankchip">#${rank}</span><img src="${esc(p.photo)}" alt="${esc(p.name)}"${p.fit?` style="object-fit:${esc(p.fit)}"`:``}></figure>`
     : `<figure class="hero"><span class="rankchip">#${rank}</span><div class="ph"><span class="big">${rank}</span><span>add photo → <code>photo:"images/…jpg"</code></span></div></figure>`;
   const name = blank
     ? `<div class="name"><span class="num">${rank}.</span> <span class="todo">Add player</span></div>`
