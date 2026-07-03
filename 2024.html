@@ -141,7 +141,8 @@ const PLAYERS = [
       {label:"NBA-level finisher off the roll", url:"sarr-finish.mp4"}
     ] },
   { tier:"Tier 3", name:"Bub Carrington", comp:"D'Angelo Russell", photo:"carrington.jpg",
-    note:"Big lead guard (6'3 / 6'8 wing) with shooting and feel.", clips:[{label:"",url:""},{label:"",url:""}] },
+    note:`Big lead guard (6'3 / 6'8 wing) with shooting and feel.
+World class middy.`, clips:[{label:"",url:""},{label:"",url:""}] },
 
   { tier:"Tier 4", name:"Tidjane Salaun", comp:"Tayshaun Prince", photo:"salaun.jpg", fit:"contain",
     note:"Complete project drafted purely on potential — the biggest motor I've seen in a draft pick and a psychotic winning mentality. Low-key I'd take him #1.",
@@ -243,7 +244,7 @@ function playerHTML(p, rank){
     ? `<div class="name"><span class="num">${rank}.</span> <span class="todo">Add player</span></div>`
     : `<div class="name"><span class="num">${rank}.</span> ${esc(p.name)}</div>`;
   const comp = `<div class="comp"><span class="lab">Realistic Comp</span>${p.comp?esc(p.comp):'<span class="empty">add a comp</span>'}</div>`;
-  const note = p.note?`<p class="note">${esc(p.note)}</p>`:``;
+  const note = p.note?`<p class="note">${esc(p.note).split(String.fromCharCode(10)).join('<br>')}</p>`:``;
   const clipsHTML = (p.noClips || !(p.clips&&p.clips.some(c=>(c.label&&c.label.trim())||(c.url&&c.url.trim())))) ? `` : `<div class="clips">${p.clips.map(clipHTML).join("")}</div>`;
   return `<article class="player">${hero}${name}${comp}${note}${clipsHTML}</article>`;
 }
