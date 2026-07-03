@@ -62,8 +62,8 @@
   .comp .empty{color:var(--faint)}
   .clips{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:14px}
   .clip{display:flex;flex-direction:column}
-  .clip .frame{aspect-ratio:16/9;background:#f0f0f0;position:relative;overflow:hidden}
-  .clip .frame iframe,.clip .frame video{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .clip .frame{aspect-ratio:16/9;background:#0b0b0b;position:relative;overflow:hidden}
+  .clip .frame iframe,.clip .frame video{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:contain}
   .clip.empty .frame{border:1.5px dashed #cfcfcf;display:flex;align-items:center;justify-content:center}
   .clip.empty .frame .play{width:44px;height:44px;border-radius:50%;border:2px solid #c7c7c7;position:relative}
   .clip.empty .frame .play::after{content:"";position:absolute;left:17px;top:13px;border-style:solid;
@@ -96,7 +96,7 @@
 /* 2025 board — 30 blank slots. Fill each: name, comp, photo, clips.
    Same rules as the 2024 board. Add a tier by setting the "tier" text. */
 const PLAYERS = [
-  { tier:"Generational", name:"Cooper Flagg", comp:"Larry Bird (cos white and level of talent) (also with defence) — but play style AK-47, Scottie Pippen / Young GARNETT / incomparable", photo:"cooper.jpg", note:"", clips:[{label:"Young Garnett",url:""},{label:"Young Garnett",url:""}] },
+  { tier:"Generational", name:"Cooper Flagg", comp:"Larry Bird (cos white and level of talent) (also with defence) — but play style AK-47, Scottie Pippen / Young GARNETT / incomparable", photo:"cooper.jpg", note:"", clips:[{label:"Verticality",url:"cooper-vert.mp4"},{label:"Pull up game and range at that size",url:"cooper-pullup.mp4"}] },
   { tier:"Inseparable", name:"Dylan Harper", comp:"Jalen Brunson — effortless / polished scoring. [2026 revision: is this a ball player's son thing?]", photo:"", note:"", noClips:true },
   { tier:"Inseparable", name:"VJ Edgecombe", comp:"Smart Latrell Sprewell / Ron Harper Sr. pre-injury", photo:"vj.jpg", note:"", noClips:true },
   { tier:"The Rest", name:"Collin Murray-Boyles", comp:"", photo:"", note:"", noClips:true },
