@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2025 Big Board — Guiseppe Drafts</title>
+<title>2023 Big Board — Guiseppe Drafts</title>
 <style>
   @font-face{
     font-family:'Base Mono';
@@ -21,16 +21,17 @@
   body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.5}
   a{color:inherit;text-decoration:none}
   .wrap{max-width:1060px;margin:0 auto;padding:0 22px}
+
   header.site{padding:34px 0 22px;border-bottom:1px solid var(--line);text-align:center}
-  .brand{font-weight:700;font-size:22px}
+  .brand{font-family:var(--sans);font-weight:700;font-size:22px;letter-spacing:.01em}
   .brand .tld{font-size:11px;font-weight:400;color:var(--faint);letter-spacing:.04em;margin-left:2px}
-  .note{font-family:var(--sans);color:#333;font-size:15px;margin:8px 0 16px;max-width:64ch}
   .nav{margin-top:8px;font-size:12px;letter-spacing:.16em;color:var(--faint);text-transform:uppercase}
   .nav a{margin:0 10px}
   h1.title{font-family:var(--mono);font-weight:700;line-height:.98;letter-spacing:.01em;
     text-transform:uppercase;font-size:clamp(38px,8vw,74px);margin:30px 0 4px;text-align:left}
-  .subtitle{color:var(--muted);font-size:14px;text-align:left;letter-spacing:.02em}
+  .subtitle{font-family:var(--sans);color:var(--muted);font-size:14px;text-align:left;letter-spacing:.02em}
   .subtitle b{color:var(--ink)}
+
   .tier-group{display:flex;align-items:center;gap:0;margin:52px 0}
   .tier-frame{flex:1 1 auto;min-width:0;border:3px solid var(--rule);border-radius:20px;padding:10px 24px 6px}
   .tier-frame .player:last-child{border-bottom:none;padding-bottom:18px}
@@ -45,6 +46,7 @@
     .tier-flag{flex-basis:auto;order:-1;margin-bottom:14px}
     .tier-flag .lead{display:none}
   }
+
   .player{padding:6px 0 40px;border-bottom:1px solid var(--line)}
   .hero{margin:0;position:relative;background:#f4f4f4;aspect-ratio:3/2;overflow:hidden}
   .hero img{width:100%;height:100%;object-fit:cover;display:block}
@@ -54,12 +56,16 @@
   .hero .ph code{background:#ececec;color:#777;padding:1px 6px;border-radius:3px;font-size:12px}
   .rankchip{position:absolute;top:0;left:0;z-index:2;font-family:var(--mono);font-weight:700;font-size:15px;
     background:var(--ink);color:#fff;padding:5px 10px;letter-spacing:.04em}
-  .name{font-weight:700;font-size:clamp(22px,3.4vw,30px);letter-spacing:-.01em;margin:16px 0 6px;line-height:1.1}
+
+  .name{font-family:var(--sans);font-weight:700;font-size:clamp(22px,3.4vw,30px);letter-spacing:-.01em;
+    margin:16px 0 6px;line-height:1.1}
   .name .num{font-family:var(--mono);color:var(--accent)}
   .name .todo{color:var(--faint)}
-  .comp{font-size:15px;color:var(--ink);margin:0 0 4px}
+  .comp{font-family:var(--sans);font-size:15px;color:var(--ink);margin:0 0 4px}
   .comp .lab{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-right:6px}
   .comp .empty{color:var(--faint)}
+  .note{font-family:var(--sans);color:#333;font-size:15px;margin:8px 0 16px;max-width:64ch}
+
   .clips{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:14px}
   .clip{display:flex;flex-direction:column}
   .clip .frame{aspect-ratio:16/9;background:#f0f0f0;position:relative;overflow:hidden}
@@ -70,8 +76,11 @@
     border-width:8px 0 8px 13px;border-color:transparent transparent transparent #c7c7c7}
   .clip .cap{padding:8px 2px 0;font-size:13px;color:#333;display:flex;gap:7px;align-items:center;min-height:26px}
   .clip .cap .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);flex:0 0 auto}
+  .clip .cap.down .dot{background:#d33}
   .clip .cap .empty{color:var(--faint)}
-  .backhome{display:inline-block;margin:34px 0 0;font-family:var(--mono);font-size:13px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+
+  .backhome{display:inline-block;margin:34px 0 0;font-family:var(--mono);font-size:13px;text-transform:uppercase;
+    letter-spacing:.1em;color:var(--muted)}
   footer.site{border-top:1px solid var(--line);margin-top:20px;padding:24px 0 60px;text-align:center;
     color:var(--faint);font-size:12px;font-family:var(--mono);letter-spacing:.06em;text-transform:uppercase}
   @media (max-width:560px){ .clips{grid-template-columns:1fr} }
@@ -84,28 +93,64 @@
       <div class="nav"><a href="./">NBA Draft</a><a href="contact.html">Contact</a></div>
     </div>
   </header>
+
   <main class="wrap">
-    <h1 class="title">2025 NBA<br>Draft<br>Big Board</h1>
-    <div class="subtitle"><b>Big G's Big Board</b> &nbsp;·&nbsp; 2025 class &nbsp;·&nbsp; top of the board</div>
+    <h1 class="title">2023 NBA<br>Draft<br>Big Board</h1>
+    <div class="subtitle"><b>Big G's Big Board</b> &nbsp;·&nbsp; 2023 class &nbsp;·&nbsp; the Wembanyama year</div>
     <div id="board"></div>
     <a class="backhome" href="./">&larr; Back to home</a>
   </main>
-  <footer class="site"><div class="wrap">Guiseppe Drafts — Big G's Big Board 2025</div></footer>
+
+  <footer class="site"><div class="wrap">Guiseppe Drafts — Big G's Big Board 2023</div></footer>
 
 <script>
-/* 2025 board — 30 blank slots. Fill each: name, comp, photo, clips.
-   Same rules as the 2024 board. Add a tier by setting the "tier" text. */
+/* ================================================================
+   EDIT THE BOARD HERE — same rules as the other boards.
+   Colours in my notes = tiers.  Add a photo → photo:"name.jpg".
+   ================================================================ */
+
 const PLAYERS = [
-  { tier:"The Board", name:"Cooper Flagg", comp:"Larry Bird", photo:"cooper.jpg", note:"", clips:[{label:"",url:""},{label:"",url:""}] },
-  { tier:"The Board", name:"Dylan Harper", comp:"Jalen Brunson", photo:"", note:"", clips:[{label:"",url:""},{label:"",url:""}] },
-  { tier:"The Board", name:"Collin Murray-Boyles", comp:"", photo:"", note:"", clips:[{label:"",url:""},{label:"",url:""}] },
-  { tier:"The Board", name:"Khaman Maluach", comp:"", photo:"", note:"", clips:[{label:"",url:""},{label:"",url:""}] },
-  { tier:"The Board", name:"Egor Demin", comp:"", photo:"", note:"", clips:[{label:"",url:""},{label:"",url:""}] },
-  { tier:"The Board", name:"VJ Edgecombe", comp:"", photo:"vj.jpg", note:"", clips:[{label:"",url:""},{label:"",url:""}] },
-  { tier:"The Board", name:"Cedric Coward", comp:"", photo:"", note:"", clips:[{label:"",url:""},{label:"",url:""}] }
+  { tier:"The GOAT", name:"Victor Wembanyama", comp:"", photo:"", noClips:true,
+    note:"GOAT." },
+
+  { tier:"Top of the Draft", name:"Scoot Henderson", comp:"Russell Westbrook (better attitude)", photo:"", noClips:true,
+    note:"All intangibles — got that dawg in him, an insane athlete, and he'll be mean." },
+  { tier:"Top of the Draft", name:"Jarace Walker", comp:"", photo:"", noClips:true,
+    note:"Mean — high in the defensive analytics, and he can shoot (kinda)!" },
+
+  { tier:"NBA Players", name:"Brandon Miller", comp:"Jabari Smith skills / MPJ brain", photo:"", noClips:true, note:"" },
+  { tier:"NBA Players", name:"Amen Thompson", comp:"Jalen Green (speculative)", photo:"", noClips:true, note:"" },
+  { tier:"NBA Players", name:"Cason Wallace", comp:"", photo:"", noClips:true,
+    note:"Jarace is taller, which is why he's in front — but same sort of impact." },
+  { tier:"NBA Players", name:"Anthony Black", comp:"", photo:"", noClips:true, note:"Looks high-motor." },
+  { tier:"NBA Players", name:"Cam Whitmore", comp:"", photo:"", noClips:true,
+    note:"Man amongst boys — but doesn't really have the intangibles I'm looking for." },
+  { tier:"NBA Players", name:"Kobe Bufkin", comp:"", photo:"", noClips:true, note:"Looks good — higher potential than Lively." },
+  { tier:"NBA Players", name:"Dereck Lively II", comp:"", photo:"", noClips:true, note:"Will have a job because of his shot-blocking. He's good." },
+
+  { tier:"Probably G-League", name:"Ausar Thompson", comp:"", photo:"", noClips:true, note:"Bumped up to 11 — ahead of GG." },
+  { tier:"Probably G-League", name:"GG Jackson", comp:"", photo:"", noClips:true, note:"Legit — but personality concerns." },
+  { tier:"Probably G-League", name:"Nick Smith Jr.", comp:"", photo:"", noClips:true, note:"Looks pretty good." },
+  { tier:"Probably G-League", name:"Taylor Hendricks", comp:"", photo:"", noClips:true, note:"Looks okay, I guess." },
+  { tier:"Probably G-League", name:"Leonard Miller", comp:"", photo:"", noClips:true, note:"Looks unique offensively — no defence." },
+  { tier:"Probably G-League", name:"Bilal Coulibaly", comp:"", photo:"", noClips:true, note:"High upside." },
+  { tier:"Probably G-League", name:"Keyonte George", comp:"", photo:"", noClips:true, note:"Good shooter — high upside." },
+  { tier:"Probably G-League", name:"Sidy Cissoko", comp:"", photo:"", noClips:true, note:"" },
+  { tier:"Probably G-League", name:"Dariq Whitehead", comp:"", photo:"", noClips:true, note:"Looks okay — injury concerns." },
+  { tier:"Probably G-League", name:"Gradey Dick", comp:"Duncan Robinson (peak)", photo:"", noClips:true,
+    note:"Mean shooter — can't defend. Absolute peak is Duncan Robinson." },
+  { tier:"Probably G-League", name:"Kris Murray", comp:"", photo:"", noClips:true,
+    note:"Could be an okay role player — a touch more than the others; probably should be higher." },
+  { tier:"Probably G-League", name:"Maxence Prosper", comp:"", photo:"", noClips:true, note:"Potential okay role player." },
+  { tier:"Probably G-League", name:"Brice Sensabaugh", comp:"", photo:"", noClips:true, note:"Potential okay role player." },
+  { tier:"Probably G-League", name:"Jalen Hood-Schifino", comp:"", photo:"", noClips:true, note:"" },
+  { tier:"Probably G-League", name:"Kobe Brown", comp:"", photo:"", noClips:true, note:"" },
+  { tier:"Probably G-League", name:"Maxwell Lewis", comp:"", photo:"", noClips:true, note:"" },
+  { tier:"Probably G-League", name:"Rayan Rupert", comp:"", photo:"", noClips:true, note:"" }
 ];
 
 const esc = s => (s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
 function embed(url){
   const u=(url||"").trim(); if(!u) return null; let m;
   if((m=u.match(/youtu\.be\/([\w-]+)/))||(m=u.match(/youtube\.com\/watch\?v=([\w-]+)/))||(m=u.match(/youtube\.com\/embed\/([\w-]+)/)))
@@ -117,24 +162,30 @@ function embed(url){
 }
 function clipHTML(c){
   const frame = embed(c.url);
-  const cap = `<div class="cap"><span class="dot"></span>${c.label?esc(c.label):'<span class="empty">add a caption</span>'}</div>`;
+  const cap = `<div class="cap ${c.type==='down'?'down':''}"><span class="dot"></span>${
+      c.label ? esc(c.label) : '<span class="empty">add a caption</span>'}</div>`;
   if(frame) return `<div class="clip"><div class="frame">${frame}</div>${cap}</div>`;
   return `<div class="clip empty"><div class="frame"><span class="play"></span></div>${cap}</div>`;
 }
 function playerHTML(p, rank){
   const blank = !p.name;
   const hero = p.photo
-    ? `<figure class="hero"><span class="rankchip">#${rank}</span><img src="${esc(p.photo)}" alt="${esc(p.name)}"></figure>`
-    : `<figure class="hero"><span class="rankchip">#${rank}</span><div class="ph"><span class="big">${rank}</span><span>add photo → <code>photo:"images/…jpg"</code></span></div></figure>`;
+    ? `<figure class="hero${p.fit==='contain'?' fit':''}"><span class="rankchip">#${rank}</span><img src="${esc(p.photo)}" alt="${esc(p.name)}"${p.fit?` style="object-fit:${esc(p.fit)}"`:``}></figure>`
+    : `<figure class="hero"><span class="rankchip">#${rank}</span><div class="ph"><span class="big">${rank}</span><span>add photo → <code>photo:"name.jpg"</code></span></div></figure>`;
   const name = blank
     ? `<div class="name"><span class="num">${rank}.</span> <span class="todo">Add player</span></div>`
     : `<div class="name"><span class="num">${rank}.</span> ${esc(p.name)}</div>`;
   const comp = `<div class="comp"><span class="lab">Realistic Comp</span>${p.comp?esc(p.comp):'<span class="empty">add a comp</span>'}</div>`;
   const note = p.note?`<p class="note">${esc(p.note)}</p>`:``;
-  const clips = (p.clips&&p.clips.length?p.clips:[{label:"",url:""},{label:"",url:""}]).map(clipHTML).join("");
-  return `<article class="player">${hero}${name}${comp}${note}<div class="clips">${clips}</div></article>`;
+  const clipsHTML = p.noClips ? `` : `<div class="clips">${(p.clips&&p.clips.length?p.clips:[{label:"",url:""},{label:"",url:""}]).map(clipHTML).join("")}</div>`;
+  return `<article class="player">${hero}${name}${comp}${note}${clipsHTML}</article>`;
 }
-const TIERS = { "The Board":"My 2025 board — the names near the top so far." };
+const TIERS = {
+  "The GOAT":"The clear #1 — a generational talent.",
+  "Top of the Draft":"Rounding out a top-3-heavy class.",
+  "NBA Players":"Through Lively — these guys should stick in the league.",
+  "Probably G-League":"From here down, likely G-League. Not a deep draft — not sure many outside the top 10 are in the NBA in 3 years."
+};
 function render(){
   const root=document.getElementById('board');
   const groups=[]; let cur=null;

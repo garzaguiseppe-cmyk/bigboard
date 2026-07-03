@@ -26,6 +26,16 @@
   .contact-list .lab{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);flex:0 0 96px}
   .contact-list a{font-size:18px;font-weight:700;color:var(--ink);border-bottom:2px solid var(--accent);padding-bottom:2px}
   .contact-list a.soon{color:var(--faint);font-weight:400;border-bottom:2px solid var(--line)}
+
+  .msg{margin:38px 0 0;display:flex;flex-direction:column;gap:12px;max-width:540px}
+  .msg .lab{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+  .msg input,.msg textarea{font-family:var(--sans);font-size:15px;padding:11px 13px;border:1.5px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);width:100%}
+  .msg textarea{resize:vertical;min-height:130px}
+  .msg input:focus,.msg textarea:focus{outline:none;border-color:var(--accent)}
+  .msg button{align-self:flex-start;font-family:var(--mono);font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:13px;background:var(--ink);color:#fff;border:0;border-radius:8px;padding:12px 22px;cursor:pointer}
+  .msg button:hover{background:var(--accent)}
+  .msg .hint{font-size:13px;color:var(--muted);min-height:18px}
+
   .backhome{display:inline-block;margin:42px 0 0;font-family:var(--mono);font-size:13px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
   footer.site{border-top:1px solid var(--line);margin-top:54px;padding:24px 0 60px;text-align:center;color:var(--faint);font-size:12px;font-family:var(--mono);letter-spacing:.06em;text-transform:uppercase}
 </style>
@@ -40,15 +50,41 @@
 
   <main class="wrap">
     <h1 class="title">Contact</h1>
-    <p class="lead">Draft takes, corrections, or just want to argue about the board? Get in touch.</p>
+    <p class="lead">Draft takes, corrections, or hate mail? Get in touch.</p>
     <ul class="contact-list">
       <li><span class="lab">Email</span><a href="mailto:garzaguiseppe@gmail.com">garzaguiseppe@gmail.com</a></li>
       <li><span class="lab">Twitter / X</span><a class="soon" href="#">add your handle</a></li>
       <li><span class="lab">Instagram</span><a class="soon" href="#">add your handle</a></li>
     </ul>
+
+    <form class="msg" onsubmit="return sendMsg(event)">
+      <span class="lab">Send a message</span>
+      <input id="mName" type="text" placeholder="Your name (optional)">
+      <input id="mEmail" type="email" placeholder="Your email (optional)">
+      <textarea id="mBody" placeholder="Draft takes, corrections, or hate mail…" required></textarea>
+      <button type="submit">Send &rarr;</button>
+      <span id="mHint" class="hint"></span>
+    </form>
+
     <a class="backhome" href="./">&larr; Back to home</a>
   </main>
 
   <footer class="site"><div class="wrap">Guiseppe Drafts — Big G's Big Board</div></footer>
+
+<script>
+function sendMsg(e){
+  e.preventDefault();
+  var n=(document.getElementById('mName').value||'').trim();
+  var em=(document.getElementById('mEmail').value||'').trim();
+  var b=(document.getElementById('mBody').value||'').trim();
+  if(!b){ return false; }
+  var subject='Guiseppe Drafts'+(n?(' — '+n):'');
+  var sig=(n||em)?('\n\n— '+n+(em?(' ('+em+')'):'')):'';
+  var body=b+sig;
+  document.getElementById('mHint').textContent='Opening your email app…';
+  window.location.href='mailto:garzaguiseppe@gmail.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+  return false;
+}
+</script>
 </body>
 </html>

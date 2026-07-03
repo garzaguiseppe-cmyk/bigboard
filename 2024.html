@@ -120,7 +120,9 @@ const PLAYERS = [
     note:"Highlight: Jimmy Butler-esque moves in the paint.",
     clips:[
       {label:"vs Xavier", url:"castle-white.mp4"},
-      {label:"vs Gonzaga", url:"castle-black.mp4"}
+      {label:"vs Gonzaga", url:"castle-black.mp4"},
+      {label:"Highlight: Hustle", url:"castle-hustle.mp4"},
+      {label:"Downside: His shot", type:"down", url:""}
     ]},
   { tier:"Tier 2", name:"Devin Carter", comp:"Jrue Holiday (potential)", photo:"carter.jpg",
     note:"Two-way guard with the frame and motor to defend up a position.", clips:[{label:"",url:""},{label:"",url:""}] },
@@ -142,7 +144,7 @@ const PLAYERS = [
   { tier:"Tier 3", name:"Bub Carrington", comp:"D'Angelo Russell", photo:"carrington.jpg",
     note:"Big lead guard (6'3 / 6'8 wing) with shooting and feel.", clips:[{label:"",url:""},{label:"",url:""}] },
 
-  { tier:"Tier 4", name:"Tidjane Salaun", comp:"Tayshaun Prince", photo:"salaun.jpg",
+  { tier:"Tier 4", name:"Tidjane Salaun", comp:"Tayshaun Prince", photo:"salaun.jpg", fit:"contain",
     note:"Complete project drafted purely on potential — the biggest motor I've seen in a draft pick and a psychotic winning mentality. Low-key I'd take him #1.",
     clips:[{label:"",url:""},{label:"",url:""}] },
 
@@ -198,7 +200,7 @@ const PLAYERS = [
     note:"Legit shooter with competitiveness — plug-and-play spacing.", clips:[{label:"",url:""},{label:"",url:""}] },
   { tier:"21–30", name:"KJ Simpson", comp:"Scoring guard", photo:"simpson.jpg",
     note:"Combine riser — a late flyer at lead guard.", clips:[{label:"",url:""},{label:"",url:""}] },
-  { tier:"21–30", name:"Kyle Filipowski", comp:"Skilled big", photo:"filipowski.jpg",
+  { tier:"21–30", name:"Kyle Filipowski", comp:"Skilled big", photo:"filipowski.jpg", fit:"contain",
     note:"Ball-handling college big — fit and defence are the questions.", clips:[{label:"",url:""},{label:"",url:""}] },
 
   { tier:"Notable Mentions", name:"Tyler Smith", comp:"Jaime Jaquez Jr", photo:"", noClips:true,
@@ -236,7 +238,7 @@ function clipHTML(c){
 function playerHTML(p, rank){
   const blank = !p.name;
   const hero = p.photo
-    ? `<figure class="hero"><span class="rankchip">#${rank}</span><img src="${esc(p.photo)}" alt="${esc(p.name)}"></figure>`
+    ? `<figure class="hero${p.fit==='contain'?' fit':''}"><span class="rankchip">#${rank}</span><img src="${esc(p.photo)}" alt="${esc(p.name)}"${p.fit?` style="object-fit:${esc(p.fit)}"`:``}></figure>`
     : `<figure class="hero"><span class="rankchip">#${rank}</span><div class="ph"><span class="big">${rank}</span><span>add photo → <code>photo:"images/…jpg"</code></span></div></figure>`;
   const name = blank
     ? `<div class="name"><span class="num">${rank}.</span> <span class="todo">Add player</span></div>`
