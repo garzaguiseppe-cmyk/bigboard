@@ -203,18 +203,18 @@ World class middy.`, clips:[{label:"",url:""},{label:"",url:""}] },
   { tier:"21–30", name:"Kyle Filipowski", comp:"Skilled big", photo:"filipowski.jpg", fit:"contain",
     note:"Ball-handling college big — fit and defence are the questions.", clips:[{label:"",url:""},{label:"",url:""}] },
 
-  { tier:"Notable Mentions", name:"Tyler Smith", comp:"Jaime Jaquez Jr", photo:"", noClips:true,
+  { tier:"Notable Mentions", name:"Tyler Smith", comp:"Jaime Jaquez Jr", photo:"tyler.jpg", noClips:true,
     note:"Not as good, but that sort of player — need to look at his measurements." },
-  { tier:"Notable Mentions", name:"Trentyn Flowers", comp:"Trey Murphy III", photo:"", noClips:true,
+  { tier:"Notable Mentions", name:"Trentyn Flowers", comp:"Trey Murphy III", photo:"flowers.jpg", fit:"contain", noClips:true,
     note:"Looks like a modern NBA player — not as polished yet, but the tools are there." },
-  { tier:"Notable Mentions", name:"Toohey", comp:"David Lee (with a three)", photo:"", noClips:true,
+  { tier:"Notable Mentions", name:"Alex Toohey", comp:"David Lee (with a three)", photo:"toohey.jpg", noClips:true,
     note:"David Lee with a 3-point shot — low-key like him more than Buzelis." },
-  { tier:"Notable Mentions", name:"Coleman Hawkins", comp:"", photo:"", noClips:true, note:"" },
-  { tier:"Notable Mentions", name:"AJ Johnson", comp:"", photo:"", noClips:true, note:"" },
-  { tier:"Notable Mentions", name:"Adem Bona", comp:"", photo:"", noClips:true, note:"" },
-  { tier:"Notable Mentions", name:"Bobi Klintman", comp:"", photo:"", noClips:true, note:"" },
-  { tier:"Notable Mentions", name:"Ariel Hukporti", comp:"", photo:"", noClips:true, note:"" },
-  { tier:"Notable Mentions", name:"Cam Christie", comp:"", photo:"", noClips:true, note:"" }
+  { tier:"Notable Mentions", name:"Coleman Hawkins", comp:"", photo:"hawkins.jpg", fit:"contain", noClips:true, note:"" },
+  { tier:"Notable Mentions", name:"AJ Johnson", comp:"", photo:"ajjohnson.jpg", noClips:true, note:"" },
+  { tier:"Notable Mentions", name:"Adem Bona", comp:"", photo:"bona.jpg", noClips:true, note:"" },
+  { tier:"Notable Mentions", name:"Bobi Klintman", comp:"", photo:"klintman.jpg", noClips:true, note:"" },
+  { tier:"Notable Mentions", name:"Ariel Hukporti", comp:"", photo:"hukporti.jpg", fit:"contain", noClips:true, note:"" },
+  { tier:"Notable Mentions", name:"Cam Christie", comp:"", photo:"christie.jpg", noClips:true, note:"" }
 ];
 
 const esc = s => (s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -243,7 +243,7 @@ function playerHTML(p, rank){
   const name = blank
     ? `<div class="name"><span class="num">${rank}.</span> <span class="todo">Add player</span></div>`
     : `<div class="name"><span class="num">${rank}.</span> ${esc(p.name)}</div>`;
-  const comp = `<div class="comp"><span class="lab">Realistic Comp</span>${p.comp?esc(p.comp):'<span class="empty">add a comp</span>'}</div>`;
+  const comp = p.comp?`<div class="comp"><span class="lab">Realistic Comp</span>${esc(p.comp)}</div>`:``;
   const note = p.note?`<p class="note">${esc(p.note).split(String.fromCharCode(10)).join('<br>')}</p>`:``;
   const clipsHTML = (p.noClips || !(p.clips&&p.clips.some(c=>(c.label&&c.label.trim())||(c.url&&c.url.trim())))) ? `` : `<div class="clips">${p.clips.map(clipHTML).join("")}</div>`;
   return `<article class="player">${hero}${name}${comp}${note}${clipsHTML}</article>`;
