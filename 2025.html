@@ -96,13 +96,13 @@
 /* 2025 board — 30 blank slots. Fill each: name, comp, photo, clips.
    Same rules as the 2024 board. Add a tier by setting the "tier" text. */
 const PLAYERS = [
-  { tier:"The Board", name:"Cooper Flagg", comp:"Larry Bird", photo:"cooper.jpg", note:"", clips:[{label:"",url:""},{label:"",url:""}] },
-  { tier:"The Board", name:"Dylan Harper", comp:"Jalen Brunson", photo:"", note:"", clips:[{label:"",url:""},{label:"",url:""}] },
-  { tier:"The Board", name:"Collin Murray-Boyles", comp:"", photo:"", note:"", clips:[{label:"",url:""},{label:"",url:""}] },
-  { tier:"The Board", name:"Khaman Maluach", comp:"", photo:"", note:"", clips:[{label:"",url:""},{label:"",url:""}] },
-  { tier:"The Board", name:"Egor Demin", comp:"", photo:"", note:"", clips:[{label:"",url:""},{label:"",url:""}] },
-  { tier:"The Board", name:"VJ Edgecombe", comp:"", photo:"vj.jpg", note:"", clips:[{label:"",url:""},{label:"",url:""}] },
-  { tier:"The Board", name:"Cedric Coward", comp:"", photo:"", note:"", clips:[{label:"",url:""},{label:"",url:""}] }
+  { tier:"Generational", name:"Cooper Flagg", comp:"Larry Bird (with defence)", photo:"cooper.jpg", note:"", clips:[{label:"",url:""},{label:"",url:""}] },
+  { tier:"Inseparable", name:"Dylan Harper", comp:"Jalen Brunson", photo:"", note:"", clips:[{label:"",url:""},{label:"",url:""}] },
+  { tier:"Inseparable", name:"VJ Edgecombe", comp:"", photo:"vj.jpg", note:"", clips:[{label:"",url:""},{label:"",url:""}] },
+  { tier:"The Rest", name:"Collin Murray-Boyles", comp:"", photo:"", note:"", clips:[{label:"",url:""},{label:"",url:""}] },
+  { tier:"The Rest", name:"Khaman Maluach", comp:"", photo:"", note:"", clips:[{label:"",url:""},{label:"",url:""}] },
+  { tier:"The Rest", name:"Egor Demin", comp:"", photo:"", note:"", clips:[{label:"",url:""},{label:"",url:""}] },
+  { tier:"The Rest", name:"Cedric Coward", comp:"", photo:"", note:"", clips:[{label:"",url:""},{label:"",url:""}] }
 ];
 
 const esc = s => (s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -134,7 +134,11 @@ function playerHTML(p, rank){
   const clips = (p.clips&&p.clips.length?p.clips:[{label:"",url:""},{label:"",url:""}]).map(clipHTML).join("");
   return `<article class="player">${hero}${name}${comp}${note}<div class="clips">${clips}</div></article>`;
 }
-const TIERS = { "The Board":"My 2025 board — the names near the top so far." };
+const TIERS = {
+  "Generational":"Larry Bird with defence.",
+  "Inseparable":"Inseparable — but well below Cooper.",
+  "The Rest":"Didn't really spend much time on these fellas."
+};
 function render(){
   const root=document.getElementById('board');
   const groups=[]; let cur=null;
