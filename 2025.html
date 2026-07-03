@@ -96,13 +96,13 @@
 /* 2025 board — 30 blank slots. Fill each: name, comp, photo, clips.
    Same rules as the 2024 board. Add a tier by setting the "tier" text. */
 const PLAYERS = [
-  { tier:"Generational", name:"Cooper Flagg", comp:"Larry Bird (with defence)", photo:"cooper.jpg", note:"", clips:[{label:"",url:""},{label:"",url:""}] },
-  { tier:"Inseparable", name:"Dylan Harper", comp:"Jalen Brunson", photo:"", note:"", clips:[{label:"",url:""},{label:"",url:""}] },
-  { tier:"Inseparable", name:"VJ Edgecombe", comp:"", photo:"vj.jpg", note:"", clips:[{label:"",url:""},{label:"",url:""}] },
-  { tier:"The Rest", name:"Collin Murray-Boyles", comp:"", photo:"", note:"", clips:[{label:"",url:""},{label:"",url:""}] },
-  { tier:"The Rest", name:"Khaman Maluach", comp:"", photo:"", note:"", clips:[{label:"",url:""},{label:"",url:""}] },
-  { tier:"The Rest", name:"Egor Demin", comp:"", photo:"", note:"", clips:[{label:"",url:""},{label:"",url:""}] },
-  { tier:"The Rest", name:"Cedric Coward", comp:"", photo:"", note:"", clips:[{label:"",url:""},{label:"",url:""}] }
+  { tier:"Generational", name:"Cooper Flagg", comp:"Larry Bird (cos white and level of talent) (also with defence) — but play style AK-47, Scottie Pippen / Young GARNETT / incomparable", photo:"cooper.jpg", note:"", clips:[{label:"Young Garnett",url:""},{label:"Young Garnett",url:""}] },
+  { tier:"Inseparable", name:"Dylan Harper", comp:"Jalen Brunson — effortless / polished scoring. [2026 revision: is this a ball player's son thing?]", photo:"", note:"", noClips:true },
+  { tier:"Inseparable", name:"VJ Edgecombe", comp:"Smart Latrell Sprewell / Ron Harper Sr. pre-injury", photo:"vj.jpg", note:"", noClips:true },
+  { tier:"The Rest", name:"Collin Murray-Boyles", comp:"", photo:"", note:"", noClips:true },
+  { tier:"The Rest", name:"Khaman Maluach", comp:"", photo:"", note:"", noClips:true },
+  { tier:"The Rest", name:"Egor Demin", comp:"", photo:"", note:"", noClips:true },
+  { tier:"The Rest", name:"Cedric Coward", comp:"", photo:"", note:"", noClips:true }
 ];
 
 const esc = s => (s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -129,13 +129,12 @@ function playerHTML(p, rank){
   const name = blank
     ? `<div class="name"><span class="num">${rank}.</span> <span class="todo">Add player</span></div>`
     : `<div class="name"><span class="num">${rank}.</span> ${esc(p.name)}</div>`;
-  const comp = `<div class="comp"><span class="lab">Realistic Comp</span>${p.comp?esc(p.comp):'<span class="empty">add a comp</span>'}</div>`;
+  const comp = p.comp?`<div class="comp"><span class="lab">Realistic Comp</span>${esc(p.comp)}</div>`:``;
   const note = p.note?`<p class="note">${esc(p.note)}</p>`:``;
-  const clips = (p.clips&&p.clips.length?p.clips:[{label:"",url:""},{label:"",url:""}]).map(clipHTML).join("");
-  return `<article class="player">${hero}${name}${comp}${note}<div class="clips">${clips}</div></article>`;
+  const clipsHTML = p.noClips ? `` : `<div class="clips">${(p.clips&&p.clips.length?p.clips:[{label:"",url:""},{label:"",url:""}]).map(clipHTML).join("")}</div>`;
+  return `<article class="player">${hero}${name}${comp}${note}${clipsHTML}</article>`;
 }
 const TIERS = {
-  "Generational":"Larry Bird with defence.",
   "Inseparable":"Inseparable — but well below Cooper.",
   "The Rest":"Didn't really spend much time on these fellas."
 };
@@ -149,7 +148,7 @@ function render(){
   root.innerHTML = groups.map(g=>{
     const cards = g.items.map(it=>playerHTML(it.p, it.rank)).join("");
     const d = TIERS[g.tier];
-    const desc = d ? `<span class="desc">${esc(d)}</span>` : `<span class="desc todo">add a tier description</span>`;
+    const desc = d ? `<span class="desc">${esc(d)}</span>` : ``;
     return `<div class="tier-group"><div class="tier-frame">${cards}</div><div class="tier-flag"><span class="lead"></span><div class="flag-box"><span class="num">${esc(g.tier)}</span>${desc}</div></div></div>`;
   }).join("");
 }

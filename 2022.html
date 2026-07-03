@@ -96,7 +96,7 @@
 
   <main class="wrap">
     <h1 class="title">2022 NBA<br>Draft<br>Big Board</h1>
-    <div class="subtitle"><b>Big G's Big Board</b> &nbsp;·&nbsp; 2022 class &nbsp;·&nbsp; way-too-early</div>
+    <div class="subtitle"><b>Big G's Big Board</b> &nbsp;·&nbsp; 2022 class &nbsp;·&nbsp; Paolo = Carmelo Anthony = And I want nothing of it</div>
     <div id="board"></div>
     <a class="backhome" href="./">&larr; Back to home</a>
   </main>
@@ -111,44 +111,44 @@
    ================================================================ */
 
 const PLAYERS = [
-  { tier:"The Board", name:"Chet Holmgren", comp:"", photo:"chet.jpg",
+  { tier:"Tier 1", name:"Chet Holmgren", comp:"", photo:"chet.jpg",
     note:"Safest #1.", clips:[{label:"",url:""},{label:"",url:""}] },
-  { tier:"The Board", name:"Jabari Smith Jr.", comp:"", photo:"jabari.jpg",
+  { tier:"Tier 2", name:"Jabari Smith Jr.", comp:"", photo:"jabari.jpg",
     note:"Most upside in the class.", clips:[{label:"",url:""},{label:"",url:""}] },
-  { tier:"The Board", name:"Keegan Murray", comp:"", photo:"keegan.jpg",
+  { tier:"Tier 3", name:"Keegan Murray", comp:"", photo:"keegan.jpg",
     note:"Mean — the least risk.", clips:[{label:"",url:""},{label:"",url:""}] },
-  { tier:"The Board", name:"Jaden Ivey", comp:"", photo:"ivey.jpg",
+  { tier:"Tier 3", name:"Jaden Ivey", comp:"Westbrook / Teague", photo:"ivey.jpg",
     note:"Mean — athletic enough to score in the NBA.", clips:[{label:"",url:""},{label:"",url:""}] },
-  { tier:"The Board", name:"Bennedict Mathurin", comp:"", photo:"mathurin.jpg",
+  { tier:"Tier 3", name:"Bennedict Mathurin", comp:"Danny Granger", photo:"mathurin.jpg",
     note:"Athletic, a great defender and great on offence — just not quite as good as the others yet.", clips:[{label:"",url:""},{label:"",url:""}] },
-  { tier:"The Board", name:"Paolo Banchero", comp:"", photo:"paolo.jpg",
-    note:"Lowest upside — never gonna be good on D.", clips:[{label:"",url:""},{label:"",url:""}] },
-  { tier:"The Board", name:"Jeremy Sochan", comp:"Draymond Green (potential)", photo:"sochan.jpg",
+  { tier:"Tier 4", name:"Paolo Banchero", comp:"Carmelo Anthony but average shooter", photo:"paolo.jpg",
+    note:"And I want nothing of it.", clips:[{label:"",url:""},{label:"",url:""}] },
+  { tier:"Tier 5", name:"Jeremy Sochan", comp:"Draymond Green (potential)", photo:"sochan.jpg",
     note:"Potential Draymond Green — anchor your defence.", clips:[{label:"",url:""},{label:"",url:""}] },
-  { tier:"The Board", name:"Johnny Davis", comp:"", photo:"johnny.jpg",
+  { tier:"Tier 5", name:"Johnny Davis", comp:"", photo:"johnny.jpg",
     note:"Really good right now — ex-NBA player's kid.", clips:[{label:"",url:""},{label:"",url:""}] },
-  { tier:"The Board", name:"Dyson Daniels", comp:"", photo:"dyson.jpg",
+  { tier:"Tier 5", name:"Dyson Daniels", comp:"Patrick Beverley", photo:"dyson.jpg",
     note:"", clips:[{label:"",url:""},{label:"",url:""}] },
-  { tier:"The Board", name:"Ousmane Dieng", comp:"", photo:"dieng.jpg",
+  { tier:"Tier 6", name:"Ousmane Dieng", comp:"New age wing", photo:"dieng.jpg",
     note:"Heaps of potential — not very good yet.", clips:[{label:"",url:""},{label:"",url:""}] },
-  { tier:"The Board", name:"Shaedon Sharpe", comp:"Bradley Beal (ceiling) / Dion Waiters (floor)", photo:"sharpe.jpg",
+  { tier:"Tier 7", name:"Shaedon Sharpe", comp:"Bradley Beal (ceiling) / Dion Waiters (floor)", photo:"sharpe.jpg",
     note:"MPJ-type risk and player — can go off but won't try on D. A potential Bradley Beal without the motor, so a huge risk. Second-most upside behind Jabari, and only this high because of it — could be top 5 with a motor, or he's Dion Waiters.", clips:[{label:"",url:""},{label:"",url:""}] },
-  { tier:"The Board", name:"Tari Eason", comp:"", photo:"",
+  { tier:"Tier 8", name:"Tari Eason", comp:"", photo:"",
     note:"Freak defender — the question is whether he can be good enough on offence.", clips:[{label:"",url:""},{label:"",url:""}] },
-  { tier:"The Board", name:"Jalen Duren", comp:"", photo:"",
+  { tier:"Tier 8", name:"Jalen Duren", comp:"", photo:"",
     note:"", clips:[{label:"",url:""},{label:"",url:""}] },
-  { tier:"The Board", name:"AJ Griffin", comp:"", photo:"griffin.jpg",
+  { tier:"Tier 8", name:"AJ Griffin", comp:"", photo:"griffin.jpg",
     note:"Good shooter — not gonna be good on D, too slow.", clips:[{label:"",url:""},{label:"",url:""}] },
 
-  { tier:"Honorable Mentions", name:"Jalen Williams", comp:"", photo:"", noClips:true, note:"" },
-  { tier:"Honorable Mentions", name:"TyTy Washington", comp:"", photo:"", noClips:true, note:"" },
-  { tier:"Honorable Mentions", name:"Nikola Jovic", comp:"", photo:"", noClips:true, note:"" },
-  { tier:"Honorable Mentions", name:"Patrick Baldwin Jr.", comp:"", photo:"", noClips:true, note:"" },
-  { tier:"Honorable Mentions", name:"Walker Kessler", comp:"", photo:"", noClips:true, note:"" },
-  { tier:"Honorable Mentions", name:"Christian Braun", comp:"", photo:"", noClips:true, note:"" },
-  { tier:"Honorable Mentions", name:"Mark Williams", comp:"", photo:"", noClips:true, note:"" },
-  { tier:"Honorable Mentions", name:"Dalen Terry", comp:"", photo:"", noClips:true, note:"" },
-  { tier:"Honorable Mentions", name:"Hugo Besson", comp:"", photo:"", noClips:true, note:"" }
+  { tier:"Notable Mentions", name:"Jalen Williams", comp:"Joe Ingles with more athleticism / Khris Middleton-ish", photo:"", noClips:true, note:"" },
+  { tier:"Notable Mentions", name:"TyTy Washington", comp:"", photo:"", noClips:true, note:"" },
+  { tier:"Notable Mentions", name:"Nikola Jovic", comp:"", photo:"", noClips:true, note:"" },
+  { tier:"Notable Mentions", name:"Patrick Baldwin Jr.", comp:"Davis Bertans", photo:"", noClips:true, note:"" },
+  { tier:"Notable Mentions", name:"Walker Kessler", comp:"Early-NBA Boban Marjanović, or Larry Sanders (Bucks)?", photo:"", noClips:true, note:"" },
+  { tier:"Notable Mentions", name:"Christian Braun", comp:"Bruce Brown", photo:"", noClips:true, note:"" },
+  { tier:"Notable Mentions", name:"Mark Williams", comp:"Brook Lopez / Raef LaFrentz", photo:"", noClips:true, note:"" },
+  { tier:"Notable Mentions", name:"Dalen Terry", comp:"Livingston — not as good and no post moves, but same movement style up and down the court", photo:"", noClips:true, note:"" },
+  { tier:"Notable Mentions", name:"Hugo Besson", comp:"", photo:"", noClips:true, note:"" }
 ];
 
 const esc = s => (s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -177,14 +177,21 @@ function playerHTML(p, rank){
   const name = blank
     ? `<div class="name"><span class="num">${rank}.</span> <span class="todo">Add player</span></div>`
     : `<div class="name"><span class="num">${rank}.</span> ${esc(p.name)}</div>`;
-  const comp = `<div class="comp"><span class="lab">Realistic Comp</span>${p.comp?esc(p.comp):'<span class="empty">add a comp</span>'}</div>`;
+  const comp = p.comp?`<div class="comp"><span class="lab">Realistic Comp</span>${esc(p.comp)}</div>`:``;
   const note = p.note?`<p class="note">${esc(p.note)}</p>`:``;
   const clipsHTML = p.noClips ? `` : `<div class="clips">${(p.clips&&p.clips.length?p.clips:[{label:"",url:""},{label:"",url:""}]).map(clipHTML).join("")}</div>`;
   return `<article class="player">${hero}${name}${comp}${note}${clipsHTML}</article>`;
 }
 const TIERS = {
-  "The Board":"My way-too-early 2022 board — the top 14.",
-  "Honorable Mentions":"Just outside the board."
+  "Tier 1":"New age centre with guard skills.",
+  "Tier 2":"Upside pick.",
+  "Tier 3":"Fairly safe picks — physical tools to not fail in the NBA.",
+  "Tier 4":"Losing player, but talented and massive.",
+  "Tier 5":"Solid role players.",
+  "Tier 6":"Purely on potential.",
+  "Tier 7":"Should be higher, but possibly dumb.",
+  "Tier 8":"Will be usable on NBA teams.",
+  "Notable Mentions":"Just outside the board."
 };
 function render(){
   const root=document.getElementById('board');
