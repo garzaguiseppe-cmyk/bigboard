@@ -31,6 +31,17 @@
     text-transform:uppercase;font-size:clamp(38px,8vw,74px);margin:30px 0 4px;text-align:left}
   .subtitle{font-family:var(--sans);color:var(--muted);font-size:14px;text-align:left;letter-spacing:.02em}
   .subtitle b{color:var(--ink)}
+  main.wrap{position:relative}
+  .revtable{position:absolute;top:4px;right:22px;width:262px;border:1.5px solid var(--ink);background:var(--paper);font-family:var(--sans);font-size:11px;line-height:1.3;z-index:5}
+  .revtable .rt-h{border-bottom:1.5px solid var(--ink);padding:4px 8px;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+  .revtable table{border-collapse:collapse;width:100%}
+  .revtable td{border-top:1px solid var(--line);padding:4px 8px;vertical-align:top;color:var(--ink)}
+  .revtable td.n{color:#d0021b;font-weight:700;width:30px;border-right:1px solid var(--line);text-align:center}
+  .revtable td.d{width:58px;color:var(--muted);white-space:nowrap;border-left:1px solid var(--line)}
+  .rev{color:#d0021b}
+  .revcloud{position:absolute;pointer-events:none;overflow:visible;z-index:3}
+  .revdelta{position:absolute;font-family:var(--sans);font-weight:700;font-size:13px;color:#d0021b;z-index:4;pointer-events:none;line-height:1}
+  @media (max-width:880px){ .revtable{position:static;width:auto;right:auto;margin:0 0 18px} }
 
   .tier-group{display:flex;align-items:center;gap:0;margin:52px 0}
   .tier-frame{flex:1 1 auto;min-width:0;border:3px solid var(--rule);border-radius:20px;padding:10px 24px 6px}
@@ -96,6 +107,12 @@
   </header>
 
   <main class="wrap">
+    <aside class="revtable" aria-label="Revision schedule">
+      <div class="rt-h">Revisions</div>
+      <table>
+        <tr><td class="n">△4</td><td>Highlight videos added (also 2025 / Cooper)</td><td class="d">Jul 2026</td></tr>
+      </table>
+    </aside>
     <h1 class="title">2023 NBA<br>Draft<br>Big Board</h1>
     <div class="subtitle"><b>Big G's Big Board</b> &nbsp;·&nbsp; 2023 class &nbsp;·&nbsp; the Wembanyama year</div>
     <div id="board"></div>
@@ -112,7 +129,7 @@
 
 const PLAYERS = [
   { tier:"The GOAT", name:"Victor Wembanyama", comp:"Ralph Sampson that wants to be KD", photo:"wemby.jpg",
-    note:"GOAT.", clips:[{label:"Pushing the ball up the court",url:"wemby-push.mp4"},{label:"Initiating offence from the 3pt line",url:"wemby-offence.mp4"}] },
+    note:"GOAT.", clipRev:4, clips:[{label:"Pushing the ball up the court",url:"wemby-push.mp4"},{label:"Initiating offence from the 3pt line",url:"wemby-offence.mp4"}] },
 
   { tier:"Top of the Draft", name:"Scoot Henderson", comp:"Russell Westbrook (better attitude)", photo:"scoot.jpg", noClips:true,
     note:"All intangibles — got that dawg in him, an insane athlete, and he'll be mean." },
@@ -178,7 +195,7 @@ function playerHTML(p, rank){
     : `<div class="name"><span class="num">${rank}.</span> ${esc(p.name)}</div>`;
   const comp = p.comp?`<div class="comp"><span class="lab">Realistic Comp</span>${esc(p.comp)}</div>`:``;
   const note = p.note?`<p class="note">${esc(p.note)}</p>`:``;
-  const clipsHTML = p.noClips ? `` : `<div class="clips">${(p.clips&&p.clips.length?p.clips:[{label:"",url:""},{label:"",url:""}]).map(clipHTML).join("")}</div>`;
+  const clipsHTML = p.noClips ? `` : `<div class="clips"${p.clipRev?` data-rev="${p.clipRev}"`:``}>${(p.clips&&p.clips.length?p.clips:[{label:"",url:""},{label:"",url:""}]).map(clipHTML).join("")}</div>`;
   return `<article class="player">${hero}${name}${comp}${note}${clipsHTML}</article>`;
 }
 const TIERS = {
@@ -201,7 +218,32 @@ function render(){
     return `<div class="tier-group"><div class="tier-frame">${cards}</div><div class="tier-flag"><span class="lead"></span><div class="flag-box"><span class="num">${esc(g.tier)}</span>${desc}</div></div></div>`;
   }).join("");
 }
+function revCloudPath(w,h,r){
+  function seg(x0,y0,x1,y1){var L=Math.hypot(x1-x0,y1-y0),n=Math.max(3,Math.round(L/(2*r))),s=L/n,ux=(x1-x0)/L,uy=(y1-y0)/L,p="";for(var i=1;i<=n;i++){var ex=x0+ux*s*i,ey=y0+uy*s*i;p+="A"+(s/2).toFixed(1)+" "+(s/2).toFixed(1)+" 0 0 0 "+ex.toFixed(1)+" "+ey.toFixed(1)+" ";}return p;}
+  return "M0 0 "+seg(0,0,w,0)+seg(w,0,w,h)+seg(w,h,0,h)+seg(0,h,0,0)+"Z";
+}
+function drawClouds(){
+  var ns="http://www.w3.org/2000/svg";
+  document.querySelectorAll(".clips[data-rev]").forEach(function(el){
+    el.querySelectorAll(".revcloud,.revdelta").forEach(function(x){x.remove();});
+    el.style.position="relative";
+    var w=el.offsetWidth,h=el.offsetHeight; if(!w||!h){return;}
+    var pad=10,r=10,W=w+2*pad,H=h+2*pad;
+    var svg=document.createElementNS(ns,"svg");
+    svg.setAttribute("class","revcloud");svg.setAttribute("width",W);svg.setAttribute("height",H);
+    svg.style.left=(-pad)+"px";svg.style.top=(-pad)+"px";
+    var path=document.createElementNS(ns,"path");
+    path.setAttribute("d",revCloudPath(W-3,H-3,r));path.setAttribute("transform","translate(1.5,1.5)");
+    path.setAttribute("fill","none");path.setAttribute("stroke","#d0021b");path.setAttribute("stroke-width","1.6");path.setAttribute("stroke-linejoin","round");
+    svg.appendChild(path);el.appendChild(svg);
+    var d=document.createElement("span");d.className="revdelta";d.textContent="△"+el.getAttribute("data-rev");
+    d.style.right=(-pad-2)+"px";d.style.top=(-pad-16)+"px";el.appendChild(d);
+  });
+}
 render();
+setTimeout(drawClouds,60);
+addEventListener("load",drawClouds);
+addEventListener("resize",function(){clearTimeout(window._rc);window._rc=setTimeout(drawClouds,150);});
 </script>
 </body>
 </html>
