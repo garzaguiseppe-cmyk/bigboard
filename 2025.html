@@ -61,6 +61,7 @@
   .comp{font-size:15px;color:var(--ink);margin:0 0 4px}
   .comp .lab{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-right:6px}
   .comp .empty{color:var(--faint)}
+  .rev{color:#d0021b}
   .clips{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:14px}
   .clip{display:flex;flex-direction:column}
   .clip .frame{aspect-ratio:16/9;background:#0b0b0b;position:relative;overflow:hidden}
@@ -98,8 +99,8 @@
    Same rules as the 2024 board. Add a tier by setting the "tier" text. */
 const PLAYERS = [
   { tier:"Generational", name:"Cooper Flagg", comp:"Larry Bird (cos white and level of talent) (also with defence) — but play style AK-47, Scottie Pippen / Young GARNETT / incomparable", photo:"cooper.jpg", note:"", clips:[{label:"Verticality",url:"cooper-vert.mp4"},{label:"Pull up game and range at that size",url:"cooper-pullup.mp4"}] },
-  { tier:"Inseparable", name:"Dylan Harper", comp:"Jalen Brunson — effortless / polished scoring. [2026 revision: is this a ball player's son thing?]", photo:"harper2.jpg", note:"", noClips:true },
-  { tier:"Inseparable", name:"VJ Edgecombe", comp:"Smart Latrell Sprewell / Ron Harper Sr. pre-injury", photo:"vj.jpg", note:"", noClips:true },
+  { tier:"Inseparable", name:"Dylan Harper", comp:"Jalen Brunson — effortless / polished scoring. ~~[2026 revision: is this a ball player's son thing?]~~", photo:"harper2.jpg", note:"", noClips:true },
+  { tier:"Inseparable", name:"VJ Edgecombe", comp:"Smart Latrell Sprewell ~~/ Ron Harper Sr. pre-injury~~", photo:"vj.jpg", note:"", noClips:true },
   { tier:"The Rest", name:"Collin Murray-Boyles", comp:"", photo:"murrayboyles.jpg", note:"", noClips:true },
   { tier:"The Rest", name:"Khaman Maluach", comp:"", photo:"maluach3.jpg", note:"", noClips:true },
   { tier:"The Rest", name:"Egor Demin", comp:"", photo:"egor.jpg", note:"", noClips:true },
@@ -110,6 +111,7 @@ const PLAYERS = [
 ];
 
 const esc = s => (s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const markRed = s => esc(s).replace(/~~(.+?)~~/g,'<span class="rev">$1</span>');
 function embed(url){
   const u=(url||"").trim(); if(!u) return null; let m;
   if((m=u.match(/youtu\.be\/([\w-]+)/))||(m=u.match(/youtube\.com\/watch\?v=([\w-]+)/))||(m=u.match(/youtube\.com\/embed\/([\w-]+)/)))
@@ -133,7 +135,7 @@ function playerHTML(p, rank){
   const name = blank
     ? `<div class="name"><span class="num">${rank}.</span> <span class="todo">Add player</span></div>`
     : `<div class="name"><span class="num">${rank}.</span> ${esc(p.name)}</div>`;
-  const comp = p.comp?`<div class="comp"><span class="lab">Realistic Comp</span>${esc(p.comp)}</div>`:``;
+  const comp = p.comp?`<div class="comp"><span class="lab">Realistic Comp</span>${markRed(p.comp)}</div>`:``;
   const note = p.note?`<p class="note">${esc(p.note)}</p>`:``;
   const clipsHTML = p.noClips ? `` : `<div class="clips">${(p.clips&&p.clips.length?p.clips:[{label:"",url:""},{label:"",url:""}]).map(clipHTML).join("")}</div>`;
   return `<article class="player">${hero}${name}${comp}${note}${clipsHTML}</article>`;
