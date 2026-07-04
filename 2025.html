@@ -103,7 +103,7 @@
         <tr><td class="n">△1</td><td>Harper — "ball player's son?" query added</td><td class="d">Jul 2026</td></tr>
         <tr><td class="n">△2</td><td>VJ — Ron Harper Sr. comp added</td><td class="d">Jul 2026</td></tr>
         <tr><td class="n">△3</td><td>Cooper — play-style comp added</td><td class="d">Jul 2026</td></tr>
-        <tr><td class="n">△4</td><td>Highlight videos added (also Wemby)</td><td class="d">Jul 2026</td></tr>
+        <tr><td class="n">△4</td><td>Highlight videos added</td><td class="d">Jul 2026</td></tr>
       </table>
     </aside>
     <h1 class="title">2025 NBA<br>Draft<br>Big Board</h1>
@@ -178,25 +178,25 @@ function render(){
   }).join("");
 }
 function revCloudPath(w,h,r){
-  function seg(x0,y0,x1,y1){var L=Math.hypot(x1-x0,y1-y0),n=Math.max(3,Math.round(L/(2*r))),s=L/n,ux=(x1-x0)/L,uy=(y1-y0)/L,p="";for(var i=1;i<=n;i++){var ex=x0+ux*s*i,ey=y0+uy*s*i;p+="A"+(s/2).toFixed(1)+" "+(s/2).toFixed(1)+" 0 0 0 "+ex.toFixed(1)+" "+ey.toFixed(1)+" ";}return p;}
-  return "M0 0 "+seg(0,0,w,0)+seg(w,0,w,h)+seg(w,h,0,h)+seg(0,h,0,0)+"Z";
+  function edge(x0,y0,x1,y1){var L=Math.hypot(x1-x0,y1-y0);if(L<1){return"";}var n=Math.max(1,Math.round(L/(2*r))),s=L/n,ux=(x1-x0)/L,uy=(y1-y0)/L,p="";for(var i=1;i<=n;i++){var ex=x0+ux*s*i,ey=y0+uy*s*i;p+="A"+(s/2).toFixed(2)+" "+(s/2).toFixed(2)+" 0 0 0 "+ex.toFixed(2)+" "+ey.toFixed(2)+" ";}return p;}
+  function corner(x0,y0,x1,y1){var rr=(Math.hypot(x1-x0,y1-y0)/2).toFixed(2);return "A"+rr+" "+rr+" 0 0 0 "+x1.toFixed(2)+" "+y1.toFixed(2)+" ";}
+  var c=r;
+  return "M "+c+" 0 "+edge(c,0,w-c,0)+corner(w-c,0,w,c)+edge(w,c,w,h-c)+corner(w,h-c,w-c,h)+edge(w-c,h,c,h)+corner(c,h,0,h-c)+edge(0,h-c,0,c)+corner(0,c,c,0)+"Z";
 }
 function drawClouds(){
-  var ns="http://www.w3.org/2000/svg";
   document.querySelectorAll(".clips[data-rev]").forEach(function(el){
-    el.querySelectorAll(".revcloud,.revdelta").forEach(function(x){x.remove();});
+    el.querySelectorAll(".revcloud").forEach(function(x){x.remove();});
     el.style.position="relative";
     var w=el.offsetWidth,h=el.offsetHeight; if(!w||!h){return;}
-    var pad=10,r=10,W=w+2*pad,H=h+2*pad;
-    var svg=document.createElementNS(ns,"svg");
-    svg.setAttribute("class","revcloud");svg.setAttribute("width",W);svg.setAttribute("height",H);
-    svg.style.left=(-pad)+"px";svg.style.top=(-pad)+"px";
-    var path=document.createElementNS(ns,"path");
-    path.setAttribute("d",revCloudPath(W-3,H-3,r));path.setAttribute("transform","translate(1.5,1.5)");
-    path.setAttribute("fill","none");path.setAttribute("stroke","#d0021b");path.setAttribute("stroke-width","1.6");path.setAttribute("stroke-linejoin","round");
-    svg.appendChild(path);el.appendChild(svg);
-    var d=document.createElement("span");d.className="revdelta";d.textContent="△"+el.getAttribute("data-rev");
-    d.style.right=(-pad-2)+"px";d.style.top=(-pad-16)+"px";el.appendChild(d);
+    var padX=30,padT=12,padB=18,r=13,W=w+2*padX,H=h+padT+padB,num=el.getAttribute("data-rev");
+    var dx=W+14,dy=-20;
+    var g='<path d="'+revCloudPath(W-4,H-4,r)+'" transform="translate(2,2)" fill="none" stroke="#d0021b" stroke-width="1.6" stroke-opacity=".8" stroke-linejoin="round"/>';
+    g+='<line x1="'+(W-r-8)+'" y1="6" x2="'+dx+'" y2="'+(dy+10)+'" stroke="#d0021b" stroke-width="1.2" stroke-opacity=".8"/>';
+    g+='<path d="M'+dx+' '+(dy-9)+'L'+(dx-10)+' '+(dy+9)+'L'+(dx+10)+' '+(dy+9)+'Z" fill="none" stroke="#d0021b" stroke-width="1.4" stroke-opacity=".8" stroke-linejoin="round"/>';
+    g+='<text x="'+dx+'" y="'+(dy+6)+'" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" font-weight="700" fill="#d0021b" fill-opacity=".9">'+num+'</text>';
+    var wrp=document.createElement("div");
+    wrp.innerHTML='<svg class="revcloud" width="'+W+'" height="'+H+'" viewBox="0 0 '+W+' '+H+'" style="left:'+(-padX)+'px;top:'+(-padT)+'px;overflow:visible">'+g+'</svg>';
+    el.appendChild(wrp.firstChild);
   });
 }
 render();
