@@ -164,7 +164,7 @@
     else if(cmd==='prev'){b.idx=(b.idx-1+b.order.length)%b.order.length;focusRect(b.targets[b.order[b.idx]]);}
     else if(cmd==='next'){b.idx=(b.idx+1)%b.order.length;focusRect(b.targets[b.order[b.idx]]);}
     else if(cmd==='close'){focusRect(b.homeRect);var bb=b;setTimeout(function(){closeBranch(bb);},560);}
-    else if(cmd==='toggle'){b.mode=b.mode==='pg'?'p40':'pg';renderPlane(b.planeEl,b.data,b.mode);wireFocus(b);
+    else if(cmd==='toggle'){b.mode=b.mode==='pg'?'p40':'pg';renderPlane(b.planeEl,b.data,b.mode);wireFocus(b);targetsFor(b);
       var tg=D.getElementById('cvTog');if(tg){tg.textContent=b.mode==='pg'?'Per 40':'Per game';tg.classList.toggle('on',b.mode==='p40');}}
   }
   function wireFocus(b){ b.planeEl.querySelectorAll('[data-focus]').forEach(function(el){ el.onclick=function(e){e.stopPropagation();focusRect(b.targets[el.getAttribute('data-focus')]);}; }); }
@@ -191,7 +191,7 @@
       var tg=D.getElementById('cvTog'); tg.hidden=!data.axis.x.per40; tg.textContent='Per 40'; tg.classList.remove('on');
       tools.classList.add('on');
       uMoved=false; focusRect(b.targets[data.subject.key]);
-      b.planeEl.querySelectorAll('.cv-photo img').forEach(function(img){ img.addEventListener('load',function(){ targetsFor(b); if(!uMoved&&active===b) focusRect(b.targets[b.data.subject.key]); }); });
+      b.planeEl.querySelectorAll('.cv-photo img').forEach(function(img){ var f=function(){ targetsFor(b); if(!uMoved&&active===b) focusRect(b.targets[b.data.subject.key]); }; if(img.complete&&img.naturalHeight){ setTimeout(f,30); } else { img.addEventListener('load',f); } });
     }).catch(function(){});
   }
 
