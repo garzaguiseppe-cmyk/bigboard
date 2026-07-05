@@ -1,6 +1,9 @@
 /* Guiseppe Drafts — canvas navigation + on-demand data branches (v2). */
 (function(){
   if(window.__cvNav) return; window.__cvNav=true;
+  // Mobile / touch: don't hijack the page — let the board render as its normal responsive, native-scrolling layout.
+  var CVTOUCH=(window.matchMedia&&window.matchMedia('(pointer: coarse)').matches)||window.innerWidth<820;
+  if(CVTOUCH){ document.addEventListener('click',function(e){var d=e.target.closest('[data-branch]');if(d)e.preventDefault();}); return; }
   var D=document, B=D.body, NS='http://www.w3.org/2000/svg';
   var HAND='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><path d="M6 11.5V7a1.5 1.5 0 0 1 3 0v3.5M9 10V5.5a1.5 1.5 0 0 1 3 0V10m0-.5V6a1.5 1.5 0 0 1 3 0v4m0-1.4a1.5 1.5 0 0 1 3 0V14a5 5 0 0 1-5 5h-1a4 4 0 0 1-3.3-1.7L5 14.6a1.4 1.4 0 0 1 2.2-1.7L9 14.5"/></svg>';
 
