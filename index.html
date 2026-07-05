@@ -55,6 +55,11 @@
     font-family:var(--sans);font-size:13.5px;letter-spacing:.01em;color:var(--muted)}
   .plannote .rev,.plannote .nb{font-weight:700;text-decoration:underline;text-underline-offset:2px}
   .rev{color:#d0021b}
+  .navbox{max-width:360px;margin:18px 0 2px;border:2px solid var(--ink);border-radius:9px;overflow:hidden;font-family:var(--sans)}
+  .navbox .nb-h{font-family:var(--mono);font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:7px 11px;border-bottom:1.5px solid var(--ink)}
+  .navbox .nb-b{padding:9px 12px;font-size:12.5px;line-height:1.75;color:#333}
+  .navbox .nb-b b{font-family:var(--mono);font-weight:700}
+  .navbox .nb-b .rc{color:#d0021b}
 </style>
 </head>
 <body>
@@ -67,6 +72,16 @@
   <p class="plannote"><span class="rev">RED</span> = a mark-up revision from a later date &nbsp;·&nbsp; <span class="nb">NB</span>: this is an evolving document</p>
 
   <main class="wrap">
+    <aside class="navbox">
+      <div class="nb-h">Navigation</div>
+      <div class="nb-b">
+        Each board is one big sheet you fly around.<br>
+        <b>&#9995; Drag</b> &mdash; pan around<br>
+        <b>Scroll</b> &mdash; down the page<br>
+        <b>&#8984; / Ctrl + scroll</b> &mdash; zoom into an area<br>
+        <b class="rc">Data branch</b> &mdash; click a card's red branch to fly to its stats; <b>&times;</b> flies back
+      </div>
+    </aside>
     <div class="boards">
 
       <!-- ===== 2025 tile → links to 2025 board. Add image: images/bird.jpg ===== -->
