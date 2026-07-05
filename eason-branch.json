@@ -1,40 +1,262 @@
 {
-  "id": "eason", "board": "2022",
-  "title": "TARI EASON — THE DATA BRANCH", "subtitle": "2022 class · #12 · LSU",
+  "id": "eason",
+  "board": "2022",
+  "title": "TARI EASON — THE DATA BRANCH",
+  "subtitle": "2022 class · #12 · LSU",
   "rareLabel": "RARE AIR — high steals AND high blocks",
-  "arrow": { "text": "Look at his per minute!", "dx": -330, "dy": -30 },
-  "fingerprint": { "title": "THE DEFENDER FINGERPRINT",
-    "text": "Do-everything forwards who steal AND block at a rare rate — all carrying Eason's question: can the offence catch up? Dots are draft-year college numbers. Hit <b>Per 40</b> to see who really dominates per minute." },
-  "axis": {
-    "x": { "stat": "spg", "short": "stl", "label": "STEALS / GAME", "min": 1.0, "max": 2.8, "p0": 900, "p1": 2300, "ticks": [1.0,1.5,2.0,2.5], "rare": 2.0,
-           "per40": { "label": "STEALS / 40 MIN", "min": 1.5, "max": 3.5, "ticks": [1.5,2.0,2.5,3.0,3.5], "rare": 2.6 } },
-    "y": { "stat": "bpg", "short": "blk", "label": "BLOCKS / GAME", "min": 0.6, "max": 2.0, "p0": 1500, "p1": 500, "ticks": [0.6,1.0,1.4,1.8], "rare": 1.4,
-           "per40": { "label": "BLOCKS / 40 MIN", "min": 0.8, "max": 2.4, "ticks": [0.8,1.2,1.6,2.0,2.4], "rare": 1.6 } }
+  "arrow": {
+    "text": "Look at his per minute!",
+    "dx": -330,
+    "dy": -30
   },
-  "subject": { "key": "eason", "name": "Tari Eason", "meta": "LSU · Sophomore · 2021-22  |  Drafted #17, 2022 (Houston)",
-    "spg": 1.9, "bpg": 1.1, "mpg": 24.4, "hero": true, "photo": "eason-pic.jpg",
-    "stats": [["16.9","PPG"],["6.6","RPG"],["1.9","STL",true],["1.1","BLK",true],["52 / 36","FG% / 3P%"],["~62%","TS%"]],
+  "fingerprint": {
+    "title": "THE DEFENDER FINGERPRINT",
+    "text": "Do-everything forwards who steal AND block at a rare rate — all carrying Eason's question: can the offence catch up? Dots are draft-year college numbers. Hit <b>Per 40</b> to see who really dominates per minute."
+  },
+  "axis": {
+    "x": {
+      "stat": "spg",
+      "short": "stl",
+      "label": "STEALS / GAME",
+      "min": 1.0,
+      "max": 2.8,
+      "p0": 900,
+      "p1": 2300,
+      "ticks": [
+        1.0,
+        1.5,
+        2.0,
+        2.5
+      ],
+      "rare": 2.0,
+      "per40": {
+        "label": "STEALS / 40 MIN",
+        "min": 1.5,
+        "max": 3.5,
+        "ticks": [
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          3.5
+        ],
+        "rare": 2.6
+      }
+    },
+    "y": {
+      "stat": "bpg",
+      "short": "blk",
+      "label": "BLOCKS / GAME",
+      "min": 0.6,
+      "max": 2.0,
+      "p0": 1500,
+      "p1": 500,
+      "ticks": [
+        0.6,
+        1.0,
+        1.4,
+        1.8
+      ],
+      "rare": 1.4,
+      "per40": {
+        "label": "BLOCKS / 40 MIN",
+        "min": 0.8,
+        "max": 2.4,
+        "ticks": [
+          0.8,
+          1.2,
+          1.6,
+          2.0,
+          2.4
+        ],
+        "rare": 1.6
+      }
+    }
+  },
+  "subject": {
+    "key": "eason",
+    "name": "Tari Eason",
+    "meta": "LSU · Sophomore · 2021-22  |  Drafted #17, 2022 (Houston)",
+    "spg": 1.9,
+    "bpg": 1.1,
+    "mpg": 24.4,
+    "hero": true,
+    "photo": "eason-pic.jpg",
+    "stats": [
+      [
+        "16.9",
+        "PPG"
+      ],
+      [
+        "6.6",
+        "RPG"
+      ],
+      [
+        "1.9",
+        "STL",
+        true
+      ],
+      [
+        "1.1",
+        "BLK",
+        true
+      ],
+      [
+        "52 / 36",
+        "FG% / 3P%"
+      ],
+      [
+        "~62%",
+        "TS%"
+      ]
+    ],
     "per40": "The catch: just <b>24.4 min/g</b> off the bench (SEC 6th Man of the Year). Hit <b>Per 40</b> and watch him leap into the rare-air corner — <b>3.1 steals + 1.8 blocks</b>, right up with Covington.",
     "note": "\"Freak defender — the question is whether he can be good enough on offence.\"",
-    "card": { "x": 1330, "y": 1470, "w": 560, "h": 360 } },
+    "card": {
+      "x": 1330,
+      "y": 1600,
+      "w": 560,
+      "h": 360
+    }
+  },
   "comps": [
-    { "key": "covington", "name": "Robert Covington", "meta": "Tennessee State · Senior · 2012-13  |  Undrafted, 2013", "photo": "covington.jpg",
-      "spg": 2.3, "bpg": 1.7, "mpg": 31.0,
-      "stats": [["17.0","PPG"],["8.0","RPG"],["2.3","STL",true],["1.7","BLK",true],["42%","career 3P"]],
+    {
+      "key": "covington",
+      "name": "Robert Covington",
+      "meta": "Tennessee State · Senior · 2012-13  |  Undrafted, 2013",
+      "photo": "covington.jpg",
+      "spg": 2.3,
+      "bpg": 1.7,
+      "mpg": 31.0,
+      "stats": [
+        [
+          "17.0",
+          "PPG"
+        ],
+        [
+          "8.0",
+          "RPG"
+        ],
+        [
+          "2.3",
+          "STL",
+          true
+        ],
+        [
+          "1.7",
+          "BLK",
+          true
+        ],
+        [
+          "42%",
+          "career 3P"
+        ]
+      ],
       "became": "Led the NBA in steals (2018) &amp; made <b>All-Defensive First Team</b>. The prototype 3&amp;D wing — exactly the shooting leap Eason needs.",
-      "rel": { "tag": "Closest match", "text": "dual steal + block freak, became All-Defense 3&amp;D", "lx": 1720, "ly": 900 },
-      "card": { "x": 2360, "y": 470, "w": 430, "h": 300 } },
-    { "key": "crowder", "name": "Jae Crowder", "meta": "Marquette · Senior · 2011-12  |  Drafted #34, 2012", "photo": "crowder.jpg",
-      "spg": 2.5, "bpg": 1.0, "mpg": 32.9,
-      "stats": [["17.5","PPG"],["8.4","RPG"],["2.5","STL",true],["1.0","BLK"],["35%","3P%"]],
+      "rel": {
+        "tag": "Closest match",
+        "text": "dual steal + block freak, became All-Defense 3&amp;D",
+        "lx": 1720,
+        "ly": 900
+      },
+      "card": {
+        "x": 2360,
+        "y": 470,
+        "w": 430,
+        "h": 300
+      }
+    },
+    {
+      "key": "crowder",
+      "name": "Jae Crowder",
+      "meta": "Marquette · Senior · 2011-12  |  Drafted #34, 2012",
+      "photo": "crowder.jpg",
+      "spg": 2.5,
+      "bpg": 1.0,
+      "mpg": 32.9,
+      "stats": [
+        [
+          "17.5",
+          "PPG"
+        ],
+        [
+          "8.4",
+          "RPG"
+        ],
+        [
+          "2.5",
+          "STL",
+          true
+        ],
+        [
+          "1.0",
+          "BLK"
+        ],
+        [
+          "35%",
+          "3P%"
+        ]
+      ],
       "became": "Big East POY → <b>12-year NBA starter</b>, 3&amp;D forward, started in two Finals (2020, 2021). The dependable floor.",
-      "rel": { "tag": "The floor", "text": "steals-heavy motor forward, 12-yr 3&amp;D starter", "lx": 1840, "ly": 1120 },
-      "card": { "x": 2380, "y": 1120, "w": 430, "h": 300 } },
-    { "key": "draymond", "name": "Draymond Green", "meta": "Michigan State · Senior · 2011-12  |  Drafted #35, 2012", "photo": "draymond.jpg",
-      "spg": 1.5, "bpg": 1.0, "mpg": 34.8,
-      "stats": [["16.2","PPG"],["10.6","RPG"],["3.8","AST"],["1.5","STL",true],["1.0","BLK",true]],
+      "rel": {
+        "tag": "The floor",
+        "text": "steals-heavy motor forward, 12-yr 3&amp;D starter",
+        "lx": 1840,
+        "ly": 1120
+      },
+      "card": {
+        "x": 2380,
+        "y": 1120,
+        "w": 430,
+        "h": 300
+      }
+    },
+    {
+      "key": "draymond",
+      "name": "Draymond Green",
+      "meta": "Michigan State · Senior · 2011-12  |  Drafted #35, 2012",
+      "photo": "draymond.jpg",
+      "spg": 1.5,
+      "bpg": 1.0,
+      "mpg": 34.8,
+      "stats": [
+        [
+          "16.2",
+          "PPG"
+        ],
+        [
+          "10.6",
+          "RPG"
+        ],
+        [
+          "3.8",
+          "AST"
+        ],
+        [
+          "1.5",
+          "STL",
+          true
+        ],
+        [
+          "1.0",
+          "BLK",
+          true
+        ]
+      ],
       "became": "Consensus National POY → <b>4× champion, DPOY, 4× All-Star</b>. Fewer college steals, but the do-everything brain. The dream ceiling.",
-      "rel": { "tag": "The ceiling", "text": "do-everything POY, defensive superstar &amp; hub", "lx": 1360, "ly": 1120, "align": "right" },
-      "card": { "x": 150, "y": 1060, "w": 430, "h": 330 } }
+      "rel": {
+        "tag": "The ceiling",
+        "text": "do-everything POY, defensive superstar &amp; hub",
+        "lx": 1360,
+        "ly": 1120,
+        "align": "right"
+      },
+      "card": {
+        "x": 150,
+        "y": 1060,
+        "w": 430,
+        "h": 330
+      }
+    }
   ]
 }
