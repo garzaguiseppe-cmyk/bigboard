@@ -187,12 +187,12 @@
   tools.querySelectorAll('[data-cv]').forEach(function(btn){ btn.addEventListener('click', function(e){ e.stopPropagation(); onBtn(btn.getAttribute('data-cv')); }); });
 
   // top nav box beside the revision table
-  function addTopNav(){ var mw=cv.querySelector('main.wrap'), rt=cv.querySelector('.revtable'); if(!mw)return;
+  function addTopNav(){ var rt=cv.querySelector('.revtable');
     var box=D.createElement('div'); box.className='cv-navtop';
-    box.innerHTML='<div class="h">Navigation</div><div class="bd">'+HAND+' <b>drag</b> to pan &middot; <b>scroll</b> &darr; the page &middot; <b>&#8984;/Ctrl+scroll</b> to zoom &middot; click a card&#39;s red <b>branch</b> to fly to it</div>';
-    mw.appendChild(box);
-    if(rt && window.innerWidth>980){ box.style.top=(rt.offsetTop)+'px'; box.style.right=(mw.clientWidth-rt.offsetLeft+18)+'px'; }
-    else { box.style.top='8px'; box.style.right='0px'; }
+    box.innerHTML='<div class="h">Navigation</div><div class="bd">'+HAND+' <b>drag</b> to pan &middot; <b>scroll</b> &darr; the page &middot; <b>&#8984;/Ctrl + scroll</b> to zoom</div>';
+    cv.appendChild(box);
+    if(rt && window.innerWidth>980){ var r=rt.getBoundingClientRect(), v=vp.getBoundingClientRect(); box.style.width='268px'; box.style.left=(r.left-v.left-268-22)+'px'; box.style.top=(r.top-v.top)+'px'; }
+    else { box.style.left='26px'; box.style.top='150px'; box.style.width='300px'; }
     navTopBottom=box.getBoundingClientRect().bottom; }
 
   apply();
