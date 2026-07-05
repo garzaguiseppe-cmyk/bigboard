@@ -120,6 +120,7 @@
       <table>
         <tr><td class="n">△1</td><td>Highlight videos added</td><td class="d">Jul 2026</td></tr>
         <tr><td class="n">△2</td><td>Jarace Walker &mdash; data branch added</td><td class="d">Jul 2026</td></tr>
+        <tr><td class="n">△3</td><td>Keyonte George &mdash; data branch added</td><td class="d">Jul 2026</td></tr>
       </table>
     </aside>
     <h1 class="title">2023 NBA<br>Draft<br>Big Board</h1>
@@ -161,7 +162,7 @@ const PLAYERS = [
   { tier:"Probably G-League", name:"Taylor Hendricks", comp:"", photo:"hendricks.jpg", fit:"contain", noClips:true, note:"Looks okay, I guess." },
   { tier:"Probably G-League", name:"Leonard Miller", comp:"", photo:"lmiller.jpg", noClips:true, note:"Looks unique offensively — no defence." },
   { tier:"Probably G-League", name:"Bilal Coulibaly", comp:"", photo:"bilal.jpg", noClips:true, note:"High upside." },
-  { tier:"Probably G-League", name:"Keyonte George", comp:"", photo:"keyonte.jpg", noClips:true, note:"Good shooter — high upside." },
+  { tier:"Probably G-League", name:"Keyonte George", comp:"", photo:"keyonte.jpg", noClips:true, note:"Good shooter — high upside.", branch:"keyonte", branchText:"Keyonte George by the numbers — the volume-scoring freshmen who beat the efficiency panic.", branchRev:3 },
   { tier:"Probably G-League", name:"Sidy Cissoko", comp:"", photo:"sidy.jpg", noClips:true, note:"" },
   { tier:"Probably G-League", name:"Dariq Whitehead", comp:"", photo:"whitehead.jpg", noClips:true, note:"Looks okay — injury concerns." },
   { tier:"Probably G-League", name:"Gradey Dick", comp:"Duncan Robinson (peak)", photo:"dick.jpg", noClips:true,
@@ -204,7 +205,7 @@ function playerHTML(p, rank){
     : `<div class="name"><span class="num">${rank}.</span> ${esc(p.name)}</div>`;
   const comp = p.comp?`<div class="comp"><span class="lab">Realistic Comp</span>${esc(p.comp)}</div>`:``;
   const note = p.note?`<p class="note">${esc(p.note)}</p>`:``;
-  const branch = p.branch?`<a class="databranch" href="#branch" data-branch="${esc(p.branch)}"${p.branchRev?` data-rev="${esc(String(p.branchRev))}"`:``}><span class="db-k">&#9635; The Data Branch</span><span class="db-t">Jarace Walker by the numbers &mdash; and the two-way forwards he could become.</span><span class="db-go">Open the data view &rarr;</span></a>`:``;
+  const branch = p.branch?`<a class="databranch" href="#branch" data-branch="${esc(p.branch)}"${p.branchRev?` data-rev="${esc(String(p.branchRev))}"`:``}><span class="db-k">&#9635; The Data Branch</span><span class="db-t">${p.branchText?esc(p.branchText):'Jarace Walker by the numbers &mdash; and the two-way forwards he could become.'}</span><span class="db-go">Open the data view &rarr;</span></a>`:``;
   const clipsHTML = p.noClips ? `` : `<div class="clips"${p.clipRev?` data-rev="${p.clipRev}"`:``}>${(p.clips&&p.clips.length?p.clips:[{label:"",url:""},{label:"",url:""}]).map(clipHTML).join("")}</div>`;
   return `<article class="player">${hero}${name}${comp}${note}${branch}${clipsHTML}</article>`;
 }

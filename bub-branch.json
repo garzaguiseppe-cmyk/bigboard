@@ -1,0 +1,225 @@
+{
+  "id": "bub",
+  "board": "2024",
+  "title": "BUB CARRINGTON — THE DATA BRANCH",
+  "subtitle": "2024 class · #14 · Pittsburgh",
+  "rareLabel": "RARE AIR — scoring AND running an offence at 18",
+  "fingerprint": {
+    "title": "THE THROWBACK MID-RANGE LEAD GUARD",
+    "text": "A 6'5\" freshman who lived in the <b>mid-range</b> — pull-ups and pace — while also running the offence. He took 2.5× more long twos than short ones and hit ~50% of them. Old-school shot-making in a three-happy era. Dots are freshman-year college numbers."
+  },
+  "axis": {
+    "x": {
+      "stat": "pts",
+      "short": "pts",
+      "label": "POINTS / GAME",
+      "min": 10,
+      "max": 22,
+      "p0": 900,
+      "p1": 2300,
+      "ticks": [
+        12,
+        14,
+        16,
+        18,
+        20
+      ],
+      "rare": 13.0
+    },
+    "y": {
+      "stat": "apg",
+      "short": "ast",
+      "label": "ASSISTS / GAME",
+      "min": 1.0,
+      "max": 5.0,
+      "p0": 1500,
+      "p1": 500,
+      "ticks": [
+        1.5,
+        2.5,
+        3.5,
+        4.5
+      ],
+      "rare": 3.5
+    }
+  },
+  "subject": {
+    "key": "bub",
+    "name": "Bub Carrington",
+    "meta": "Pittsburgh · Freshman · 2023-24  |  Drafted #14, 2024 (Washington)",
+    "pts": 13.8,
+    "apg": 4.1,
+    "hero": true,
+    "photo": "carrington.jpg",
+    "stats": [
+      [
+        "13.8",
+        "PPG"
+      ],
+      [
+        "4.1",
+        "APG",
+        true
+      ],
+      [
+        "5.2",
+        "RPG"
+      ],
+      [
+        "~50",
+        "LONG 2%",
+        true
+      ],
+      [
+        "78.5",
+        "FT%"
+      ],
+      [
+        "33",
+        "3P%"
+      ]
+    ],
+    "per40": "A throwback <b>mid-range assassin</b> — <b>~50% on long twos</b> — running an offence at 6'5\" as an 18-year-old freshman.",
+    "note": "\"Old-soul game — pull-ups and pace. Rare feel for 18.\"",
+    "card": {
+      "x": 1300,
+      "y": 1600,
+      "w": 560,
+      "h": 360
+    }
+  },
+  "comps": [
+    {
+      "key": "derozan",
+      "name": "DeMar DeRozan",
+      "meta": "USC · Freshman · 2008-09  |  Drafted #9, 2009",
+      "pts": 13.9,
+      "apg": 1.5,
+      "stats": [
+        [
+          "13.9",
+          "PPG"
+        ],
+        [
+          "1.5",
+          "APG"
+        ],
+        [
+          "52",
+          "FG%",
+          true
+        ],
+        [
+          "3.9",
+          "RPG"
+        ],
+        [
+          "mid-range",
+          "GAME",
+          true
+        ]
+      ],
+      "became": "#9 pick → <b>6× All-Star</b>, the last great mid-range scorer. Bub's spiritual comp.",
+      "rel": {
+        "tag": "The archetype",
+        "text": "the mid-range assassin, same frosh scoring",
+        "lx": 1377,
+        "ly": 1311
+      },
+      "card": {
+        "x": 2360,
+        "y": 470,
+        "w": 430,
+        "h": 300
+      }
+    },
+    {
+      "key": "coby",
+      "name": "Coby White",
+      "meta": "North Carolina · Freshman · 2018-19  |  Drafted #7, 2019",
+      "pts": 16.1,
+      "apg": 4.1,
+      "stats": [
+        [
+          "16.1",
+          "PPG",
+          true
+        ],
+        [
+          "4.1",
+          "APG",
+          true
+        ],
+        [
+          "35",
+          "3P%"
+        ],
+        [
+          "~54",
+          "TS%"
+        ],
+        [
+          "3.5",
+          "RPG"
+        ]
+      ],
+      "became": "#7 pick → <b>Most Improved, 20-a-game scorer</b>. Pace-and-pull-up lead guard.",
+      "rel": {
+        "tag": "The riser",
+        "text": "scoring lead guard who kept climbing",
+        "lx": 1634,
+        "ly": 661
+      },
+      "card": {
+        "x": 2380,
+        "y": 1120,
+        "w": 430,
+        "h": 300
+      }
+    },
+    {
+      "key": "cade",
+      "name": "Cade Cunningham",
+      "meta": "Oklahoma State · Freshman · 2020-21  |  Drafted #1, 2021",
+      "pts": 20.1,
+      "apg": 3.5,
+      "stats": [
+        [
+          "20.1",
+          "PPG",
+          true
+        ],
+        [
+          "3.5",
+          "APG"
+        ],
+        [
+          "~57",
+          "TS%"
+        ],
+        [
+          "6.2",
+          "RPG"
+        ],
+        [
+          "40",
+          "3P%"
+        ]
+      ],
+      "became": "#1 overall → <b>All-NBA lead guard</b>. The jumbo-guard creation ceiling.",
+      "rel": {
+        "tag": "The ceiling",
+        "text": "big lead guard, All-NBA",
+        "lx": 1868,
+        "ly": 811,
+        "align": "right"
+      },
+      "card": {
+        "x": 150,
+        "y": 1040,
+        "w": 430,
+        "h": 320
+      }
+    }
+  ]
+}

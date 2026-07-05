@@ -1,0 +1,219 @@
+{
+  "id": "keyonte",
+  "board": "2023",
+  "title": "KEYONTE GEORGE — THE DATA BRANCH",
+  "subtitle": "2023 class · #16 · Baylor",
+  "rareLabel": null,
+  "fingerprint": {
+    "title": "THE EFFICIENCY PANIC",
+    "text": "High-volume freshman scorers whose <b>shooting %</b> scared everyone off — and who became real NBA players anyway. Keyonte put up 15.3 a game on 37.6% shooting; the volume and shot-making were the signal, the efficiency was the noise. Dots are freshman-year college numbers."
+  },
+  "axis": {
+    "x": {
+      "stat": "pts",
+      "short": "pts",
+      "label": "POINTS / GAME",
+      "min": 13,
+      "max": 21,
+      "p0": 900,
+      "p1": 2300,
+      "ticks": [
+        14,
+        16,
+        18,
+        20
+      ]
+    },
+    "y": {
+      "stat": "ts",
+      "short": "ts%",
+      "label": "TRUE SHOOTING %",
+      "min": 46,
+      "max": 58,
+      "p0": 1500,
+      "p1": 500,
+      "ticks": [
+        48,
+        50,
+        52,
+        54,
+        56
+      ]
+    }
+  },
+  "subject": {
+    "key": "keyonte",
+    "name": "Keyonte George",
+    "meta": "Baylor · Freshman · 2022-23  |  Drafted #16, 2023 (Utah)",
+    "pts": 15.3,
+    "ts": 50.0,
+    "hero": true,
+    "photo": "keyonte.jpg",
+    "stats": [
+      [
+        "15.3",
+        "PPG",
+        true
+      ],
+      [
+        "2.8",
+        "APG"
+      ],
+      [
+        "37.6",
+        "FG%"
+      ],
+      [
+        "33.8",
+        "3P%"
+      ],
+      [
+        "2.3",
+        "3PM/G"
+      ],
+      [
+        "~50",
+        "TS%"
+      ]
+    ],
+    "per40": "<b>15.3 a game</b> as a freshman — but on <b>37.6% shooting</b>. The volume was real; the efficiency scared people. It shouldn't have.",
+    "note": "\"Shot-making is a skill — the misses were volume, not a broken jumper.\"",
+    "card": {
+      "x": 1300,
+      "y": 1600,
+      "w": 560,
+      "h": 360
+    }
+  },
+  "comps": [
+    {
+      "key": "ant",
+      "name": "Anthony Edwards",
+      "meta": "Georgia · Freshman · 2019-20  |  Drafted #1, 2020",
+      "pts": 19.1,
+      "ts": 50.0,
+      "stats": [
+        [
+          "19.1",
+          "PPG",
+          true
+        ],
+        [
+          "40",
+          "FG%"
+        ],
+        [
+          "29",
+          "3P%"
+        ],
+        [
+          "2.8",
+          "APG"
+        ],
+        [
+          "~50",
+          "TS%"
+        ]
+      ],
+      "became": "#1 overall → <b>All-NBA superstar</b>. The freshman efficiency panic that aged terribly.",
+      "rel": {
+        "tag": "Same story",
+        "text": "doubted for efficiency, became a superstar",
+        "lx": 1990,
+        "ly": 1103
+      },
+      "card": {
+        "x": 2360,
+        "y": 470,
+        "w": 430,
+        "h": 300
+      }
+    },
+    {
+      "key": "sexton",
+      "name": "Collin Sexton",
+      "meta": "Alabama · Freshman · 2017-18  |  Drafted #8, 2018",
+      "pts": 19.2,
+      "ts": 55.0,
+      "stats": [
+        [
+          "19.2",
+          "PPG",
+          true
+        ],
+        [
+          "45",
+          "FG%"
+        ],
+        [
+          "34",
+          "3P%"
+        ],
+        [
+          "3.6",
+          "APG"
+        ],
+        [
+          "~55",
+          "TS%"
+        ]
+      ],
+      "became": "#8 pick → <b>20-a-game NBA scorer</b>. Downhill freshman bucket-getter.",
+      "rel": {
+        "tag": "Bucket-getter",
+        "text": "volume frosh guard who scored in the NBA",
+        "lx": 2007,
+        "ly": 686
+      },
+      "card": {
+        "x": 2380,
+        "y": 1120,
+        "w": 430,
+        "h": 300
+      }
+    },
+    {
+      "key": "jbrown",
+      "name": "Jaylen Brown",
+      "meta": "California · Freshman · 2015-16  |  Drafted #3, 2016",
+      "pts": 14.6,
+      "ts": 52.0,
+      "stats": [
+        [
+          "14.6",
+          "PPG"
+        ],
+        [
+          "43",
+          "FG%"
+        ],
+        [
+          "29",
+          "3P%"
+        ],
+        [
+          "~52",
+          "TS%"
+        ],
+        [
+          "2.0",
+          "APG"
+        ]
+      ],
+      "became": "#3 pick → <b>NBA champion, All-NBA</b>. Raw freshman shooter who rebuilt his jumper.",
+      "rel": {
+        "tag": "The rebuild",
+        "text": "shaky frosh shooting, fixed it",
+        "lx": 970,
+        "ly": 936,
+        "align": "right"
+      },
+      "card": {
+        "x": 150,
+        "y": 1040,
+        "w": 430,
+        "h": 320
+      }
+    }
+  ]
+}

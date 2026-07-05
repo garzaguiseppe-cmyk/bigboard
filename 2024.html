@@ -85,6 +85,20 @@
   footer.site{border-top:1px solid var(--line);margin-top:20px;padding:24px 0 60px;text-align:center;
     color:var(--faint);font-size:12px;font-family:var(--mono);letter-spacing:.06em;text-transform:uppercase}
   @media (max-width:560px){ .clips{grid-template-columns:1fr} }
+  main.wrap{position:relative}
+  .revtable{position:absolute;top:8px;right:0;width:248px;background:var(--paper);border:2px solid var(--ink);border-radius:9px;overflow:hidden;z-index:6;font-family:var(--sans)}
+  .revtable .rt-h{font-family:var(--mono);font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:7px 10px;border-bottom:1.5px solid var(--ink)}
+  .revtable table{width:100%;border-collapse:collapse}
+  .revtable td{padding:5px 10px;border-top:1px solid var(--line);vertical-align:top;line-height:1.32;font-size:11px}
+  .revtable td.n{font-family:var(--mono);font-weight:700;color:#d0021b;width:24px}
+  .revtable td.d{color:var(--faint);text-align:right;white-space:nowrap;width:52px;font-size:10px}
+  .rev{color:#d0021b}
+  @media (max-width:980px){ main.wrap{position:static} .revtable{position:static;width:auto;margin:0 0 16px} }
+  .databranch{display:block;position:relative;margin:14px 0 8px;border:2px solid #d0021b;border-radius:12px;padding:13px 16px;background:#fff;text-decoration:none;color:var(--ink);max-width:60ch;transition:background .15s,box-shadow .15s}
+  .databranch:hover{background:#fff5f5;box-shadow:0 3px 14px rgba(208,2,27,.12)}
+  .databranch .db-k{display:block;font-family:var(--mono);font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#d0021b}
+  .databranch .db-t{display:block;font-size:13.5px;color:#333;margin:5px 0 8px;line-height:1.4}
+  .databranch .db-go{display:block;font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.04em}
 </style>
 </head>
 <body>
@@ -96,6 +110,9 @@
   </header>
 
   <main class="wrap">
+    <aside class="revtable"><div class="rt-h">Revisions &#9651;</div><table><tbody>
+      <tr><td class="n">&#9651;1</td><td>Bub Carrington &mdash; data branch added</td><td class="d">Jul 2026</td></tr>
+    </tbody></table></aside>
     <h1 class="title">2024 NBA<br>Draft<br>Big Board</h1>
     <div class="subtitle"><b>Big G's Big Board</b> &nbsp;·&nbsp; Top 30 &nbsp;·&nbsp; comps &amp; film</div>
     <div id="board"></div>
@@ -107,13 +124,6 @@
 <script>
 /* ================================================================
    EDIT THE BOARD HERE — this list is the only part you touch.
-   • Reorder a player  → move its { } block up or down (ranks auto-update).
-   • Change a tier      → edit the "tier" text; a new tier bar appears
-                          automatically whenever it changes.
-   • Add a photo        → put the image in an /images folder and set
-                          photo:"images/castle.jpg"
-   • Add a clip         → paste a YouTube / Vimeo / .mp4 link into url:""
-                          ("type":"down" makes the caption's dot red).
    ================================================================ */
 
 const PLAYERS = [
@@ -142,7 +152,7 @@ const PLAYERS = [
     ] },
   { tier:"Tier 3", name:"Bub Carrington", comp:"D'Angelo Russell", photo:"carrington.jpg",
     note:`Big lead guard (6'3 / 6'8 wing) with shooting and feel.
-World class middy.`, clips:[{label:"",url:""},{label:"",url:""}] },
+World class middy.`, branch:"bub", branchText:"Bub Carrington by the numbers — the throwback mid-range lead guards he echoes.", clips:[{label:"",url:""},{label:"",url:""}] },
 
   { tier:"Tier 4", name:"Tidjane Salaun", comp:"Tayshaun Prince", photo:"salaun.jpg", fit:"contain",
     note:"Complete project drafted purely on potential — the biggest motor I've seen in a draft pick and a psychotic winning mentality. Low-key I'd take him #1.",
@@ -245,8 +255,9 @@ function playerHTML(p, rank){
     : `<div class="name"><span class="num">${rank}.</span> ${esc(p.name)}</div>`;
   const comp = p.comp?`<div class="comp"><span class="lab">Realistic Comp</span>${esc(p.comp)}</div>`:``;
   const note = p.note?`<p class="note">${esc(p.note).split(String.fromCharCode(10)).join('<br>')}</p>`:``;
+  const branch = p.branch?`<a class="databranch" href="#branch" data-branch="${esc(p.branch)}"><span class="db-k">&#9635; The Data Branch</span><span class="db-t">${p.branchText?esc(p.branchText):(esc(p.name)+' by the numbers.')}</span><span class="db-go">Open the data view &rarr;</span></a>`:``;
   const clipsHTML = (p.noClips || !(p.clips&&p.clips.some(c=>(c.label&&c.label.trim())||(c.url&&c.url.trim())))) ? `` : `<div class="clips">${p.clips.map(clipHTML).join("")}</div>`;
-  return `<article class="player">${hero}${name}${comp}${note}${clipsHTML}</article>`;
+  return `<article class="player">${hero}${name}${comp}${note}${branch}${clipsHTML}</article>`;
 }
 const TIERS = {
   "Tier 1":"A tier of his own — the clear #1.",
@@ -274,5 +285,6 @@ function render(){
 }
 render();
 </script>
+<script src="branch-panel.js?v=13" defer></script>
 </body>
 </html>

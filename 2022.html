@@ -122,6 +122,7 @@
       <div class="rt-h">Revisions &#9651;</div>
       <table><tbody>
         <tr><td class="n">&#9651;1</td><td>Tari Eason &mdash; data branch added</td><td class="d">Jul 2026</td></tr>
+        <tr><td class="n">&#9651;2</td><td>Williams, Kessler &amp; Chet &mdash; data branches</td><td class="d">Jul 2026</td></tr>
       </tbody></table>
     </aside>
     <h1 class="title">2022 NBA<br>Draft<br>Big Board</h1>
@@ -141,7 +142,7 @@
 
 const PLAYERS = [
   { tier:"Tier 1", name:"Chet Holmgren", comp:"", photo:"chet.jpg",
-    note:"Safest #1.", clips:[{label:"",url:""},{label:"",url:""}] },
+    note:"Safest #1.", branch:"chet", branchText:"Chet Holmgren by the numbers — the unicorn quadrant where rim protection meets a three-point stroke.", branchRev:2, clips:[{label:"",url:""},{label:"",url:""}] },
   { tier:"Tier 2", name:"Jabari Smith Jr.", comp:"", photo:"jabari.jpg",
     note:"Most upside in the class.", clips:[{label:"",url:""},{label:"",url:""}] },
   { tier:"Tier 3", name:"Keegan Murray", comp:"", photo:"keegan.jpg",
@@ -170,11 +171,11 @@ const PLAYERS = [
   { tier:"Tier 8", name:"AJ Griffin", comp:"", photo:"griffin.jpg",
     note:"Good shooter — not gonna be good on D, too slow.", clips:[{label:"",url:""},{label:"",url:""}] },
 
-  { tier:"Notable Mentions", name:"Jalen Williams", comp:"Joe Ingles with more athleticism / Khris Middleton-ish", photo:"jwilliams.jpg", noClips:true, note:"" },
+  { tier:"Notable Mentions", name:"Jalen Williams", comp:"Joe Ingles with more athleticism / Khris Middleton-ish", photo:"jwilliams.jpg", noClips:true, note:"", branch:"jwill", branchText:"Jalen Williams by the numbers — the small-school two-way wings he statistically echoes.", branchRev:2 },
   { tier:"Notable Mentions", name:"TyTy Washington", comp:"", photo:"tyty.jpg", noClips:true, note:"" },
   { tier:"Notable Mentions", name:"Nikola Jovic", comp:"", photo:"jovic.jpg", noClips:true, note:"" },
   { tier:"Notable Mentions", name:"Patrick Baldwin Jr.", comp:"Davis Bertans", photo:"baldwin.jpg", noClips:true, note:"" },
-  { tier:"Notable Mentions", name:"Walker Kessler", comp:"Early-NBA Boban Marjanović, or Larry Sanders (Bucks)?", photo:"kessler.jpg", noClips:true, note:"" },
+  { tier:"Notable Mentions", name:"Walker Kessler", comp:"Early-NBA Boban Marjanović, or Larry Sanders (Bucks)?", photo:"kessler.jpg", noClips:true, note:"", branch:"kessler", branchText:"Walker Kessler by the numbers — measured against the greatest shot-blocking seasons ever.", branchRev:2 },
   { tier:"Notable Mentions", name:"Christian Braun", comp:"Bruce Brown", photo:"braun.jpg", noClips:true, note:"" },
   { tier:"Notable Mentions", name:"Mark Williams", comp:"Brook Lopez / Raef LaFrentz", photo:"markwilliams.jpg", noClips:true, note:"" },
   { tier:"Notable Mentions", name:"Dalen Terry", comp:"Livingston — not as good and no post moves, but same movement style up and down the court", photo:"terry.jpg", noClips:true, note:"" },
@@ -210,7 +211,7 @@ function playerHTML(p, rank){
     : `<div class="name"><span class="num">${rank}.</span> ${esc(p.name)}</div>`;
   const comp = p.comp?`<div class="comp"><span class="lab">Realistic Comp</span>${markRed(p.comp)}</div>`:``;
   const note = p.note?`<p class="note">${markRed(p.note)}</p>`:``;
-  const branch = p.branch?`<a class="databranch" href="#branch" data-branch="${esc(p.branch)}"${p.branchRev?` data-rev="${esc(String(p.branchRev))}"`:``}><span class="db-k">&#9635; The Data Branch</span><span class="db-t">Tari Eason by the numbers &mdash; and the historical forwards he could become.</span><span class="db-go">Open the data view &rarr;</span></a>`:``;
+  const branch = p.branch?`<a class="databranch" href="#branch" data-branch="${esc(p.branch)}"${p.branchRev?` data-rev="${esc(String(p.branchRev))}"`:``}><span class="db-k">&#9635; The Data Branch</span><span class="db-t">${p.branchText?esc(p.branchText):'Tari Eason by the numbers &mdash; and the historical forwards he could become.'}</span><span class="db-go">Open the data view &rarr;</span></a>`:``;
   const clipsHTML = (p.noClips || !(p.clips&&p.clips.some(c=>(c.label&&c.label.trim())||(c.url&&c.url.trim())))) ? `` : `<div class="clips">${p.clips.map(clipHTML).join("")}</div>`;
   return `<article class="player">${hero}${name}${comp}${note}${branch}${clipsHTML}</article>`;
 }

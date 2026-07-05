@@ -1,0 +1,223 @@
+{
+  "id": "harper",
+  "board": "2025",
+  "title": "DYLAN HARPER — THE DATA BRANCH",
+  "subtitle": "2025 class · #2 · Rutgers",
+  "rareLabel": "RARE AIR — elite freshman scoring AT efficiency",
+  "fingerprint": {
+    "title": "THE JUMBO FRESHMAN SCORER",
+    "text": "Freshman lead guards who scored 19+ a game AND did it efficiently — the short list of top-two picks. Harper set Rutgers' freshman scoring record and finished <b>79% of his shots at the rim</b>. Dots are freshman-year college numbers."
+  },
+  "axis": {
+    "x": {
+      "stat": "pts",
+      "short": "pts",
+      "label": "POINTS / GAME",
+      "min": 13,
+      "max": 22,
+      "p0": 900,
+      "p1": 2300,
+      "ticks": [
+        14,
+        16,
+        18,
+        20
+      ],
+      "rare": 18.0
+    },
+    "y": {
+      "stat": "ts",
+      "short": "ts%",
+      "label": "TRUE SHOOTING %",
+      "min": 46,
+      "max": 62,
+      "p0": 1500,
+      "p1": 500,
+      "ticks": [
+        48,
+        52,
+        56,
+        60
+      ],
+      "rare": 55.0
+    }
+  },
+  "subject": {
+    "key": "harper",
+    "name": "Dylan Harper",
+    "meta": "Rutgers · Freshman · 2024-25  |  Drafted #2, 2025 (San Antonio)",
+    "pts": 19.4,
+    "ts": 57.0,
+    "hero": true,
+    "photo": "harper2.jpg",
+    "stats": [
+      [
+        "19.4",
+        "PPG",
+        true
+      ],
+      [
+        "4.0",
+        "APG"
+      ],
+      [
+        "4.6",
+        "RPG"
+      ],
+      [
+        "48.4",
+        "FG%"
+      ],
+      [
+        "79",
+        "RIM%",
+        true
+      ],
+      [
+        "~57",
+        "TS%"
+      ]
+    ],
+    "per40": "<b>19.4 a game</b> as a freshman on <b>79% at the rim</b> — Rutgers' freshman scoring record, with the paint touch of a lottery lead guard.",
+    "note": "\"Downhill, ambidextrous, finishes through bodies. Star lead-guard tools.\"",
+    "card": {
+      "x": 1300,
+      "y": 1600,
+      "w": 560,
+      "h": 360
+    }
+  },
+  "comps": [
+    {
+      "key": "cade",
+      "name": "Cade Cunningham",
+      "meta": "Oklahoma State · Freshman · 2020-21  |  Drafted #1, 2021",
+      "pts": 20.1,
+      "ts": 57.0,
+      "stats": [
+        [
+          "20.1",
+          "PPG",
+          true
+        ],
+        [
+          "3.5",
+          "APG"
+        ],
+        [
+          "~57",
+          "TS%",
+          true
+        ],
+        [
+          "40",
+          "3P%"
+        ],
+        [
+          "6.2",
+          "RPG"
+        ]
+      ],
+      "became": "#1 overall → <b>All-NBA lead guard</b>. The jumbo-creator blueprint Harper is chasing.",
+      "rel": {
+        "tag": "The blueprint",
+        "text": "big freshman lead guard, #1 pick",
+        "lx": 2026,
+        "ly": 748
+      },
+      "card": {
+        "x": 2360,
+        "y": 470,
+        "w": 430,
+        "h": 300
+      }
+    },
+    {
+      "key": "ant",
+      "name": "Anthony Edwards",
+      "meta": "Georgia · Freshman · 2019-20  |  Drafted #1, 2020",
+      "pts": 19.1,
+      "ts": 50.0,
+      "stats": [
+        [
+          "19.1",
+          "PPG",
+          true
+        ],
+        [
+          "5.2",
+          "RPG"
+        ],
+        [
+          "~50",
+          "TS%"
+        ],
+        [
+          "29",
+          "3P%"
+        ],
+        [
+          "2.8",
+          "APG"
+        ]
+      ],
+      "became": "#1 overall → <b>All-NBA, Olympic gold</b>. Same freshman scoring, thinner efficiency.",
+      "rel": {
+        "tag": "Scoring ceiling",
+        "text": "same volume, became a superstar",
+        "lx": 1871,
+        "ly": 1186
+      },
+      "card": {
+        "x": 2380,
+        "y": 1120,
+        "w": 430,
+        "h": 300
+      }
+    },
+    {
+      "key": "rose",
+      "name": "Derrick Rose",
+      "meta": "Memphis · Freshman · 2007-08  |  Drafted #1, 2008",
+      "pts": 14.9,
+      "ts": 53.0,
+      "stats": [
+        [
+          "14.9",
+          "PPG"
+        ],
+        [
+          "4.7",
+          "APG",
+          true
+        ],
+        [
+          "4.5",
+          "RPG"
+        ],
+        [
+          "~53",
+          "TS%"
+        ],
+        [
+          "48",
+          "FG%"
+        ]
+      ],
+      "became": "#1 overall → <b>youngest MVP ever</b>. The downhill paint-guard archetype.",
+      "rel": {
+        "tag": "Paint archetype",
+        "text": "downhill freshman lead guard, MVP",
+        "lx": 986,
+        "ly": 998,
+        "align": "right"
+      },
+      "card": {
+        "x": 150,
+        "y": 1040,
+        "w": 430,
+        "h": 320
+      }
+    }
+  ]
+}

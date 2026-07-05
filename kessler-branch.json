@@ -1,0 +1,270 @@
+{
+  "id": "kessler",
+  "board": "2022",
+  "title": "WALKER KESSLER — THE DATA BRANCH",
+  "subtitle": "2022 class · #16 · Auburn",
+  "rareLabel": "RARE AIR — the highest block RATE of the modern era",
+  "fingerprint": {
+    "title": "RAW BLOCKS vs. THE RATE CROWN",
+    "text": "Down the bottom: the raw kings. <b>David Robinson's 207</b> (1986) is still the single-season record; <b>Shawn James blocked 6.5 a game</b>, the most ever. But block <b>rate</b> — the share of opponent shots you erase — is Kessler's. His <b>20.3%</b> is the best in over a decade, past even Anthony Davis's record-setting Kentucky team. Dots are single-season college numbers; older block rates are estimates."
+  },
+  "axis": {
+    "x": {
+      "stat": "bpg",
+      "short": "blk",
+      "label": "BLOCKS / GAME  (raw)",
+      "min": 3.0,
+      "max": 7.0,
+      "p0": 900,
+      "p1": 2300,
+      "ticks": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "rare": 4.0
+    },
+    "y": {
+      "stat": "blkpct",
+      "short": "blk%",
+      "label": "BLOCK %  (share of opp 2PT shots)",
+      "min": 10,
+      "max": 22,
+      "p0": 1500,
+      "p1": 500,
+      "ticks": [
+        12,
+        14,
+        16,
+        18,
+        20
+      ],
+      "rare": 19.0
+    }
+  },
+  "subject": {
+    "key": "kessler",
+    "name": "Walker Kessler",
+    "meta": "Auburn · Sophomore · 2021-22  |  Drafted #22, 2022 (Utah)",
+    "bpg": 4.6,
+    "blkpct": 20.3,
+    "hero": true,
+    "photo": "kessler.jpg",
+    "stats": [
+      [
+        "11.4",
+        "PPG"
+      ],
+      [
+        "8.1",
+        "RPG"
+      ],
+      [
+        "4.6",
+        "BPG",
+        true
+      ],
+      [
+        "20.3",
+        "BLK%",
+        true
+      ],
+      [
+        "61",
+        "FG%"
+      ],
+      [
+        "~66",
+        "TS%"
+      ]
+    ],
+    "per40": "A <b>20.3% block rate</b> — the highest in over a decade. Robinson and James blocked more per game; nobody since has erased a bigger <b>share</b> of shots.",
+    "note": "\"Least fun player in the country to shoot over.\"",
+    "card": {
+      "x": 1280,
+      "y": 1600,
+      "w": 560,
+      "h": 360
+    }
+  },
+  "comps": [
+    {
+      "key": "james",
+      "name": "Shawn James",
+      "meta": "Northeastern · Sophomore · 2005-06",
+      "bpg": 6.53,
+      "blkpct": 18.0,
+      "stats": [
+        [
+          "6.53",
+          "BPG",
+          true
+        ],
+        [
+          "~18",
+          "BLK%",
+          true
+        ],
+        [
+          "NCAA rec",
+          "BPG",
+          true
+        ],
+        [
+          "6'10\"",
+          "HT"
+        ]
+      ],
+      "became": "Averaged <b>6.5 blocks a game</b> — the highest single-season mark in NCAA history. Pure rim volume.",
+      "rel": {
+        "tag": "Most blocks/game ever",
+        "text": "the raw per-game record (6.53)",
+        "lx": 2160,
+        "ly": 773
+      },
+      "card": {
+        "x": 2380,
+        "y": 780,
+        "w": 430,
+        "h": 300
+      }
+    },
+    {
+      "key": "robinson",
+      "name": "David Robinson",
+      "meta": "Navy · Junior · 1985-86",
+      "bpg": 5.91,
+      "blkpct": 13.0,
+      "stats": [
+        [
+          "5.91",
+          "BPG",
+          true
+        ],
+        [
+          "207",
+          "BLOCKS",
+          true
+        ],
+        [
+          "22.7",
+          "PPG"
+        ],
+        [
+          "13.0",
+          "RPG"
+        ],
+        [
+          "~13",
+          "BLK%"
+        ]
+      ],
+      "became": "<b>207 blocks in a season</b> — still the all-time record, set the first year blocks were tracked. And 22.7 / 13.0 on top. The Admiral.",
+      "rel": {
+        "tag": "The all-time record",
+        "text": "207 blocks — most ever, way back in '86",
+        "lx": 1942,
+        "ly": 1190
+      },
+      "card": {
+        "x": 2360,
+        "y": 360,
+        "w": 430,
+        "h": 300
+      }
+    },
+    {
+      "key": "davis",
+      "name": "Anthony Davis",
+      "meta": "Kentucky · Freshman · 2011-12",
+      "bpg": 4.7,
+      "blkpct": 13.7,
+      "stats": [
+        [
+          "4.7",
+          "BPG",
+          true
+        ],
+        [
+          "13.7",
+          "BLK%",
+          true
+        ],
+        [
+          "14.2",
+          "PPG"
+        ],
+        [
+          "10.4",
+          "RPG"
+        ],
+        [
+          "62",
+          "FG%"
+        ]
+      ],
+      "became": "National POY → <b>generational two-way superstar</b>. Made Kentucky the best shot-blocking team ever — at a rate 6.6 points below Kessler's.",
+      "rel": {
+        "tag": "The benchmark",
+        "text": "record-team blocker — Kessler's rate beat it",
+        "lx": 1280,
+        "ly": 1132,
+        "align": "right"
+      },
+      "card": {
+        "x": 150,
+        "y": 1030,
+        "w": 430,
+        "h": 300
+      }
+    },
+    {
+      "key": "chet",
+      "name": "Chet Holmgren",
+      "meta": "Gonzaga · Freshman · 2021-22",
+      "bpg": 3.7,
+      "blkpct": 12.0,
+      "stats": [
+        [
+          "3.7",
+          "BPG",
+          true
+        ],
+        [
+          "~12",
+          "BLK%"
+        ],
+        [
+          "14.1",
+          "PPG"
+        ],
+        [
+          "39",
+          "3P%",
+          true
+        ],
+        [
+          "61",
+          "FG%"
+        ]
+      ],
+      "became": "#2 overall, the unicorn from the same 2022 class → <b>All-Rookie, All-Defensive</b>. More offence, lower block rate.",
+      "rel": {
+        "tag": "Class of 2022 twin",
+        "text": "the other historic 2022 blocker",
+        "lx": 930,
+        "ly": 1273,
+        "align": "right"
+      },
+      "card": {
+        "x": 150,
+        "y": 480,
+        "w": 430,
+        "h": 300
+      },
+      "photo": "chet.jpg"
+    }
+  ]
+}

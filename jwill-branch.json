@@ -1,0 +1,224 @@
+{
+  "id": "jwill",
+  "board": "2022",
+  "title": "JALEN WILLIAMS — THE DATA BRANCH",
+  "subtitle": "2022 class · #24 · Santa Clara (WCC)",
+  "rareLabel": "RARE AIR — high scoring AND elite efficiency",
+  "fingerprint": {
+    "title": "THE SMALL-SCHOOL TWO-WAY WING",
+    "text": "Wings from small conferences who scored a ton AND at absurd efficiency — the profile that keeps translating to NBA stardom. Jalen did it with a <b>7'2\" wingspan</b> nobody in the WCC could bother. Dots are draft-year college numbers."
+  },
+  "axis": {
+    "x": {
+      "stat": "pts",
+      "short": "pts",
+      "label": "POINTS / GAME",
+      "min": 14,
+      "max": 22,
+      "p0": 900,
+      "p1": 2300,
+      "ticks": [
+        14,
+        16,
+        18,
+        20
+      ],
+      "rare": 16.0
+    },
+    "y": {
+      "stat": "ts",
+      "short": "ts%",
+      "label": "TRUE SHOOTING %",
+      "min": 48,
+      "max": 66,
+      "p0": 1500,
+      "p1": 500,
+      "ticks": [
+        50,
+        54,
+        58,
+        62
+      ],
+      "rare": 57.0
+    }
+  },
+  "subject": {
+    "key": "jwill",
+    "name": "Jalen Williams",
+    "meta": "Santa Clara · Junior · 2021-22  |  Drafted #12, 2022 (Oklahoma City)",
+    "pts": 18.0,
+    "ts": 60.1,
+    "hero": true,
+    "photo": "jwilliams.jpg",
+    "stats": [
+      [
+        "18.0",
+        "PPG"
+      ],
+      [
+        "4.2",
+        "APG",
+        true
+      ],
+      [
+        "4.4",
+        "RPG"
+      ],
+      [
+        "60",
+        "TS%",
+        true
+      ],
+      [
+        "39.6",
+        "3P%"
+      ],
+      [
+        "7'2\"",
+        "WINGSPAN",
+        true
+      ]
+    ],
+    "per40": "The only player in the country at <b>18 / 4 / 4</b> on <b>56% inside</b> and <b>40% from three</b> — a jumbo two-way wing hiding in the WCC.",
+    "note": "\"Mid-major steal — the arms and the efficiency don't lie.\"",
+    "card": {
+      "x": 1300,
+      "y": 1600,
+      "w": 560,
+      "h": 360
+    }
+  },
+  "comps": [
+    {
+      "key": "bane",
+      "name": "Desmond Bane",
+      "meta": "TCU · Senior · 2019-20  |  Drafted #30, 2020",
+      "pts": 16.6,
+      "ts": 63.0,
+      "stats": [
+        [
+          "16.6",
+          "PPG"
+        ],
+        [
+          "3.9",
+          "APG",
+          true
+        ],
+        [
+          "44",
+          "3P%",
+          true
+        ],
+        [
+          "45",
+          "FG%"
+        ],
+        [
+          "6.4",
+          "RPG"
+        ]
+      ],
+      "became": "Last pick of the first round → <b>All-NBA-level shot-making wing</b>. The efficiency-and-passing blueprint.",
+      "rel": {
+        "tag": "Efficiency match",
+        "text": "efficient scoring wing who translated",
+        "lx": 1377,
+        "ly": 603
+      },
+      "card": {
+        "x": 2360,
+        "y": 470,
+        "w": 430,
+        "h": 300
+      }
+    },
+    {
+      "key": "pgeorge",
+      "name": "Paul George",
+      "meta": "Fresno State · Sophomore · 2009-10  |  Drafted #10, 2010",
+      "pts": 16.8,
+      "ts": 55.0,
+      "stats": [
+        [
+          "16.8",
+          "PPG"
+        ],
+        [
+          "7.2",
+          "RPG"
+        ],
+        [
+          "2.2",
+          "STL",
+          true
+        ],
+        [
+          "3.0",
+          "APG"
+        ],
+        [
+          "35",
+          "3P%"
+        ]
+      ],
+      "became": "Mid-major unknown → <b>9× All-Star, All-NBA two-way wing</b>. The length-and-scoring ceiling.",
+      "rel": {
+        "tag": "The ceiling",
+        "text": "long two-way wing from a small school",
+        "lx": 1412,
+        "ly": 1047
+      },
+      "card": {
+        "x": 2380,
+        "y": 1120,
+        "w": 430,
+        "h": 300
+      }
+    },
+    {
+      "key": "kawhi",
+      "name": "Kawhi Leonard",
+      "meta": "San Diego State · Sophomore · 2010-11  |  Drafted #15, 2011",
+      "pts": 15.5,
+      "ts": 53.0,
+      "stats": [
+        [
+          "15.5",
+          "PPG"
+        ],
+        [
+          "10.6",
+          "RPG",
+          true
+        ],
+        [
+          "1.4",
+          "STL"
+        ],
+        [
+          "44",
+          "FG%"
+        ],
+        [
+          "2.6",
+          "APG"
+        ]
+      ],
+      "became": "Aztec forward → <b>2× Finals MVP, 2× DPOY</b>. The giant-hands two-way archetype.",
+      "rel": {
+        "tag": "The dream",
+        "text": "small-school wing, all-time defender",
+        "lx": 952,
+        "ly": 1158,
+        "align": "right"
+      },
+      "card": {
+        "x": 150,
+        "y": 1040,
+        "w": 430,
+        "h": 320
+      }
+    }
+  ]
+}

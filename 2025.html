@@ -87,6 +87,11 @@
   footer.site{border-top:1px solid var(--line);margin-top:20px;padding:24px 0 60px;text-align:center;
     color:var(--faint);font-size:12px;font-family:var(--mono);letter-spacing:.06em;text-transform:uppercase}
   @media (max-width:560px){ .clips{grid-template-columns:1fr} }
+  .databranch{display:block;position:relative;margin:14px 0 8px;border:2px solid #d0021b;border-radius:12px;padding:13px 16px;background:#fff;text-decoration:none;color:var(--ink);max-width:60ch;transition:background .15s,box-shadow .15s}
+  .databranch:hover{background:#fff5f5;box-shadow:0 3px 14px rgba(208,2,27,.12)}
+  .databranch .db-k{display:block;font-family:var(--mono);font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#d0021b}
+  .databranch .db-t{display:block;font-size:13.5px;color:#333;margin:5px 0 8px;line-height:1.4}
+  .databranch .db-go{display:block;font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.04em}
 </style>
 </head>
 <body>
@@ -104,6 +109,7 @@
         <tr><td class="n">△2</td><td>VJ — Ron Harper Sr. comp added</td><td class="d">Jul 2026</td></tr>
         <tr><td class="n">△3</td><td>Cooper — play-style comp added</td><td class="d">Jul 2026</td></tr>
         <tr><td class="n">△4</td><td>Highlight videos added</td><td class="d">Jul 2026</td></tr>
+        <tr><td class="n">△5</td><td>Dylan Harper — data branch added</td><td class="d">Jul 2026</td></tr>
       </table>
     </aside>
     <h1 class="title">2025 NBA<br>Draft<br>Big Board</h1>
@@ -118,7 +124,7 @@
    Same rules as the 2024 board. Add a tier by setting the "tier" text. */
 const PLAYERS = [
   { tier:"Generational", name:"Cooper Flagg", comp:"Larry Bird (cos white and level of talent) (also with defence) ~~— but play style AK-47, Scottie Pippen / Young GARNETT / incomparable △3~~", photo:"cooper.jpg", note:"", clipRev:4, clips:[{label:"Verticality",url:"cooper-vert.mp4"},{label:"Pull up game and range at that size",url:"cooper-pullup.mp4"}] },
-  { tier:"Inseparable", name:"Dylan Harper", comp:"Jalen Brunson — effortless / polished scoring. ~~[Is this a ball player's son thing?] △1~~", photo:"harper2.jpg", note:"", noClips:true },
+  { tier:"Inseparable", name:"Dylan Harper", comp:"Jalen Brunson — effortless / polished scoring. ~~[Is this a ball player's son thing?] △1~~", photo:"harper2.jpg", note:"", branch:"harper", branchText:"Dylan Harper by the numbers — the all-time freshman scoring guards he ran with.", noClips:true },
   { tier:"Inseparable", name:"VJ Edgecombe", comp:"Smart Latrell Sprewell ~~/ Ron Harper Sr. pre-injury △2~~", photo:"vj.jpg", note:"", noClips:true },
   { tier:"The Rest", name:"Collin Murray-Boyles", comp:"", photo:"murrayboyles.jpg", note:"", noClips:true },
   { tier:"The Rest", name:"Khaman Maluach", comp:"", photo:"maluach3.jpg", note:"", noClips:true },
@@ -156,8 +162,9 @@ function playerHTML(p, rank){
     : `<div class="name"><span class="num">${rank}.</span> ${esc(p.name)}</div>`;
   const comp = p.comp?`<div class="comp"><span class="lab">Realistic Comp</span>${markRed(p.comp)}</div>`:``;
   const note = p.note?`<p class="note">${esc(p.note)}</p>`:``;
+  const branch = p.branch?`<a class="databranch" href="#branch" data-branch="${esc(p.branch)}"><span class="db-k">&#9635; The Data Branch</span><span class="db-t">${p.branchText?esc(p.branchText):(esc(p.name)+' by the numbers.')}</span><span class="db-go">Open the data view &rarr;</span></a>`:``;
   const clipsHTML = p.noClips ? `` : `<div class="clips"${p.clipRev?` data-rev="${p.clipRev}"`:``}>${(p.clips&&p.clips.length?p.clips:[{label:"",url:""},{label:"",url:""}]).map(clipHTML).join("")}</div>`;
-  return `<article class="player">${hero}${name}${comp}${note}${clipsHTML}</article>`;
+  return `<article class="player">${hero}${name}${comp}${note}${branch}${clipsHTML}</article>`;
 }
 const TIERS = {
   "Inseparable":"Inseparable — but well below Cooper.",
@@ -207,5 +214,6 @@ setTimeout(drawClouds,60);
 addEventListener("load",drawClouds);
 addEventListener("resize",function(){clearTimeout(window._rc);window._rc=setTimeout(drawClouds,150);});
 </script>
+<script src="branch-panel.js?v=13" defer></script>
 </body>
 </html>

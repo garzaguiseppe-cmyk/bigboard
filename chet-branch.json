@@ -1,0 +1,227 @@
+{
+  "id": "chet",
+  "board": "2022",
+  "title": "CHET HOLMGREN — THE DATA BRANCH",
+  "subtitle": "2022 class · #2 · Gonzaga",
+  "rareLabel": "RARE AIR — elite rim protection AND floor spacing",
+  "fingerprint": {
+    "title": "THE UNICORN QUADRANT",
+    "text": "Bigs almost never live here: <b>block a ton</b> AND <b>shoot 40% from three</b>. Chet erased 3.7 shots a game and spaced the floor at ~70% true shooting — the two things centres are told to pick one of. Dots are draft-year college numbers."
+  },
+  "axis": {
+    "x": {
+      "stat": "bpg",
+      "short": "blk",
+      "label": "BLOCKS / GAME",
+      "min": 2.6,
+      "max": 5.0,
+      "p0": 900,
+      "p1": 2300,
+      "ticks": [
+        3.0,
+        3.5,
+        4.0,
+        4.5
+      ],
+      "rare": 3.0
+    },
+    "y": {
+      "stat": "tp",
+      "short": "3P%",
+      "label": "THREE-POINT %",
+      "min": 0,
+      "max": 44,
+      "p0": 1500,
+      "p1": 500,
+      "ticks": [
+        0,
+        10,
+        20,
+        30,
+        40
+      ],
+      "rare": 30.0
+    }
+  },
+  "subject": {
+    "key": "chet",
+    "name": "Chet Holmgren",
+    "meta": "Gonzaga · Freshman · 2021-22  |  Drafted #2, 2022 (Oklahoma City)",
+    "bpg": 3.7,
+    "tp": 39.0,
+    "hero": true,
+    "photo": "chet.jpg",
+    "stats": [
+      [
+        "14.1",
+        "PPG"
+      ],
+      [
+        "9.9",
+        "RPG"
+      ],
+      [
+        "3.7",
+        "BPG",
+        true
+      ],
+      [
+        "39.0",
+        "3P%",
+        true
+      ],
+      [
+        "60.7",
+        "FG%",
+        true
+      ],
+      [
+        "~70",
+        "TS%"
+      ]
+    ],
+    "per40": "Blocked <b>3.7 a game</b> AND shot <b>39% from three</b> at <b>~70% true shooting</b>. Seven-footers don't get to do both.",
+    "note": "\"A unicorn — if the frame holds, he warps a defence and spaces a floor.\"",
+    "card": {
+      "x": 1300,
+      "y": 1600,
+      "w": 560,
+      "h": 360
+    }
+  },
+  "comps": [
+    {
+      "key": "jjj",
+      "name": "Jaren Jackson Jr.",
+      "meta": "Michigan State · Freshman · 2017-18  |  Drafted #4, 2018",
+      "bpg": 3.0,
+      "tp": 39.6,
+      "stats": [
+        [
+          "3.0",
+          "BPG",
+          true
+        ],
+        [
+          "39.6",
+          "3P%",
+          true
+        ],
+        [
+          "10.9",
+          "PPG"
+        ],
+        [
+          "51",
+          "FG%"
+        ],
+        [
+          "5.8",
+          "RPG"
+        ]
+      ],
+      "became": "Spartan freshman → <b>Defensive Player of the Year, All-Star</b>. The other block-and-shoot big.",
+      "rel": {
+        "tag": "The fellow unicorn",
+        "text": "blocked shots AND shot 40% from three",
+        "lx": 1155,
+        "ly": 536
+      },
+      "card": {
+        "x": 2360,
+        "y": 470,
+        "w": 430,
+        "h": 300
+      }
+    },
+    {
+      "key": "davis",
+      "name": "Anthony Davis",
+      "meta": "Kentucky · Freshman · 2011-12  |  Drafted #1, 2012",
+      "bpg": 4.7,
+      "tp": 0.0,
+      "stats": [
+        [
+          "4.7",
+          "BPG",
+          true
+        ],
+        [
+          "0",
+          "3PM"
+        ],
+        [
+          "14.2",
+          "PPG"
+        ],
+        [
+          "10.4",
+          "RPG"
+        ],
+        [
+          "62",
+          "FG%"
+        ]
+      ],
+      "became": "National POY → <b>generational superstar</b>. Elite rim protection — but no college three.",
+      "rel": {
+        "tag": "Blocks, no spacing",
+        "text": "all-time blocker who didn't shoot it",
+        "lx": 2147,
+        "ly": 1436
+      },
+      "card": {
+        "x": 2380,
+        "y": 1120,
+        "w": 430,
+        "h": 300
+      }
+    },
+    {
+      "key": "kessler",
+      "name": "Walker Kessler",
+      "meta": "Auburn · Sophomore · 2021-22  |  Drafted #22, 2022",
+      "bpg": 4.6,
+      "tp": 0.0,
+      "stats": [
+        [
+          "4.6",
+          "BPG",
+          true
+        ],
+        [
+          "20.3",
+          "BLK%",
+          true
+        ],
+        [
+          "11.4",
+          "PPG"
+        ],
+        [
+          "8.1",
+          "RPG"
+        ],
+        [
+          "0",
+          "3PM"
+        ]
+      ],
+      "became": "#22 pick → <b>NBA blocks leader, All-Defensive</b>. The purer rim protector — no floor spacing.",
+      "rel": {
+        "tag": "Class of 2022 twin",
+        "text": "higher block rate, no three-point game",
+        "lx": 1857,
+        "ly": 1436,
+        "align": "right"
+      },
+      "card": {
+        "x": 150,
+        "y": 1040,
+        "w": 430,
+        "h": 320
+      },
+      "photo": "kessler.jpg"
+    }
+  ]
+}
