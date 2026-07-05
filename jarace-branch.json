@@ -1,0 +1,37 @@
+{
+  "id": "jarace", "board": "2023",
+  "title": "JARACE WALKER — THE DATA BRANCH", "subtitle": "2023 class · #3 · Houston",
+  "rareLabel": "RARE AIR — passes AND defends like a star",
+  "fingerprint": { "title": "THE TWO-WAY CONNECTOR",
+    "text": "Forwards who guard everything AND create for others. Jarace already defends like this group — the question scouts ask is whether his passing (flashes now, 1.8 apg) climbs toward the Barnes / Draymond tier. Dots are draft-year college numbers." },
+  "axis": {
+    "x": { "stat": "apg", "short": "ast", "label": "ASSISTS / GAME", "min": 1.0, "max": 4.5, "p0": 900, "p1": 2300, "ticks": [1,2,3,4], "rare": 3.0 },
+    "y": { "stat": "stocks", "short": "stk", "label": "STOCKS (STL+BLK) / GAME", "min": 1.6, "max": 2.8, "p0": 1500, "p1": 500, "ticks": [1.6,2.0,2.4,2.8], "rare": 2.3 }
+  },
+  "subject": { "key": "jarace", "name": "Jarace Walker", "meta": "Houston · Freshman · 2022-23  |  Drafted #8, 2023 (Washington to Indiana)",
+    "apg": 1.8, "stocks": 2.2, "hero": true,
+    "stats": [["11.2","PPG"],["6.8","RPG"],["1.8","AST",true],["2.2","STOCKS",true],["47/35/66","FG / 3P / FT"]],
+    "per40": "Guards 1–5; <b>AAC Rookie of the Year</b> at 6'8\", 240. Your eye-test comp: <b>Andrei Kirilenko</b>. The data question — does the passing catch up to the defence?",
+    "note": "\"Mean — high in the defensive analytics, and he can shoot (kinda)!\"",
+    "card": { "x": 940, "y": 1560, "w": 560, "h": 360 } },
+  "comps": [
+    { "key": "barnes", "name": "Scottie Barnes", "meta": "Florida State · Freshman · 2020-21  |  Drafted #4, 2021",
+      "apg": 4.1, "stocks": 1.9,
+      "stats": [["10.3","PPG"],["4.1","AST",true],["1.9","STOCKS",true],["1.5","STL"],["27%","3P"]],
+      "became": "ACC Frosh of the Year → <b>2022 Rookie of the Year, 2024 All-Star</b>. The passing forward who popped — Jarace's dream if the feel translates.",
+      "rel": { "tag": "The dream", "text": "passing forward, ROY &amp; All-Star", "lx": 1660, "ly": 1150 },
+      "card": { "x": 2380, "y": 1140, "w": 430, "h": 300 } },
+    { "key": "sochan", "name": "Jeremy Sochan", "meta": "Baylor · Freshman · 2021-22  |  Drafted #9, 2022",
+      "apg": 1.8, "stocks": 2.0,
+      "stats": [["9.2","PPG"],["6.4","RPG"],["1.8","AST",true],["2.0","STOCKS",true],["30%","3P"]],
+      "became": "Big 12 Sixth Man → versatile switch defender for the Spurs. <b>Already on your 2022 board</b> (Draymond potential). The grounded floor.",
+      "rel": { "tag": "The floor", "text": "switch defender — your Sochan comp!", "lx": 980, "ly": 1075, "align": "right" },
+      "card": { "x": 150, "y": 980, "w": 430, "h": 300 } },
+    { "key": "draymond", "name": "Draymond Green", "meta": "Michigan State · Senior · 2011-12  |  Drafted #35, 2012",
+      "apg": 3.8, "stocks": 2.5,
+      "stats": [["16.2","PPG"],["10.6","RPG"],["3.8","AST",true],["2.5","STOCKS",true],["1.0","BLK"]],
+      "became": "Consensus National POY → <b>4× champion, DPOY, 4× All-Star</b>. The do-everything connector ceiling.",
+      "rel": { "tag": "The ceiling", "text": "do-everything hub &amp; DPOY", "lx": 1500, "ly": 820 },
+      "card": { "x": 2380, "y": 470, "w": 430, "h": 300 } }
+  ]
+}

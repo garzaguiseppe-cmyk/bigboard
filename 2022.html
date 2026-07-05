@@ -164,7 +164,7 @@ const PLAYERS = [
     note:"MPJ-type risk and player — can go off but won't try on D. A potential Bradley Beal without the motor, so a huge risk. Second-most upside behind Jabari, and only this high because of it — could be top 5 with a motor, or he's Dion Waiters.", clips:[{label:"",url:""},{label:"",url:""}] },
   { tier:"Tier 8", name:"Tari Eason", comp:"", photo:"eason.jpg", fit:"contain",
     note:"Freak defender — the question is whether he can be good enough on offence.",
-    branch:"tari-eason-branch.html", branchRev:1, clips:[{label:"",url:""},{label:"",url:""}] },
+    branch:"eason", branchRev:1, clips:[{label:"",url:""},{label:"",url:""}] },
   { tier:"Tier 8", name:"Jalen Duren", comp:"", photo:"duren.jpg",
     note:"", clips:[{label:"",url:""},{label:"",url:""}] },
   { tier:"Tier 8", name:"AJ Griffin", comp:"", photo:"griffin.jpg",
@@ -210,7 +210,7 @@ function playerHTML(p, rank){
     : `<div class="name"><span class="num">${rank}.</span> ${esc(p.name)}</div>`;
   const comp = p.comp?`<div class="comp"><span class="lab">Realistic Comp</span>${markRed(p.comp)}</div>`:``;
   const note = p.note?`<p class="note">${markRed(p.note)}</p>`:``;
-  const branch = p.branch?`<a class="databranch" href="${esc(p.branch)}"${p.branchRev?` data-rev="${esc(String(p.branchRev))}"`:``}><span class="db-k">&#9635; The Data Branch</span><span class="db-t">Tari Eason by the numbers &mdash; and the historical forwards he could become.</span><span class="db-go">Open the data view &rarr;</span></a>`:``;
+  const branch = p.branch?`<a class="databranch" href="#branch" data-branch="${esc(p.branch)}"${p.branchRev?` data-rev="${esc(String(p.branchRev))}"`:``}><span class="db-k">&#9635; The Data Branch</span><span class="db-t">Tari Eason by the numbers &mdash; and the historical forwards he could become.</span><span class="db-go">Open the data view &rarr;</span></a>`:``;
   const clipsHTML = (p.noClips || !(p.clips&&p.clips.some(c=>(c.label&&c.label.trim())||(c.url&&c.url.trim())))) ? `` : `<div class="clips">${p.clips.map(clipHTML).join("")}</div>`;
   return `<article class="player">${hero}${name}${comp}${note}${branch}${clipsHTML}</article>`;
 }
@@ -266,5 +266,6 @@ render();
 setTimeout(drawClouds,60); addEventListener("load",drawClouds);
 addEventListener("resize",function(){clearTimeout(window._rc);window._rc=setTimeout(drawClouds,150);});
 </script>
+<script src="branch-panel.js" defer></script>
 </body>
 </html>
