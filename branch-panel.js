@@ -170,7 +170,7 @@
     if(active&&active.id===id){ focusRect(active.targets[active.data.subject.key]); return; }
     if(active) closeBranch(active);
     var b={id:id,door:door,mode:'pg'};
-    fetch(id+'-branch.json').then(function(r){return r.json();}).then(function(data){ b.data=data;
+    fetch(id+'-branch.json?ts='+Date.now()).then(function(r){return r.json();}).then(function(data){ b.data=data;
       var dr=rectOf(door), mr=rectOf(cv.querySelector('main.wrap'));
       b.bLeft=mr.x+mr.w+130; b.titleY=dr.y; b.planeTop=b.titleY-PH;
       var wrap=D.createElement('div'); wrap.className='cv-branch'; wrap.style.left=b.bLeft+'px'; wrap.style.top=b.planeTop+'px';
