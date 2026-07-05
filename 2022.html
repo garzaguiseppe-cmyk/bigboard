@@ -85,6 +85,28 @@
   footer.site{border-top:1px solid var(--line);margin-top:20px;padding:24px 0 60px;text-align:center;
     color:var(--faint);font-size:12px;font-family:var(--mono);letter-spacing:.06em;text-transform:uppercase}
   @media (max-width:560px){ .clips{grid-template-columns:1fr} }
+
+  /* ---- architecture revision system ---- */
+  main.wrap{position:relative}
+  .revtable{position:absolute;top:8px;right:0;width:252px;background:var(--paper);border:2px solid var(--ink);
+    border-radius:9px;overflow:hidden;z-index:6;font-family:var(--sans)}
+  .revtable .rt-h{font-family:var(--mono);font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:7px 10px;border-bottom:1.5px solid var(--ink)}
+  .revtable table{width:100%;border-collapse:collapse}
+  .revtable td{padding:5px 10px;border-top:1px solid var(--line);vertical-align:top;line-height:1.32;font-size:11px}
+  .revtable td.n{font-family:var(--mono);font-weight:700;color:var(--red);width:22px}
+  .revtable td.d{color:var(--faint);text-align:right;white-space:nowrap;width:52px;font-size:10px}
+  .rev{color:var(--red)}
+  @media (max-width:980px){ main.wrap{position:static} .revtable{position:static;width:auto;margin:16px 0 0} }
+
+  /* ---- data branch door ---- */
+  .databranch{display:block;position:relative;margin:14px 0 8px;border:2px solid var(--red);border-radius:12px;
+    padding:13px 16px;background:#fff;text-decoration:none;color:var(--ink);max-width:60ch;transition:background .15s,box-shadow .15s}
+  .databranch:hover{background:#fff5f5;box-shadow:0 3px 14px rgba(208,2,27,.12)}
+  .databranch .db-k{display:block;font-family:var(--mono);font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--red)}
+  .databranch .db-t{display:block;font-size:13.5px;color:#333;margin:5px 0 8px;line-height:1.4}
+  .databranch .db-go{display:block;font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.04em}
+  .revcloud{position:absolute;pointer-events:none;overflow:visible;z-index:3}
+  :root{--red:#d0021b}
 </style>
 </head>
 <body>
@@ -96,6 +118,12 @@
   </header>
 
   <main class="wrap">
+    <aside class="revtable">
+      <div class="rt-h">Revisions &#9651;</div>
+      <table><tbody>
+        <tr><td class="n">&#9651;1</td><td>Tari Eason &mdash; data branch added</td><td class="d">Jul 2026</td></tr>
+      </tbody></table>
+    </aside>
     <h1 class="title">2022 NBA<br>Draft<br>Big Board</h1>
     <div class="subtitle"><b>Big G's Big Board</b> &nbsp;·&nbsp; 2022 class &nbsp;·&nbsp; Paolo = Carmelo Anthony = And I want nothing of it</div>
     <div id="board"></div>
@@ -135,7 +163,8 @@ const PLAYERS = [
   { tier:"Tier 7", name:"Shaedon Sharpe", comp:"Bradley Beal (ceiling) / Dion Waiters (floor)", photo:"sharpe.jpg",
     note:"MPJ-type risk and player — can go off but won't try on D. A potential Bradley Beal without the motor, so a huge risk. Second-most upside behind Jabari, and only this high because of it — could be top 5 with a motor, or he's Dion Waiters.", clips:[{label:"",url:""},{label:"",url:""}] },
   { tier:"Tier 8", name:"Tari Eason", comp:"", photo:"eason.jpg", fit:"contain",
-    note:"Freak defender — the question is whether he can be good enough on offence.", clips:[{label:"",url:""},{label:"",url:""}] },
+    note:"Freak defender — the question is whether he can be good enough on offence.",
+    branch:"tari-eason-branch.html", branchRev:1, clips:[{label:"",url:""},{label:"",url:""}] },
   { tier:"Tier 8", name:"Jalen Duren", comp:"", photo:"duren.jpg",
     note:"", clips:[{label:"",url:""},{label:"",url:""}] },
   { tier:"Tier 8", name:"AJ Griffin", comp:"", photo:"griffin.jpg",
@@ -153,6 +182,7 @@ const PLAYERS = [
 ];
 
 const esc = s => (s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const markRed = s => esc(s).replace(/~~(.+?)~~/g,'<span class="rev">$1</span>');
 
 function embed(url){
   const u=(url||"").trim(); if(!u) return null; let m;
@@ -178,10 +208,11 @@ function playerHTML(p, rank){
   const name = blank
     ? `<div class="name"><span class="num">${rank}.</span> <span class="todo">Add player</span></div>`
     : `<div class="name"><span class="num">${rank}.</span> ${esc(p.name)}</div>`;
-  const comp = p.comp?`<div class="comp"><span class="lab">Realistic Comp</span>${esc(p.comp)}</div>`:``;
-  const note = p.note?`<p class="note">${esc(p.note)}</p>`:``;
+  const comp = p.comp?`<div class="comp"><span class="lab">Realistic Comp</span>${markRed(p.comp)}</div>`:``;
+  const note = p.note?`<p class="note">${markRed(p.note)}</p>`:``;
+  const branch = p.branch?`<a class="databranch" href="${esc(p.branch)}"${p.branchRev?` data-rev="${esc(String(p.branchRev))}"`:``}><span class="db-k">&#9635; The Data Branch</span><span class="db-t">Tari Eason by the numbers &mdash; and the historical forwards he could become.</span><span class="db-go">Open the data view &rarr;</span></a>`:``;
   const clipsHTML = (p.noClips || !(p.clips&&p.clips.some(c=>(c.label&&c.label.trim())||(c.url&&c.url.trim())))) ? `` : `<div class="clips">${p.clips.map(clipHTML).join("")}</div>`;
-  return `<article class="player">${hero}${name}${comp}${note}${clipsHTML}</article>`;
+  return `<article class="player">${hero}${name}${comp}${note}${branch}${clipsHTML}</article>`;
 }
 const TIERS = {
   "Tier 1":"New age centre with guard skills.",
@@ -208,7 +239,32 @@ function render(){
     return `<div class="tier-group"><div class="tier-frame">${cards}</div><div class="tier-flag"><span class="lead"></span><div class="flag-box"><span class="num">${esc(g.tier)}</span>${desc}</div></div></div>`;
   }).join("");
 }
+function revCloudPath(w,h,r){
+  function edge(x0,y0,x1,y1){var L=Math.hypot(x1-x0,y1-y0);if(L<1){return"";}var n=Math.max(1,Math.round(L/(2*r))),s=L/n,ux=(x1-x0)/L,uy=(y1-y0)/L,p="";for(var i=1;i<=n;i++){var ex=x0+ux*s*i,ey=y0+uy*s*i;p+="A"+(s/2).toFixed(2)+" "+(s/2).toFixed(2)+" 0 0 1 "+ex.toFixed(2)+" "+ey.toFixed(2)+" ";}return p;}
+  function corner(x0,y0,x1,y1){var rr=(Math.hypot(x1-x0,y1-y0)/2).toFixed(2);return "A"+rr+" "+rr+" 0 0 1 "+x1.toFixed(2)+" "+y1.toFixed(2)+" ";}
+  var c=r;
+  return "M "+c+" 0 "+edge(c,0,w-c,0)+corner(w-c,0,w,c)+edge(w,c,w,h-c)+corner(w,h-c,w-c,h)+edge(w-c,h,c,h)+corner(c,h,0,h-c)+edge(0,h-c,0,c)+corner(0,c,c,0)+"Z";
+}
+function drawClouds(){
+  document.querySelectorAll(".databranch[data-rev]").forEach(function(el){
+    el.querySelectorAll(".revcloud").forEach(function(x){x.remove();});
+    el.style.position="relative";
+    var w=el.offsetWidth,h=el.offsetHeight; if(!w||!h){return;}
+    var padL=40,padR=40,padT=14,padB=16,r=15;
+    var W=w+padL+padR,H=h+padT+padB,num=el.getAttribute("data-rev");
+    var dx=W+14,dy=-30;
+    var g='<path d="'+revCloudPath(W-4,H-4,r)+'" transform="translate(2,2)" fill="none" stroke="#d0021b" stroke-width="1.6" stroke-opacity=".8" stroke-linejoin="round"/>';
+    g+='<line x1="'+(W-r-14)+'" y1="10" x2="'+dx+'" y2="'+(dy+13)+'" stroke="#d0021b" stroke-width="1.2" stroke-opacity=".8"/>';
+    g+='<path d="M'+dx+' '+(dy-12)+'L'+(dx-13)+' '+(dy+12)+'L'+(dx+13)+' '+(dy+12)+'Z" fill="none" stroke="#d0021b" stroke-width="1.4" stroke-opacity=".8" stroke-linejoin="round"/>';
+    g+='<text x="'+dx+'" y="'+(dy+8)+'" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="700" fill="#d0021b" fill-opacity=".9">'+num+'</text>';
+    var wrp=document.createElement("div");
+    wrp.innerHTML='<svg class="revcloud" width="'+W+'" height="'+H+'" viewBox="0 0 '+W+' '+H+'" style="left:'+(-padL)+'px;top:'+(-padT)+'px;overflow:visible">'+g+'</svg>';
+    el.appendChild(wrp.firstChild);
+  });
+}
 render();
+setTimeout(drawClouds,60); addEventListener("load",drawClouds);
+addEventListener("resize",function(){clearTimeout(window._rc);window._rc=setTimeout(drawClouds,150);});
 </script>
 </body>
 </html>

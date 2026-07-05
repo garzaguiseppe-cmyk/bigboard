@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tari Eason — The Data Branch · Guiseppe Drafts</title>
+<style>
+  @font-face{ font-family:'Base Mono'; src:url('base-mono.otf') format('opentype'); font-weight:400 900; font-style:normal; font-display:swap; }
+  :root{
+    --ink:#0a0a0a; --paper:#ffffff; --muted:#666; --faint:#9a9a9a; --line:#e6e6e6; --red:#d0021b;
+    --mono:'Base Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace;
+    --sans:Arial, Helvetica, 'Liberation Sans', sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%}
+  body{background:var(--paper);color:var(--ink);font-family:var(--sans);overflow:hidden}
+  a{color:inherit;text-decoration:none}
+  .app{position:relative;width:100%;height:100vh;overflow:hidden;background:var(--paper)}
+
+  .topbar{position:absolute;top:0;left:0;right:0;height:64px;z-index:20;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:0 18px;background:rgba(255,255,255,.9);backdrop-filter:blur(4px);border-bottom:1px solid var(--line)}
+  .tb-left{display:flex;align-items:center;gap:16px;min-width:0}
+  .back{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);
+    border:1.5px solid var(--line);border-radius:7px;padding:7px 10px;white-space:nowrap}
+  .back:hover{border-color:var(--ink);color:var(--ink)}
+  .tb-tt .k{font-family:var(--mono);font-weight:700;font-size:15px;letter-spacing:.02em}
+  .tb-tt .s{font-family:var(--sans);font-size:11px;color:var(--muted);letter-spacing:.04em;margin-top:2px}
+  .tb-tt .s b{color:var(--red)}
+  .controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+  .btn{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+    border:1.5px solid var(--ink);background:#fff;color:var(--ink);padding:7px 11px;border-radius:7px;cursor:pointer;transition:background .15s,color .15s}
+  .btn:hover{background:var(--ink);color:#fff}
+  .btn.red{border-color:var(--red);color:var(--red)}
+  .btn.red:hover{background:var(--red);color:#fff}
+
+  #stage{position:absolute;top:64px;left:0;right:0;bottom:0;overflow:hidden;
+    background:linear-gradient(0deg,rgba(0,0,0,.015) 1px,transparent 1px) 0 0/26px 26px,
+      linear-gradient(90deg,rgba(0,0,0,.015) 1px,transparent 1px) 0 0/26px 26px,#fbfbfb;cursor:grab;touch-action:none}
+  #stage.drag{cursor:grabbing}
+  #world{position:absolute;left:0;top:0;width:3000px;height:2000px;transform-origin:0 0}
+  svg.plane{position:absolute;left:0;top:0;width:3000px;height:2000px;overflow:visible;pointer-events:none}
+
+  .dot{position:absolute;width:20px;height:20px;border-radius:50%;background:#fff;border:3px solid var(--ink);
+    transform:translate(-10px,-10px);cursor:pointer;z-index:5;box-shadow:0 1px 3px rgba(0,0,0,.15)}
+  .dot.eason{border-color:var(--red);width:26px;height:26px;transform:translate(-13px,-13px);background:var(--red)}
+  .dot:hover{box-shadow:0 0 0 6px rgba(0,0,0,.08)}
+  .dot.eason:hover{box-shadow:0 0 0 8px rgba(208,2,27,.14)}
+  .dotlab{position:absolute;font-family:var(--mono);font-size:13px;font-weight:700;white-space:nowrap;
+    transform:translate(-50%,0);z-index:5;pointer-events:none;text-shadow:0 1px 2px #fff,0 0 2px #fff}
+  .dotlab .sub{display:block;font-family:var(--sans);font-weight:400;font-size:11px;color:var(--muted);text-align:center}
+  .dotlab.eason{color:var(--red)}
+
+  .card{position:absolute;background:#fff;border:2px solid var(--ink);border-radius:14px;padding:16px 18px;
+    z-index:6;cursor:pointer;box-shadow:0 4px 18px rgba(0,0,0,.08)}
+  .card.hero{border-color:var(--red);border-width:2.5px}
+  .card .nm{font-family:var(--mono);font-weight:700;font-size:20px;letter-spacing:.01em}
+  .card.hero .nm{font-size:24px}
+  .card .meta{font-size:11px;color:var(--muted);letter-spacing:.03em;margin-top:1px}
+  .slot{margin-top:11px;height:96px;border:1.5px dashed #c9c9c9;border-radius:8px;background:#f2f2f2;
+    display:flex;align-items:center;justify-content:center;color:#a6a6a6;font-size:11px;text-align:center;padding:8px}
+  .card.hero .slot{height:120px}
+  .statline{margin-top:11px;display:flex;gap:14px;flex-wrap:wrap}
+  .stat{min-width:44px}
+  .stat .v{font-family:var(--mono);font-weight:700;font-size:19px;line-height:1}
+  .stat .l{font-size:9.5px;color:var(--faint);letter-spacing:.08em;text-transform:uppercase;margin-top:3px}
+  .stat.hi .v{color:var(--red)}
+  .per40{margin-top:10px;font-size:12px;line-height:1.45;background:#fff5f5;border-left:3px solid var(--red);padding:7px 10px;border-radius:0 6px 6px 0}
+  .per40 b{color:var(--red);font-family:var(--mono)}
+  .outcome{margin-top:10px;font-size:12.5px;line-height:1.45;color:#333;border-top:1px solid var(--line);padding-top:9px}
+  .outcome .tag{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.05em;background:var(--ink);color:#fff;padding:2px 7px;border-radius:4px;margin-bottom:6px}
+  .card.hero .outcome .tag{background:var(--red)}
+  .note{margin-top:9px;font-size:12px;font-style:italic;color:#444;line-height:1.4}
+
+  .connlab{position:absolute;font-family:var(--sans);font-size:11.5px;line-height:1.35;color:var(--red);max-width:190px;z-index:4;pointer-events:none;text-shadow:0 1px 2px #fff}
+  .connlab b{font-family:var(--mono);text-transform:uppercase;font-size:10px;letter-spacing:.05em;display:block;color:#7a0010}
+
+  .planetag{position:absolute;font-family:var(--sans);z-index:3;pointer-events:none}
+  .axistitle{font-family:var(--mono);font-size:15px;font-weight:700;letter-spacing:.08em;color:#333}
+  .axisnote{font-size:12px;color:var(--faint);max-width:230px;line-height:1.4}
+
+  .hint{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);z-index:20;
+    font-family:var(--sans);font-size:12px;color:var(--muted);background:rgba(255,255,255,.92);
+    border:1px solid var(--line);border-radius:20px;padding:7px 15px;letter-spacing:.02em;transition:opacity .4s}
+  .hint b{color:var(--ink)}
+  .legend{position:absolute;left:14px;bottom:16px;z-index:20;font-size:11px;color:var(--muted);
+    background:rgba(255,255,255,.92);border:1px solid var(--line);border-radius:9px;padding:9px 11px;max-width:240px}
+  .legend .row{display:flex;align-items:center;gap:7px;margin:3px 0}
+  .legend .sw{width:13px;height:13px;border-radius:50%;flex:none}
+  .legend .sw.e{background:var(--red)}
+  .legend .sw.c{background:#fff;border:2.5px solid var(--ink)}
+  .legend .rl{width:16px;height:0;border-top:2px solid var(--red);flex:none}
+  .src{position:absolute;right:14px;bottom:16px;z-index:20;font-size:10px;color:var(--faint);
+    background:rgba(255,255,255,.92);border:1px solid var(--line);border-radius:9px;padding:7px 10px;max-width:250px;font-family:var(--sans)}
+  @media(max-width:640px){ .tb-tt .s{display:none} .btn{padding:6px 8px;font-size:10px} .legend,.src{display:none} }
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="topbar">
+    <div class="tb-left">
+      <a class="back" href="2022.html">&larr; 2022 board</a>
+      <div class="tb-tt">
+        <div class="k" id="ttl">TARI EASON — THE DATA BRANCH</div>
+        <div class="s" id="sub">2022 class · #12 · LSU &nbsp;·&nbsp; <b>zoom-out data view</b></div>
+      </div>
+    </div>
+    <div class="controls">
+      <button class="btn" data-go="field">⤢ The field</button>
+      <button class="btn red" data-go="eason">◆ Eason</button>
+      <button class="btn" data-go="prev">‹ Prev</button>
+      <button class="btn" data-go="next">Next ›</button>
+    </div>
+  </div>
+
+  <div id="stage">
+    <div id="world">
+      <svg class="plane" viewBox="0 0 3000 2000">
+        <line x1="850" y1="380" x2="850" y2="1500" stroke="#111" stroke-width="2"/>
+        <line x1="850" y1="1500" x2="2260" y2="1500" stroke="#111" stroke-width="2"/>
+        <g stroke="#e6e6e6" stroke-width="1">
+          <line x1="1289" y1="380" x2="1289" y2="1500"/><line x1="1678" y1="380" x2="1678" y2="1500"/><line x1="2067" y1="380" x2="2067" y2="1500"/>
+          <line x1="850" y1="1214" x2="2260" y2="1214"/><line x1="850" y1="929" x2="2260" y2="929"/><line x1="850" y1="643" x2="2260" y2="643"/>
+        </g>
+        <g fill="#9a9a9a" font-family="Arial" font-size="15" text-anchor="middle">
+          <text x="900" y="1525">1.0</text><text x="1289" y="1525">1.5</text><text x="1678" y="1525">2.0</text><text x="2067" y="1525">2.5</text>
+        </g>
+        <g fill="#9a9a9a" font-family="Arial" font-size="15" text-anchor="end">
+          <text x="835" y="1505">0.6</text><text x="835" y="1219">1.0</text><text x="835" y="934">1.4</text><text x="835" y="648">1.8</text>
+        </g>
+        <rect x="1700" y="500" width="560" height="360" fill="#d0021b" fill-opacity=".04" stroke="#d0021b" stroke-opacity=".25" stroke-dasharray="6 5"/>
+        <g id="genleaders"></g>
+      </svg>
+
+      <div class="planetag axistitle" style="left:1300px;top:1545px;transform:translateX(-50%)">STEALS / GAME →</div>
+      <div class="planetag axistitle" style="left:770px;top:940px;transform:rotate(-90deg);transform-origin:left top">BLOCKS / GAME →</div>
+      <div class="planetag axisnote" style="left:1715px;top:452px">RARE AIR — high steals <i>and</i> high blocks. Almost no forwards live here.</div>
+      <div class="planetag" style="left:900px;top:300px;max-width:520px">
+        <div class="axistitle" style="color:#111">THE DEFENDER FINGERPRINT</div>
+        <div class="axisnote" style="max-width:520px;margin-top:4px">Every prospect on this plane is a do-everything forward who steals <b>and</b> blocks at a rare rate — while carrying the same question Eason carries: <i>can the offence catch up?</i> The dots are their draft-year college numbers. Where they landed in the NBA is on their cards.</div>
+      </div>
+
+      <div id="players"></div>
+    </div>
+  </div>
+
+  <div class="legend">
+    <div class="row"><span class="sw e"></span> Tari Eason (2022)</div>
+    <div class="row"><span class="sw c"></span> Historical comp — draft-year college numbers</div>
+    <div class="row"><span class="rl"></span> proximity to Eason's profile</div>
+  </div>
+  <div class="src">Data: Sports-Reference (CBB). Dots plotted from real per-game numbers.</div>
+  <div class="hint" id="hint"><b>Scroll</b> to zoom · <b>drag</b> to pan · <b>click</b> a player to zoom in</div>
+</div>
+
+<!-- Local-preview fallback. The live site loads eason-branch.json; this copy only runs when opened as a local file (fetch blocked on file://). -->
+<script type="application/json" id="fallback">
+{"id":"eason","board":"2022","title":"TARI EASON — THE DATA BRANCH","subtitle":"2022 class · #12 · LSU",
+"axis":{"x":{"stat":"spg","label":"STEALS / GAME","min":1.0,"max":2.8,"p0":900,"p1":2300},"y":{"stat":"bpg","label":"BLOCKS / GAME","min":0.6,"max":2.0,"p0":1500,"p1":500}},
+"subject":{"key":"eason","name":"Tari Eason","team":"LSU","meta":"LSU · Sophomore · 2021-22  |  Drafted #17, 2022 (Houston)","spg":1.9,"bpg":1.1,"hero":true,
+"stats":[["16.9","PPG"],["6.6","RPG"],["1.9","STL",true],["1.1","BLK",true],["52 / 36","FG% / 3P%"],["~62%","TS%"]],
+"per40":"The catch: he did it in just <b>24.4 min/g</b> off the bench (SEC 6th Man of the Year). Per 40, that's <b>3.1 steals + 1.8 blocks</b> — the most disruptive per-minute profile on this whole plane.",
+"note":"\"Freak defender — the question is whether he can be good enough on offence.\"","card":{"x":1330,"y":1470,"w":560,"h":360}},
+"comps":[
+{"key":"covington","name":"Robert Covington","meta":"Tennessee State · Senior · 2012-13  |  Undrafted, 2013","spg":2.3,"bpg":1.7,
+"stats":[["17.0","PPG"],["8.0","RPG"],["2.3","STL",true],["1.7","BLK",true],["42%","career 3P"]],
+"became":"Led the NBA in steals (2018) &amp; made <b>All-Defensive First Team</b>. The prototype 3&amp;D wing — exactly the shooting leap Eason needs.",
+"rel":{"tag":"Closest match","text":"dual steal + block freak → became All-Defense 3&amp;D","lx":1720,"ly":900},"card":{"x":2360,"y":470,"w":430,"h":300}},
+{"key":"crowder","name":"Jae Crowder","meta":"Marquette · Senior · 2011-12  |  Drafted #34, 2012","spg":2.5,"bpg":1.0,
+"stats":[["17.5","PPG"],["8.4","RPG"],["2.5","STL",true],["1.0","BLK"],["35%","3P%"]],
+"became":"Big East POY → <b>12-year NBA starter</b>, 3&amp;D forward, started in two Finals (2020, 2021). The dependable floor.",
+"rel":{"tag":"The floor","text":"steals-heavy motor forward → 12-yr 3&amp;D starter","lx":1840,"ly":1120},"card":{"x":2380,"y":1120,"w":430,"h":300}},
+{"key":"draymond","name":"Draymond Green","meta":"Michigan State · Senior · 2011-12  |  Drafted #35, 2012","spg":1.5,"bpg":1.0,
+"stats":[["16.2","PPG"],["10.6","RPG"],["3.8","AST"],["1.5","STL",true],["1.0","BLK",true]],
+"became":"Consensus National POY → <b>4× champion, DPOY, 4× All-Star</b>. Fewer college steals, but the do-everything brain. The dream ceiling.",
+"rel":{"tag":"The ceiling","text":"do-everything POY → defensive superstar &amp; hub","lx":1360,"ly":1120,"align":"right"},"card":{"x":150,"y":1060,"w":430,"h":330}}
+]}
+</script>
+
+<script>
+(function(){
+  var stage=document.getElementById('stage'),world=document.getElementById('world'),hint=document.getElementById('hint');
+  var s=1,tx=0,ty=0,MIN=.22,MAX=2.4,raf=null,faded=false,T={},ORDER=[],idx=1;
+
+  function pos(a,v){ return a.p0 + (v-a.min)/(a.max-a.min)*(a.p1-a.p0); }
+  function esc(x){ return String(x).replace(/&(?!amp;|lt;|gt;)/g,'&amp;'); } // data already uses entities; leave as-is
+  function statHTML(arr){
+    return arr.map(function(t){ return '<div class="stat'+(t[2]?' hi':'')+'"><div class="v">'+t[0]+'</div><div class="l">'+t[1]+'</div></div>'; }).join('');
+  }
+  function cardHTML(p,hero){
+    var body = hero
+      ? '<div class="per40">'+p.per40+'</div>'+(p.note?'<div class="note">'+p.note+'</div>':'')+'<div class="slot">[ photo slot — drop '+p.key+'.jpg ]</div>'
+      : '<div class="outcome"><span class="tag">Became</span><br>'+p.became+'</div><div class="slot">[ photo slot ]</div>';
+    return '<div class="card'+(hero?' hero':'')+'" style="left:'+p.card.x+'px;top:'+p.card.y+'px;width:'+p.card.w+'px" data-focus="'+p.key+'">'
+      +'<div class="nm">'+p.name+'</div><div class="meta">'+p.meta+'</div>'
+      +'<div class="statline">'+statHTML(p.stats)+'</div>'+body+'</div>';
+  }
+  function clampAnchor(dx,dy,c){ var x=Math.max(c.x,Math.min(c.x+c.w,dx)), y=Math.max(c.y,Math.min(c.y+(c.h||300),dy)); return [x,y]; }
+
+  function build(DATA){
+    var ax=DATA.axis, subj=DATA.subject, comps=DATA.comps;
+    subj.x=pos(ax.x,subj.spg); subj.y=pos(ax.y,subj.bpg);
+    comps.forEach(function(c){ c.x=pos(ax.x,c.spg); c.y=pos(ax.y,c.bpg); });
+
+    // title
+    document.getElementById('ttl').textContent=DATA.title;
+    // SVG leaders + connectors
+    var g='';
+    // red leaders subject -> each comp
+    comps.forEach(function(c){ g+='<path d="M'+subj.x+' '+subj.y+' L'+c.x+' '+c.y+'" stroke="#d0021b" stroke-width="1.6" stroke-opacity=".7" fill="none"/>'; });
+    // thin connector subject dot -> its card
+    var sa=clampAnchor(subj.x,subj.y,subj.card);
+    g+='<path d="M'+subj.x+' '+(subj.y+13)+' L'+sa[0]+' '+sa[1]+'" stroke="#111" stroke-width="1" stroke-opacity=".35" fill="none"/>';
+    comps.forEach(function(c){ var a=clampAnchor(c.x,c.y,c.card); g+='<path d="M'+c.x+' '+c.y+' L'+a[0]+' '+a[1]+'" stroke="#111" stroke-width="1" stroke-opacity=".35" fill="none"/>'; });
+    document.getElementById('genleaders').innerHTML=g;
+
+    // DOM: dots, labels, connlabs, cards
+    var h='';
+    h+='<div class="dot eason" style="left:'+subj.x+'px;top:'+subj.y+'px" data-focus="'+subj.key+'"></div>';
+    h+='<div class="dotlab eason" style="left:'+subj.x+'px;top:'+(subj.y+25)+'px">'+subj.name.toUpperCase()+'<span class="sub">'+subj.spg+' stl · '+subj.bpg+' blk</span></div>';
+    comps.forEach(function(c){
+      var above=c.y < subj.y;
+      h+='<div class="dot" style="left:'+c.x+'px;top:'+c.y+'px" data-focus="'+c.key+'"></div>';
+      h+='<div class="dotlab" style="left:'+c.x+'px;top:'+(above?(c.y-30):(c.y+25))+'px'+(above?';transform:translate(-50%,-100%)':'')+'">'
+        +c.name.split(' ').pop().toUpperCase()+'<span class="sub">'+c.spg+' stl · '+c.bpg+' blk</span></div>';
+      if(c.rel) h+='<div class="connlab" style="left:'+c.rel.lx+'px;top:'+c.rel.ly+'px'+(c.rel.align==='right'?';text-align:right':'')+'"><b>'+c.rel.tag+'</b>'+c.rel.text+'</div>';
+    });
+    h+=cardHTML(subj,true);
+    comps.forEach(function(c){ h+=cardHTML(c,false); });
+    document.getElementById('players').innerHTML=h;
+
+    // focus targets from bounding boxes
+    function bbox(dx,dy,c){ var x0=Math.min(dx,c.x),y0=Math.min(dy,c.y),x1=Math.max(dx,c.x+c.w),y1=Math.max(dy,c.y+(c.h||300)); return {x:x0,y:y0,w:x1-x0,h:y1-y0,pad:70}; }
+    T={ field:{x:150,y:280,w:2640,h:1600,pad:80} };
+    T[subj.key]=bbox(subj.x,subj.y,subj.card);
+    comps.forEach(function(c){ T[c.key]=bbox(c.x,c.y,c.card); });
+    ORDER=['field',subj.key].concat(comps.map(function(c){return c.key;}));
+
+    bindFocus();
+    apply(); setTimeout(function(){ go(subj.key); },40);
+  }
+
+  function apply(){ world.style.transform='translate('+tx+'px,'+ty+'px) scale('+s+')'; }
+  function ss(){ return {w:stage.clientWidth,h:stage.clientHeight}; }
+  function animate(nx,ny,ns){ if(raf)cancelAnimationFrame(raf); var sx=tx,sy=ty,s0=s,t0=performance.now();
+    (function step(now){ var k=Math.min(1,(now-t0)/560),e=1-Math.pow(1-k,3); tx=sx+(nx-sx)*e; ty=sy+(ny-sy)*e; s=s0+(ns-s0)*e; apply(); if(k<1)raf=requestAnimationFrame(step); })(performance.now()); }
+  function go(name){ var t=T[name]; if(!t)return; var d=ss(); var sc=Math.min(d.w/(t.w+2*t.pad),d.h/(t.h+2*t.pad)); sc=Math.max(MIN,Math.min(MAX,sc));
+    var cx=t.x+t.w/2,cy=t.y+t.h/2; animate(d.w/2-sc*cx,d.h/2-sc*cy,sc); idx=Math.max(0,ORDER.indexOf(name)); }
+  function bindFocus(){ document.querySelectorAll('[data-focus]').forEach(function(el){ el.addEventListener('click',function(e){ e.stopPropagation(); go(el.getAttribute('data-focus')); }); }); }
+
+  document.querySelectorAll('[data-go]').forEach(function(b){ b.addEventListener('click',function(){ var gg=b.getAttribute('data-go');
+    if(gg==='prev'){ idx=(idx-1+ORDER.length)%ORDER.length; go(ORDER[idx]); } else if(gg==='next'){ idx=(idx+1)%ORDER.length; go(ORDER[idx]); } else go(gg); }); });
+  stage.addEventListener('wheel',function(e){ e.preventDefault(); var r=stage.getBoundingClientRect(),mx=e.clientX-r.left,my=e.clientY-r.top;
+    var wx=(mx-tx)/s,wy=(my-ty)/s,ns=Math.max(MIN,Math.min(MAX,s*(e.deltaY<0?1.12:.893))); tx=mx-ns*wx; ty=my-ns*wy; s=ns; apply(); fade(); },{passive:false});
+  var down=false,lx=0,ly=0;
+  stage.addEventListener('pointerdown',function(e){ down=true; lx=e.clientX; ly=e.clientY; stage.classList.add('drag'); stage.setPointerCapture(e.pointerId); });
+  stage.addEventListener('pointermove',function(e){ if(!down)return; tx+=e.clientX-lx; ty+=e.clientY-ly; lx=e.clientX; ly=e.clientY; apply(); });
+  stage.addEventListener('pointerup',function(){ down=false; stage.classList.remove('drag'); fade(); });
+  stage.addEventListener('pointercancel',function(){ down=false; stage.classList.remove('drag'); });
+  function fade(){ if(faded)return; faded=true; hint.style.opacity=0; setTimeout(function(){ hint.style.display='none'; },500); }
+  window.addEventListener('resize',function(){ if(ORDER.length) go(ORDER[idx]); });
+
+  // Load data: live site => JSON file; local file:// => embedded fallback.
+  function loadFallback(){ try{ return JSON.parse(document.getElementById('fallback').textContent); }catch(e){ return null; } }
+  fetch('eason-branch.json').then(function(r){ if(!r.ok) throw 0; return r.json(); })
+    .then(function(d){ build(d); })
+    .catch(function(){ var d=loadFallback(); if(d) build(d); });
+})();
+</script>
+</body>
+</html>

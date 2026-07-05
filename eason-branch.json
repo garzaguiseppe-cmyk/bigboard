@@ -1,0 +1,44 @@
+{
+  "id": "eason",
+  "board": "2022",
+  "title": "TARI EASON — THE DATA BRANCH",
+  "subtitle": "2022 class · #12 · LSU",
+  "axis": {
+    "x": { "stat": "spg", "label": "STEALS / GAME", "min": 1.0, "max": 2.8, "p0": 900, "p1": 2300 },
+    "y": { "stat": "bpg", "label": "BLOCKS / GAME", "min": 0.6, "max": 2.0, "p0": 1500, "p1": 500 }
+  },
+  "subject": {
+    "key": "eason", "name": "Tari Eason", "team": "LSU", "meta": "LSU · Sophomore · 2021-22  |  Drafted #17, 2022 (Houston)",
+    "spg": 1.9, "bpg": 1.1, "hero": true,
+    "stats": [["16.9","PPG"],["6.6","RPG"],["1.9","STL",true],["1.1","BLK",true],["52 / 36","FG% / 3P%"],["~62%","TS%"]],
+    "per40": "The catch: he did it in just <b>24.4 min/g</b> off the bench (SEC 6th Man of the Year). Per 40, that's <b>3.1 steals + 1.8 blocks</b> — the most disruptive per-minute profile on this whole plane.",
+    "note": "\"Freak defender — the question is whether he can be good enough on offence.\"",
+    "card": { "x": 1330, "y": 1470, "w": 560, "h": 360 }
+  },
+  "comps": [
+    {
+      "key": "covington", "name": "Robert Covington", "meta": "Tennessee State · Senior · 2012-13  |  Undrafted, 2013",
+      "spg": 2.3, "bpg": 1.7,
+      "stats": [["17.0","PPG"],["8.0","RPG"],["2.3","STL",true],["1.7","BLK",true],["42%","career 3P"]],
+      "became": "Led the NBA in steals (2018) &amp; made <b>All-Defensive First Team</b>. The prototype 3&amp;D wing — exactly the shooting leap Eason needs.",
+      "rel": { "tag": "Closest match", "text": "dual steal + block freak → became All-Defense 3&amp;D", "lx": 1720, "ly": 900 },
+      "card": { "x": 2360, "y": 470, "w": 430, "h": 300 }
+    },
+    {
+      "key": "crowder", "name": "Jae Crowder", "meta": "Marquette · Senior · 2011-12  |  Drafted #34, 2012",
+      "spg": 2.5, "bpg": 1.0,
+      "stats": [["17.5","PPG"],["8.4","RPG"],["2.5","STL",true],["1.0","BLK"],["35%","3P%"]],
+      "became": "Big East POY → <b>12-year NBA starter</b>, 3&amp;D forward, started in two Finals (2020, 2021). The dependable floor.",
+      "rel": { "tag": "The floor", "text": "steals-heavy motor forward → 12-yr 3&amp;D starter", "lx": 1840, "ly": 1120 },
+      "card": { "x": 2380, "y": 1120, "w": 430, "h": 300 }
+    },
+    {
+      "key": "draymond", "name": "Draymond Green", "meta": "Michigan State · Senior · 2011-12  |  Drafted #35, 2012",
+      "spg": 1.5, "bpg": 1.0,
+      "stats": [["16.2","PPG"],["10.6","RPG"],["3.8","AST"],["1.5","STL",true],["1.0","BLK",true]],
+      "became": "Consensus National POY → <b>4× champion, DPOY, 4× All-Star</b>. Fewer college steals, but the do-everything brain. The dream ceiling.",
+      "rel": { "tag": "The ceiling", "text": "do-everything POY → defensive superstar &amp; hub", "lx": 1360, "ly": 1120, "align": "right" },
+      "card": { "x": 150, "y": 1060, "w": 430, "h": 330 }
+    }
+  ]
+}
