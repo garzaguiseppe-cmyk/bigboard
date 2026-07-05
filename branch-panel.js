@@ -16,7 +16,7 @@
    '#cv-vp.grab{cursor:grabbing}',
    '#cv-cv{position:absolute;left:0;top:0;transform-origin:0 0;will-change:transform}',
    '#cv-vp a,#cv-vp button,#cv-vp [data-cv],#cv-vp [data-cvfocus],#cv-vp .databranch,#cv-vp input,#cv-vp video,#cv-vp iframe{cursor:pointer}',
-   '#cv-cv main.wrap{margin-left:26px;margin-right:0}',
+   '#cv-cv .wrap{width:1060px;max-width:none;margin:0 0 0 26px}',
    '.cv-branch{position:absolute;font-family:Arial,Helvetica,sans-serif}',
    '.cv-bhead{display:flex;align-items:flex-start;gap:8px;margin-bottom:8px}',
    '.cv-bt .k{font-family:ui-monospace,Consolas,monospace;font-weight:700;font-size:15px;letter-spacing:.02em;display:block}',
