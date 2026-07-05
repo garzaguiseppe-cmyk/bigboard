@@ -24,12 +24,12 @@
    '.cv-lab .sub{display:block;font-family:Arial,sans-serif;font-weight:400;font-size:11px;color:#666;text-align:center}',
    '.cv-lab.subj{color:#d0021b}',
    '.cv-card{position:absolute;background:#fff;border:2px solid #0a0a0a;border-radius:14px;padding:15px 17px;z-index:6;box-shadow:0 4px 18px rgba(0,0,0,.08)}',
-   '.cv-card.hero{border-color:#d0021b;border-width:2.5px}',
+   '.cv-card.cvhero{border-color:#d0021b;border-width:2.5px}',
    '.cv-card .nm{font-family:ui-monospace,Consolas,monospace;font-weight:700;font-size:19px}',
-   '.cv-card.hero .nm{font-size:23px}',
+   '.cv-card.cvhero .nm{font-size:23px}',
    '.cv-card .meta{font-size:11px;color:#666;margin-top:1px}',
    '.cv-slot{margin-top:10px;height:84px;border:1.5px dashed #c9c9c9;border-radius:8px;background:#f2f2f2;display:flex;align-items:center;justify-content:center;color:#a6a6a6;font-size:11px;text-align:center;padding:8px}',
-   '.cv-card.hero .cv-slot{height:104px}','.cv-photo{margin-top:10px;border-radius:8px;overflow:hidden}','.cv-photo img{width:100%;height:auto;display:block}',
+   '.cv-card.cvhero .cv-slot{height:104px}','.cv-photo{margin-top:10px;border-radius:8px;overflow:hidden}','.cv-photo img{width:100%;height:auto;display:block}',
    '.cv-sl{margin-top:10px;display:flex;gap:13px;flex-wrap:wrap}',
    '.cv-st{min-width:42px}.cv-st .v{font-family:ui-monospace,Consolas,monospace;font-weight:700;font-size:18px;line-height:1}',
    '.cv-st .l{font-size:9px;color:#9a9a9a;letter-spacing:.06em;text-transform:uppercase;margin-top:3px}',
@@ -38,7 +38,7 @@
    '.cv-p40 b{color:#d0021b;font-family:ui-monospace,Consolas,monospace}',
    '.cv-out{margin-top:9px;font-size:12.5px;line-height:1.45;color:#333;border-top:1px solid #e6e6e6;padding-top:8px}',
    '.cv-out .tag{display:inline-block;font-family:ui-monospace,Consolas,monospace;font-size:10px;font-weight:700;letter-spacing:.05em;background:#0a0a0a;color:#fff;padding:2px 7px;border-radius:4px;margin-bottom:6px}',
-   '.cv-card.hero .cv-out .tag{background:#d0021b}',
+   '.cv-card.cvhero .cv-out .tag{background:#d0021b}',
    '.cv-note{margin-top:8px;font-size:12px;font-style:italic;color:#444;line-height:1.4}',
    '.cv-cl{position:absolute;font-family:Arial,sans-serif;font-size:11.5px;line-height:1.35;color:#d0021b;max-width:190px;z-index:4;pointer-events:none;text-shadow:0 1px 2px #fff}',
    '.cv-cl b{font-family:ui-monospace,Consolas,monospace;text-transform:uppercase;font-size:10px;letter-spacing:.05em;display:block;color:#7a0010}',
@@ -132,9 +132,9 @@
   function sagPath(x0,y0,x1,y1){ var d=Math.hypot(x1-x0,y1-y0),sag=Math.min(300,d*0.30+30),mx=(x0+x1)/2,my=Math.max(y0,y1)+sag; return 'M'+x0+' '+y0+' Q'+mx.toFixed(1)+' '+my.toFixed(1)+' '+x1.toFixed(1)+' '+y1.toFixed(1); }
   function isCount(l){return /^(PPG|RPG|APG|SPG|BPG|AST|STL|BLK|STOCKS|REB|PTS|TOV)$/i.test((l||'').trim());}
   function statHTML(p,mode){return p.stats.map(function(t){var v=t[0];if(mode==='p40'&&p.mpg&&isCount(t[1])&&/^[0-9.]+$/.test(String(v).trim())){v=(parseFloat(v)*40/p.mpg).toFixed(1);}return '<div class="cv-st'+(t[2]?' hi':'')+'"><div class="v">'+v+'</div><div class="l">'+t[1]+'</div></div>';}).join('');}
-  function photoHTML(p,hero){ return p.photo?('<div class="cv-photo'+(hero?' hero':'')+'"><img src="'+p.photo+'" alt="'+p.name+'" draggable="false"></div>'):('<div class="cv-slot">[ photo slot ]</div>'); }
+  function photoHTML(p,hero){ return p.photo?('<div class="cv-photo'+(hero?' cvhero':'')+'"><img src="'+p.photo+'" alt="'+p.name+'" draggable="false"></div>'):('<div class="cv-slot">[ photo slot ]</div>'); }
   function cardHTML(p,hero,mode){var body=hero?((p.per40?'<div class="cv-p40">'+p.per40+'</div>':'')+(p.note?'<div class="cv-note">'+p.note+'</div>':'')+photoHTML(p,true)):('<div class="cv-out"><span class="tag">Became</span><br>'+p.became+'</div>'+photoHTML(p,false));
-    return '<div class="cv-card'+(hero?' hero':'')+'" style="left:'+p.card.x+'px;top:'+p.card.y+'px;width:'+p.card.w+'px" data-focus="'+p.key+'"><div class="nm">'+p.name+'</div><div class="meta">'+p.meta+'</div><div class="cv-sl">'+statHTML(p,mode)+'</div>'+body+'</div>';}
+    return '<div class="cv-card'+(hero?' cvhero':'')+'" style="left:'+p.card.x+'px;top:'+p.card.y+'px;width:'+p.card.w+'px" data-focus="'+p.key+'"><div class="nm">'+p.name+'</div><div class="meta">'+p.meta+'</div><div class="cv-sl">'+statHTML(p,mode)+'</div>'+body+'</div>';}
   function subVals(DATA,p,mode){var ax=DATA.axis;return rnd(axVal(p,ax.x.stat,mode))+' '+ax.x.short+' &middot; '+rnd(axVal(p,ax.y.stat,mode))+' '+ax.y.short;}
   function dotHTML(DATA,p,subj,mode){var last=p.name.split(' ').pop().toUpperCase();
     return '<div class="cv-dot'+(subj?' subj':'')+'" style="left:'+p.x+'px;top:'+p.y+'px" data-focus="'+p.key+'"></div><div class="cv-lab'+(subj?' subj':'')+'" style="left:'+p.x+'px;top:'+(p.y+25)+'px">'+last+'<span class="sub">'+subVals(DATA,p,mode)+'</span></div>';}
