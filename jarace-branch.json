@@ -125,7 +125,8 @@
         "y": 1140,
         "w": 430,
         "h": 300
-      }
+      },
+      "photo": "barnes.jpg"
     },
     {
       "key": "sochan",
@@ -170,7 +171,8 @@
         "y": 980,
         "w": 430,
         "h": 300
-      }
+      },
+      "photo": "sochanc.jpg"
     },
     {
       "key": "draymond",

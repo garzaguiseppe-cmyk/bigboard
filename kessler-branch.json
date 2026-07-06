@@ -129,7 +129,8 @@
         "y": 780,
         "w": 430,
         "h": 300
-      }
+      },
+      "photo": "james.jpg"
     },
     {
       "key": "robinson",
@@ -173,7 +174,8 @@
         "y": 360,
         "w": 430,
         "h": 300
-      }
+      },
+      "photo": "robinson.jpg"
     },
     {
       "key": "davis",
@@ -218,7 +220,8 @@
         "y": 1030,
         "w": 430,
         "h": 300
-      }
+      },
+      "photo": "davis.jpg"
     },
     {
       "key": "chet",
