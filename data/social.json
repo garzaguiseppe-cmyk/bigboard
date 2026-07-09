@@ -1,0 +1,142 @@
+{
+  "_guardrails": "Never imply Adams was recruited/poached — his side initiated (Warren → McFadden → school); say so plainly. Name schools only with documented reporting attached; St Kentigern's arc is public record with official responses. Point 'why can't communities develop their own' at funding structures/incentives, never at families. Every overrepresentation chart carries a system-pointing annotation (Hokowhitu warning label). Include the counter-ledger at equal volume.",
+  "stkentigern_arc": [
+    {
+      "value": "St Kentigern College removed from Auckland's 1A First XV competition (Dec 2018) after rival schools threatened a boycott over player recruitment",
+      "source": "RNZ / NZ Herald / Newsroom / 1News (Dec 2018)",
+      "retrieved": "2026-07-10"
+    },
+    {
+      "value": "Agreed to stand down new-to-school players",
+      "source": "RNZ / NZ Herald (2018–19)",
+      "retrieved": "2026-07-10"
+    },
+    {
+      "value": "Reviewed its scholarship programme",
+      "source": "RNZ / NZ Herald (2018–19)",
+      "retrieved": "2026-07-10"
+    },
+    {
+      "value": "Signed a code of conduct",
+      "source": "RNZ / NZ Herald (2018–19)",
+      "retrieved": "2026-07-10"
+    }
+  ],
+  "stkentigern_quote": {
+    "value": "A principal called it the \"bad underbelly\" of secondary school sport",
+    "source": "NZ Herald (2018)",
+    "retrieved": "2026-07-10"
+  },
+  "still_live_2025": {
+    "value": "In 2025, co-ed principals called a proposed boys-school-only competition \"deeply unethical\"",
+    "source": "RNZ (2025)",
+    "retrieved": "2026-07-10"
+  },
+  "spinoff_2018": [
+    {
+      "value": "The majority of recruits are \"of Māori or Pasifika descent, and from low income households\"",
+      "source": "The Spinoff — James Harris (Dec 2018)",
+      "retrieved": "2026-07-10"
+    },
+    {
+      "value": "Recruits nicknamed \"imports\" by classmates",
+      "source": "The Spinoff (2018)",
+      "retrieved": "2026-07-10"
+    },
+    {
+      "value": "\"being sold a dream\"",
+      "source": "The Spinoff (2018)",
+      "retrieved": "2026-07-10"
+    },
+    {
+      "value": "\"the schools are benefitting from these scholarship programmes more than the students\"",
+      "source": "The Spinoff (2018)",
+      "retrieved": "2026-07-10"
+    },
+    {
+      "value": "His phrase for the recruited kid: \"hostage to your own talent\"",
+      "source": "The Spinoff (2018)",
+      "retrieved": "2026-07-10"
+    }
+  ],
+  "adams_texture_espn": {
+    "value": "Arrived unkempt, had never worn a tie; classmates joked \"Who's this murderer?\"",
+    "source": "ESPN (Royce Young, 2016)",
+    "retrieved": "2026-07-10"
+  },
+  "bookshelf": {
+    "hokowhitu_2004": {
+      "value": "Colonial discourse constructed Māori as naturally physical, channeling Māori men toward sport/manual labour and away from academic pathways — the 'natural athlete' myth as a limiting device",
+      "source": "Hokowhitu (2004), 'Tackling Māori Masculinity', The Contemporary Pacific 16(2)",
+      "retrieved": "2026-07-10",
+      "note": "Open access — read in full; quote one sentence at a time."
+    },
+    "besnier_2012": {
+      "value": "Athletic migration as household economic strategy in a 'hope economy': families invest in an athlete's body; many are moved, few are paid; risk sits with the family",
+      "source": "Besnier (2012), 'The athlete's body and the global condition', American Ethnologist 39(3)",
+      "retrieved": "2026-07-10"
+    },
+    "marsters_2019": {
+      "value": "The wellbeing bill: family expectation as motivator and weight; injury as identity crisis; low help-seeking among young Pacific male athletes",
+      "source": "Marsters & Tiatia-Seath (2019), Sports 7(4):83",
+      "retrieved": "2026-07-10",
+      "note": "Open access; qualitative — render as pull-quote stations, not charts."
+    },
+    "tokona_te_raki_2023": {
+      "value": "Māori and Pacific students disproportionately placed in low streams/bands; national de-streaming plan",
+      "source": "Tokona te Raki / Māori Futures Collective — 'Ending Streaming in Aotearoa' + Kōkirihia (2023)",
+      "retrieved": "2026-07-10"
+    },
+    "mccreanor_2010": {
+      "value": "Media representations of Māori athletes reproduce Pākehā framings",
+      "source": "McCreanor et al. (2010), AlterNative 6(3)",
+      "retrieved": "2026-07-10"
+    }
+  },
+  "five_findings": [
+    "The channeling — sport offered as THE pathway forecloses the others (Hokowhitu).",
+    "The sorting — streaming data is 'those left behind', measured (Tokona te Raki).",
+    "The hope economy — families carry the long-shot risk; institutions harvest the near-certain surplus (Besnier).",
+    "Extraction without governance — the field is brown, the boardroom is not (RNZ study; Enari).",
+    "The wellbeing bill — carried quietly, invisible to standard instruments (Marsters)."
+  ],
+  "context_migration": {
+    "value": "Postwar Pasifika labour migration was encouraged for labour needs; Pacific communities were disproportionately targeted in the 1970s 'dawn raids', for which the NZ government later formally apologised",
+    "source": "Public record / RNZ",
+    "retrieved": "2026-07-10",
+    "note": "CONTEXT, NOT CAUSE — one station, no causal claims about Adams."
+  },
+  "S1_funnel": {
+    "value": "PENDING",
+    "pending": true,
+    "fetch": "NZR annual reports: registered secondary-school players → First XV → academy → pro contract → All Black",
+    "source": "NZR annual reports"
+  },
+  "S2_who_governs": {
+    "value": "PENDING",
+    "pending": true,
+    "fetch": "Pasifika share of pro players vs coaches vs boards/execs vs population (2023 census) — RNZ-covered leadership study + NZR reports + Stats NZ",
+    "source": "RNZ study / NZR / Stats NZ 2023 census"
+  },
+  "S3_sorting": {
+    "value": "PENDING",
+    "pending": true,
+    "fetch": "Stream/band placement by ethnicity — Tokona te Raki / Kōkirihia published figures",
+    "source": "Tokona te Raki / Kōkirihia"
+  },
+  "S4_timeline": {
+    "value": "Auckland 1A champions by year, annotated REVISIONS-style with the St Kentigern arc (Δ removed → Δ boycott → Δ stand-downs → Δ code) — buildable from public record + coverage set",
+    "source": "Public record (Auckland 1A) + St Kentigern coverage set",
+    "retrieved": "2026-07-10"
+  },
+  "S5_pre_registered": {
+    "hypothesis": "Elite schools' implicit claim: 'we are where talent must go to develop.' Declare BEFORE pulling data.",
+    "method": "School attended at 18 (state / integrated / private; home or recruited move) for a defined cohort (All Blacks debutants since 2010 + NZ's NBA players). Report the split whichever way it lands; every athlete's school individually verified or the chart doesn't ship.",
+    "data": {
+      "value": "PENDING",
+      "pending": true,
+      "fetch": "Public profiles — each athlete's school-at-18 verified individually",
+      "source": "Public record"
+    }
+  }
+}

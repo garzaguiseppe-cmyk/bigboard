@@ -1,0 +1,126 @@
+{
+  "_guardrails": "Anchors = Rotorua + Wellington. No documented state care / named welfare program / single statute enabled his rise — do not invent one. Gang material secondary, tightly attributed, never a headline. Migration/dawn-raids = context, not cause. Facts attributed to public accounts of 'My Life, My Fight' (with Madeleine Chapman) and published profiles.",
+  "born": {
+    "value": "20 July 1993, Rotorua, New Zealand",
+    "source": "NBA.com player bio",
+    "retrieved": "2026-07-10",
+    "url": "https://www.nba.com/player/203500/steven-adams"
+  },
+  "measurements": {
+    "value": "6'11\" (2.11 m), 265 lb (120 kg)",
+    "source": "NBA.com player bio",
+    "retrieved": "2026-07-10",
+    "url": "https://www.nba.com/player/203500/steven-adams"
+  },
+  "father": {
+    "value": "Sid Adams — Englishman, ex–Royal Navy, settled in New Zealand",
+    "source": "Published profiles; accounts of 'My Life, My Fight'",
+    "retrieved": "2026-07-10"
+  },
+  "mother": {
+    "value": "Lilika Ngauamo — Tongan, worked as a nurse",
+    "source": "Published profiles; accounts of 'My Life, My Fight'",
+    "retrieved": "2026-07-10"
+  },
+  "family_size": {
+    "value": "An exceptionally large family; the exact number of children is reported imprecisely — Adams notes even the family disputed it",
+    "source": "Accounts of 'My Life, My Fight' (with M. Chapman)",
+    "retrieved": "2026-07-10",
+    "note": "Humanising beat — use the ambiguity, do not fix a number."
+  },
+  "half_sister": {
+    "value": "Dame Valerie Adams — two-time Olympic shot put champion",
+    "source": "Published profiles",
+    "retrieved": "2026-07-10"
+  },
+  "mother_death": {
+    "value": "Died of cancer, 2000",
+    "source": "Accounts of 'My Life, My Fight'",
+    "retrieved": "2026-07-10"
+  },
+  "father_death": {
+    "value": "Died of stomach cancer, 2007 — Steven was 13; he began disengaging from school",
+    "source": "Accounts of 'My Life, My Fight'",
+    "retrieved": "2026-07-10"
+  },
+  "drift": {
+    "value": "Brief adolescent drift after his father's death",
+    "source": "Accounts of 'My Life, My Fight'",
+    "retrieved": "2026-07-10",
+    "note": "SECONDARY. Never a headline or pull quote. Not sensationalised."
+  },
+  "intervention_cameron": {
+    "value": "Blossom Cameron took responsibility for him and moved him from Rotorua to Wellington",
+    "source": "Published profiles; accounts of 'My Life, My Fight'",
+    "retrieved": "2026-07-10"
+  },
+  "brother_warren": {
+    "value": "Brother Warren — a former NZ national-team player — contacted Kenny McFadden",
+    "source": "ESPN (Royce Young, 2016)",
+    "retrieved": "2026-07-10",
+    "note": "Let the autobiography arbitrate Cameron/Warren sequence."
+  },
+  "mcfadden": {
+    "value": "Kenny McFadden — American ex–Washington State guard who made Wellington home; ran 6 a.m. and afternoon sessions for years; his rule: school every day if you want to play",
+    "source": "ESPN (Royce Young, 2016)",
+    "retrieved": "2026-07-10"
+  },
+  "mcfadden_arranged_scholarship": {
+    "value": "McFadden arranged the scholarship to Scots College, Wellington (Presbyterian, independent private school)",
+    "source": "ESPN (Royce Young, 2016)",
+    "retrieved": "2026-07-10"
+  },
+  "adams_quote_scots": {
+    "value": "\"What happened to me at Scots is they lit the spark for me.\"",
+    "source": "ESPN (Royce Young, 2016)",
+    "retrieved": "2026-07-10",
+    "note": "One-sentence quote, attributed."
+  },
+  "ncaa_clearance": {
+    "value": "Concern over NCAA eligibility; he graduated and cleared the process",
+    "source": "Published profiles",
+    "retrieved": "2026-07-10"
+  },
+  "notre_dame_prep": {
+    "value": "Notre Dame Preparatory School, Fitchburg, Massachusetts — transitional stretch before Pittsburgh",
+    "source": "Published profiles",
+    "retrieved": "2026-07-10"
+  },
+  "pitt": {
+    "value": "One season at Pittsburgh: started all 32 games, 7.2 pts / 6.3 reb / 2.0 blk, Big East All-Rookie Team",
+    "source": "Sports-Reference / published profiles",
+    "retrieved": "2026-07-10",
+    "url": "https://www.sports-reference.com/cbb/players/steven-adams-1.html"
+  },
+  "draft": {
+    "value": "Selected 12th overall, 2013 NBA Draft (Oklahoma City Thunder)",
+    "source": "NBA.com player bio",
+    "retrieved": "2026-07-10",
+    "url": "https://www.nba.com/player/203500/steven-adams"
+  },
+  "current_team": {
+    "value": "Houston Rockets",
+    "source": "NBA.com player bio",
+    "retrieved": "2026-07-10",
+    "url": "https://www.nba.com/player/203500/steven-adams"
+  },
+  "adams_funded_scholarship": {
+    "value": "In 2014, within a year of reaching the NBA, Adams funded a scholarship at Scots College himself — reported up to ~NZ$240,000 — for a basketball player showing \"determination, humility, and commitment\", with McFadden helping select the recipient",
+    "source": "Reporting (Cardiac Hill / profiles, 2014)",
+    "retrieved": "2026-07-10",
+    "note": "Verify current status on Scots' site (PENDING)."
+  },
+  "scots_scholarship_current_status": {
+    "value": "PENDING",
+    "pending": true,
+    "fetch": "Scots College website — current scholarship page (does the Adams scholarship still run?) + Wayback for 2007–2011 fees",
+    "source": "Scots College / Wayback Machine"
+  },
+  "rotorua_suburb": {
+    "value": "PENDING",
+    "pending": true,
+    "fetch": "'My Life, My Fight' — exact suburb/street in Rotorua",
+    "source": "Autobiography"
+  },
+  "prepublish_task": "Verify all biography stations against 'Steven Adams: My Life, My Fight' (with Madeleine Chapman) + at least one long-form profile before publish."
+}

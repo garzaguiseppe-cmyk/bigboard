@@ -1,0 +1,162 @@
+{
+  "_note": "Paper-derived figures carry the paper citation. Live NBA-stat cohort/dashboard values are PENDING (NBA.com/stats is not CSV-exportable and player tracking is not available for all games). Do not estimate.",
+  "current_line_2025_26": {
+    "value": "5.8 pts, 8.6 reb, 1.5 ast per game (2025-26)",
+    "source": "NBA.com player profile (via research report, 2026)",
+    "retrieved": "2026-07-10",
+    "url": "https://www.nba.com/player/203500/steven-adams",
+    "note": "Re-verify live at publish."
+  },
+  "contract": {
+    "value": "3-year / $39M extension, ~$13M average annual value; 2026-27 cap figure ~$13.0M",
+    "source": "Spotrac (via research report, 2026)",
+    "retrieved": "2026-07-10",
+    "url": "https://www.spotrac.com/nba/houston-rockets/steven-adams",
+    "note": "Re-verify at publish."
+  },
+  "led_oreb": {
+    "value": "Led the NBA in offensive rebounds in 2021-22 and 2022-23",
+    "source": "NBA.com player bio",
+    "retrieved": "2026-07-10",
+    "url": "https://www.nba.com/player/203500/steven-adams"
+  },
+  "durability": {
+    "value": "Missed the entire 2023-24 season (knee)",
+    "source": "Reporting / Basketball-Reference",
+    "retrieved": "2026-07-10",
+    "url": "https://www.basketball-reference.com/players/a/adamsst01.html"
+  },
+  "paper_ballscreens_2016": {
+    "value": "270,823 ball screens classified with SportVU",
+    "source": "McIntyre, Brooks, Guttag & Wiens — 'Recognizing and Analyzing Ball Screen Defense in the NBA', SSAC 2016 (per ESPN conference write-up)",
+    "retrieved": "2026-07-10"
+  },
+  "paper_adams_ppp_over": {
+    "value": "Fisher+Adams and Jackson+Adams: 0.00 PPP allowed going 'over' the screen (n=14 and n=20 — small samples, state honestly)",
+    "source": "McIntyre et al., SSAC 2016",
+    "retrieved": "2026-07-10"
+  },
+  "paper_adams_quote_2016": {
+    "value": "\"Steven Adams is a standout defender; regardless of who he is paired with, Adams and his teammate are particularly effective at blocking the defense from scoring off of a pick and roll.\"",
+    "source": "McIntyre et al., SSAC 2016",
+    "retrieved": "2026-07-10",
+    "note": "The one long quote of the piece."
+  },
+  "paper_adams_sd_2016": {
+    "value": "Figure 8 places Adams 2+ standard deviations better than league average",
+    "source": "McIntyre et al., SSAC 2016",
+    "retrieved": "2026-07-10",
+    "note": "Do not reproduce their figure."
+  },
+  "paper_oreb_value_2026": {
+    "value": "Offensive rebounds valued at +2.31 expected points (vs. the traditional +1.0 weight; up to +3.9 at max leverage)",
+    "source": "Jenkins — 'Deep Reinforcement Learning for NBA Player Valuation', SSAC 2026",
+    "retrieved": "2026-07-10",
+    "note": "Present as that paper's estimate, not consensus."
+  },
+  "paper_secondchance_ppp_2025": {
+    "value": "Second-chance possessions ≈ 1.102 PPP",
+    "source": "Stephanos — 'Enhancing NBA True Shot Charts', SSAC 2025",
+    "retrieved": "2026-07-10"
+  },
+  "paper_recovery_split_2025": {
+    "value": "Close-range misses recovered 38.7% vs 21.0% for mid-range misses",
+    "source": "Stephanos, SSAC 2025",
+    "retrieved": "2026-07-10"
+  },
+  "paper_recovery_gradient_2012": {
+    "value": "Offensive-rebound rate by miss zone: 36% (close) / 21.5% (mid) / 25.5% (three)",
+    "source": "Maheswaran, Chang, Henehan & Danesis — 'Deconstructing the Rebound with Optical Tracking Data', SSAC 2012",
+    "retrieved": "2026-07-10"
+  },
+  "paper_rebound_geometry_2012": {
+    "value": "Rebounds are secured below 8 ft; 97.5% of rebound opportunities land within ~14 ft of the rim; 'the value of boxing out' named as future work",
+    "source": "Maheswaran et al., SSAC 2012",
+    "retrieved": "2026-07-10"
+  },
+  "paper_open_shot_2014": {
+    "value": "19,386 three-pointers: open (nearest defender ≥6 ft) ≈ 40% vs pressured ≈ 32%; a defender within 6 ft even 0.6s before release → ~27%",
+    "source": "Lucey, Bialkowski, Carr, Yue & Matthews — 'How to Get an Open Shot', SSAC 2014",
+    "retrieved": "2026-07-10"
+  },
+  "paper_move_or_die_2015": {
+    "value": "Raw movement totals don't correlate with success; movement's value is unpredictability — an entropy measure correlates with future open looks",
+    "source": "D'Amour, Cervone, Bornn & Goldsberry — 'Move or Die', SSAC 2015",
+    "retrieved": "2026-07-10"
+  },
+  "paper_assist_quality": {
+    "value": "Pass characteristics significantly affect makes only at touch times under ~2 seconds — quick-touch passing is where hidden value lives",
+    "source": "Lee — 'Assist Quality', SSAC",
+    "retrieved": "2026-07-10"
+  },
+  "paper_dwight_efficiency_2013": {
+    "value": "Interior defense as efficiency suppression: league ~49.7% close-range with a big within 5 ft of the rim; ~38% vs Hibbert / Sanders (2011–13)",
+    "source": "Goldsberry & Weiss — 'The Dwight Effect', SSAC 2013",
+    "retrieved": "2026-07-10"
+  },
+  "paper_dwight_frequency_2013": {
+    "value": "Frequency suppression: 57.2% of attempts at the rim league-wide → 48.2% with Howard protecting it; 'invisible blocks' (2011–13)",
+    "source": "Goldsberry & Weiss, SSAC 2013",
+    "retrieved": "2026-07-10"
+  },
+  "paper_proximity_causal_2023": {
+    "value": "Defender proximity causally lowers make probability, strongest near the rim",
+    "source": "Tenan & Rezai — 'Player Tracking Facilitates Valid Causal Inference', SSAC 2023",
+    "retrieved": "2026-07-10"
+  },
+  "paper_roi_2025": {
+    "value": "A contract = invested capital returning per-game cash flows; missed games are 'defaults'",
+    "source": "Lautier — 'A New Framework to Estimate ROI for Player Salaries', SSAC 2025",
+    "retrieved": "2026-07-10"
+  },
+  "chart1_oreb_scatter": {
+    "value": "PENDING",
+    "pending": true,
+    "fetch": "NBA.com/stats → Tracking → Rebounding: OREB, OREB Chances, Adjusted OREB Chance%, Contested OREB — for the center cohort (Adams, Gobert, Claxton, Zubac, Hartenstein, Kessler + others, USG% < ~18, min-qualified)",
+    "source": "NBA.com/stats"
+  },
+  "chart2_boxouts": {
+    "value": "PENDING",
+    "pending": true,
+    "fetch": "NBA.com/stats → Hustle: Box Outs + team-rebound-on-box-out conversion",
+    "source": "NBA.com/stats"
+  },
+  "chart3_screen_ladder": {
+    "value": "PENDING",
+    "pending": true,
+    "fetch": "NBA.com/stats → Hustle: Screen Assists per 36 — low-usage-big cohort ladder",
+    "source": "NBA.com/stats"
+  },
+  "chart4_passing_tiles": {
+    "value": "PENDING",
+    "pending": true,
+    "fetch": "NBA.com/stats → Tracking → Passing: Potential AST, Secondary AST, FT AST, AST-to-Pass% Adj",
+    "source": "NBA.com/stats"
+  },
+  "chart5_opp_splits": {
+    "value": "PENDING",
+    "pending": true,
+    "fetch": "NBA.com/stats → Defense Dashboard: opponent FG% by zone (close/mid/3) + rim FG <6ft, Adams on vs off",
+    "source": "NBA.com/stats"
+  },
+  "chart6_twoman": {
+    "value": "PENDING",
+    "pending": true,
+    "fetch": "NBA.com/stats → Lineups (2-man): Adams+Sengun, Adams+Houston guards net ratings",
+    "source": "NBA.com/stats"
+  },
+  "chart7_salary_quadrant": {
+    "value": "PENDING",
+    "pending": true,
+    "fetch": "Spotrac salaries + composite public value-proxy for the center cohort",
+    "source": "Spotrac / NBA.com/stats"
+  },
+  "cohort": [
+    "Steven Adams",
+    "Rudy Gobert",
+    "Nic Claxton",
+    "Ivica Zubac",
+    "Isaiah Hartenstein",
+    "Walker Kessler"
+  ]
+}
