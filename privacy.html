@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Privacy — Guiseppe Drafts</title>
-<meta name="description" content="Privacy at Guiseppe Drafts — a static site that sets no cookies, runs no analytics, and stores no personal data.">
+<meta name="description" content="Privacy at Guiseppe Drafts — optional, consent-based Google Analytics that stays off until you accept, with no advertising features or Google Signals.">
 <meta name="author" content="Guiseppe Garza">
 <meta name="copyright" content="© 2026 Guiseppe Garza">
 <link rel="canonical" href="https://www.guiseppedrafts.net/privacy">
@@ -34,6 +34,7 @@
   .foot-legal{text-transform:none;letter-spacing:0;margin-top:10px;line-height:1.8;font-size:11.5px}
   .foot-legal a{border-bottom:1px solid #cfcfcf}
 </style>
+<script defer src="consent.js?v=1"></script>
 </head>
 <body>
   <header class="site"><div class="wrap">
@@ -45,10 +46,15 @@
     <div class="subtitle">Guiseppe Drafts</div>
     <div class="dates">Effective 18 July 2026 &nbsp;·&nbsp; Last updated 18 July 2026</div>
 
-    <p class="intro">Guiseppe Drafts does not operate analytics, advertising, tracking pixels or application-level visitor logging. The site's mailto contact form does not transmit submissions to the website. GitHub Pages and visitors' email providers may process limited technical or email information as described below.</p>
+    <p class="intro">Guiseppe Drafts uses optional Google Analytics to understand how the site is used. Analytics is turned off until you accept it, and you can reject it or withdraw at any time. No advertising features, Google Signals or personalised advertising are used. The site's mailto contact form does not transmit anything to the website. GitHub Pages and, if you email the author, your email provider may separately process limited technical or email information as described below.</p>
 
-    <h2>No cookies, no analytics, no tracking</h2>
-    <p>Guiseppe Drafts is a static website. It does not use cookies, advertising, analytics, tracking pixels, or third-party embeds that profile you. Video clips are served from the site itself, not through third-party players. Guiseppe Drafts does not operate its own analytics or application logging. GitHub Pages may process standard technical request logs while delivering the site.</p>
+    <h2>Analytics — optional, off until you accept</h2>
+    <p>Guiseppe Drafts uses <strong>Google Analytics 4</strong> (measurement ID G-0TX5VKF69K), a service operated by Google. It is <strong>disabled by default</strong>. On your first visit a small banner asks whether you accept analytics. Nothing is loaded from Google, no analytics request is made, and no analytics cookies are created unless and until you choose <em>Accept analytics</em>.</p>
+    <p><strong>If you accept</strong>, Google Analytics is loaded and used to measure, in aggregate: page views and general traffic, which boards are most popular, approximate location (derived by Google from IP address, not stored by this site), device and browser categories, and on-page interactions. This helps the author understand which draft boards people actually read.</p>
+    <p><strong>What is not used:</strong> no advertising features, no Google Ads, no Google Signals, no advertising personalisation, and no user-provided data. Using Google Consent Mode v2, the advertising categories (<code>ad_storage</code>, <code>ad_user_data</code>, <code>ad_personalization</code>) stay denied at all times; only <code>analytics_storage</code> is ever enabled, and only after you accept.</p>
+    <p><strong>Cookies:</strong> the site sets no cookies before consent. After you accept, Google Analytics may set a first-party <code>_ga</code> cookie (and related <code>_ga_*</code> cookies) in your browser to tell visits apart. These are the only cookies the site uses.</p>
+    <p><strong>Where your data goes:</strong> Google receives analytics data only after you accept. For details, see Google's <a class="inl" href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a> and <a class="inl" href="https://support.google.com/analytics/answer/6004245" target="_blank" rel="noopener">how Google Analytics collects and uses data</a>.</p>
+    <p><strong>Your choice, any time:</strong> decline with <em>Reject</em>, or change your mind later using the <strong>Analytics preferences</strong> link in the footer of every page. Withdrawing consent stops further analytics collection and deletes the Google Analytics cookies that can be removed from the site.
 
     <h2>The contact form</h2>
     <p>The "Send a message" form on the Contact page does <strong>not</strong> send anything to this website or to any form-processing service. When you press Send, your browser opens your own email application with the message pre-filled and addressed to <a class="inl" href="mailto:garzaguiseppe@gmail.com">garzaguiseppe@gmail.com</a>.</p>
@@ -63,16 +69,16 @@
     <p>The site is hosted on GitHub Pages. Like most web hosts, GitHub may automatically record standard technical request information (such as IP address and browser details) in server logs as part of delivering the site. That processing is carried out by GitHub under its own privacy practices, not by Guiseppe Drafts.</p>
 
     <h2>Retention</h2>
-    <p>Because the site stores no personal data, there is nothing for it to retain. Any email you choose to send to garzaguiseppe@gmail.com is kept in that inbox at the author's discretion.</p>
+    <p>Google Analytics event data for this property is retained for <strong>2 months</strong>, after which Google automatically deletes it; the &ldquo;reset on new activity&rdquo; option is turned off, so the retention period is not extended when a visitor returns. The site itself stores no personal data on its own servers. Any email you choose to send to garzaguiseppe@gmail.com is kept in that inbox at the author's discretion.</p>
 
     <h2>Access, correction and deletion</h2>
-    <p>There is no personal data held by the site to access, correct or delete. If you have emailed garzaguiseppe@gmail.com and would like your message deleted, email that address to ask.</p>
+    <p>To stop analytics and remove analytics cookies at any time, use the <strong>Analytics preferences</strong> link in the footer and choose <em>Reject</em>. For analytics data already collected, Google acts as the data processor; you can ask the author, or use Google's own controls. If you have emailed garzaguiseppe@gmail.com and would like your message deleted, email that address to ask.</p>
 
     <a class="backhome" href="/">&larr; Back to home</a>
   </main>
   <footer class="site"><div class="wrap">
     <div>Guiseppe Drafts</div>
-    <div class="foot-legal"><span id="copyline">© 2026 Guiseppe Garza. All rights reserved.</span> &nbsp;·&nbsp; <a href="/terms">Terms of Use</a> &nbsp;·&nbsp; <a href="/privacy">Privacy</a> &nbsp;·&nbsp; <a href="/contact">Contact</a></div>
+    <div class="foot-legal"><span id="copyline">© 2026 Guiseppe Garza. All rights reserved.</span> &nbsp;·&nbsp; <a href="/terms">Terms of Use</a> &nbsp;·&nbsp; <a href="/privacy">Privacy</a> &nbsp;·&nbsp; <a href="/contact">Contact</a> &nbsp;·&nbsp; <button type="button" data-analytics-prefs style="background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;border-bottom:1px solid #cfcfcf">Analytics preferences</button></div>
   </div></footer>
 <script>(function(){var y=new Date().getFullYear();var e=document.getElementById("copyline");if(e)e.textContent="© "+(y>2026?("2026–"+y):"2026")+" Guiseppe Garza. All rights reserved.";})();</script>
 </body>
