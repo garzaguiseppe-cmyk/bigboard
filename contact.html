@@ -38,13 +38,14 @@
 
   .backhome{display:inline-block;margin:42px 0 0;font-family:var(--mono);font-size:13px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
   footer.site{border-top:1px solid var(--line);margin-top:54px;padding:24px 0 60px;text-align:center;color:var(--faint);font-size:12px;font-family:var(--mono);letter-spacing:.06em;text-transform:uppercase}
+  .foot-legal{text-transform:none;letter-spacing:0;margin-top:9px;line-height:1.8;font-size:11.5px}.foot-legal a{border-bottom:1px solid #cfcfcf}
 </style>
 </head>
 <body>
   <header class="site">
     <div class="wrap">
       <div class="brand"><a href="./">Guiseppe Drafts</a><span class="tld">.net</span></div>
-      <div class="nav"><a href="./">NBA Draft</a><a href="contact.html" class="active">Contact</a></div>
+      <div class="nav"><a href="./">NBA Draft</a><a href="/contact" class="active">Contact</a></div>
     </div>
   </header>
 
@@ -69,7 +70,10 @@
     <a class="backhome" href="./">&larr; Back to home</a>
   </main>
 
-  <footer class="site"><div class="wrap">Guiseppe Drafts — Big G's Big Board</div></footer>
+  <footer class="site"><div class="wrap">
+    <div>Guiseppe Drafts — G's Big Board</div>
+    <div class="foot-legal"><span id="copyline">© 2026 Guiseppe Garza. All rights reserved.</span> &nbsp;·&nbsp; <a href="/terms">Terms of Use</a> &nbsp;·&nbsp; <a href="/privacy">Privacy</a> &nbsp;·&nbsp; <a href="/contact">Contact</a></div>
+  </div></footer>
 
 <script>
 function sendMsg(e){
@@ -86,5 +90,6 @@ function sendMsg(e){
   return false;
 }
 </script>
+<script>(function(){var y=new Date().getFullYear();var e=document.getElementById("copyline");if(e)e.textContent="© "+(y>2026?("2026–"+y):"2026")+" Guiseppe Garza. All rights reserved.";})();</script>
 </body>
 </html>

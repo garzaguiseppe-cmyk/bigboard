@@ -4,6 +4,46 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>2023 Big Board — Guiseppe Drafts</title>
+<!-- ═══ COPYRIGHT / PROVENANCE (edit here) — to update this board, change datePublished / dateModified / version in BOTH the JSON-LD below AND the <div class="provenance"> line under the subtitle. datePublished is a PLACEHOLDER; set the real first-published date. ═══ -->
+<meta name="author" content="Guiseppe Garza">
+<meta name="copyright" content="© 2026 Guiseppe Garza. All rights reserved.">
+<meta name="description" content="Guiseppe Garza's 2023 NBA Draft big board — tiered rankings, scouting takes, comps, and interactive data branches.">
+<link rel="canonical" href="https://www.guiseppedrafts.net/2023">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "CreativeWork",
+ "name": "2023 NBA Draft Big Board",
+ "url": "https://www.guiseppedrafts.net/2023",
+ "author": {
+  "@type": "Person",
+  "name": "Guiseppe Garza"
+ },
+ "copyrightHolder": {
+  "@type": "Person",
+  "name": "Guiseppe Garza"
+ },
+ "copyrightYear": 2026,
+ "copyrightNotice": "© 2026 Guiseppe Garza. All rights reserved.",
+ "datePublished": "2026-07-18",
+ "dateModified": "2026-07-18",
+ "version": "3",
+ "inLanguage": "en",
+ "creativeWorkStatus": "Published",
+ "genre": "NBA Draft analysis",
+ "publisher": {
+  "@type": "Organization",
+  "name": "Guiseppe Drafts",
+  "url": "https://www.guiseppedrafts.net"
+ },
+ "isPartOf": {
+  "@type": "WebSite",
+  "name": "Guiseppe Drafts",
+  "url": "https://www.guiseppedrafts.net"
+ }
+}
+</script>
+
 <style>
   @font-face{
     font-family:'Base Mono';
@@ -104,6 +144,8 @@
   .databranch .db-k{display:block;font-family:var(--mono);font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#d0021b}
   .databranch .db-t{display:block;font-size:13.5px;color:#333;margin:5px 0 8px;line-height:1.4}
   .databranch .db-go{display:block;font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.04em}
+  .foot-legal{text-transform:none;letter-spacing:0;margin-top:9px;line-height:1.8;font-size:11.5px}.foot-legal a{border-bottom:1px solid #cfcfcf}
+  .provenance{font-family:var(--mono);font-size:11px;letter-spacing:.03em;color:#9a9a9a;margin:8px 0 0;line-height:1.5;text-transform:none}.provenance .pc{color:#666;font-weight:700}
 </style>
 </head>
 <body>
@@ -125,11 +167,15 @@
     </aside>
     <h1 class="title">2023 NBA<br>Draft<br>Big Board</h1>
     <div class="subtitle"><b>G's Big Board</b> &nbsp;·&nbsp; 2023 class &nbsp;·&nbsp; the Wembanyama year</div>
+    <div class="provenance">Guiseppe Garza &nbsp;·&nbsp; Published 18 Jul 2026 &nbsp;·&nbsp; Updated 18 Jul 2026 &nbsp;·&nbsp; v3 &nbsp;·&nbsp; guiseppedrafts.net/2023 &nbsp;·&nbsp; <span class="pc">Original analysis © Guiseppe Garza</span></div>
     <div id="board"></div>
     <a class="backhome" href="./">&larr; Back to home</a>
   </main>
 
-  <footer class="site"><div class="wrap">Guiseppe Drafts — G's Big Board 2023</div></footer>
+  <footer class="site"><div class="wrap">
+    <div>Guiseppe Drafts — G's Big Board 2023</div>
+    <div class="foot-legal"><span id="copyline">© 2026 Guiseppe Garza. All rights reserved.</span> &nbsp;·&nbsp; <a href="/terms">Terms of Use</a> &nbsp;·&nbsp; <a href="/privacy">Privacy</a> &nbsp;·&nbsp; <a href="/contact">Contact</a></div>
+  </div></footer>
 
 <script>
 /* ================================================================
@@ -278,5 +324,6 @@ addEventListener("load",drawAllClouds);
 addEventListener("resize",function(){clearTimeout(window._rc);window._rc=setTimeout(drawAllClouds,150);});
 </script>
 <script src="branch-panel.js?v=15" defer></script>
+<script>(function(){var y=new Date().getFullYear();var e=document.getElementById("copyline");if(e)e.textContent="© "+(y>2026?("2026–"+y):"2026")+" Guiseppe Garza. All rights reserved.";})();</script>
 </body>
 </html>
